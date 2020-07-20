@@ -1,0 +1,15 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.rubeen.dev/web/in-development/personal-website.git"
+  },
+  "author": "Ruben Vitt",
+  "license": "ISC"
+}
