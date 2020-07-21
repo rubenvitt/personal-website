@@ -1,10 +1,19 @@
-// It is handy to not have those transformations while we developing
-if(process.env.NODE_ENV === 'production') {
-    module.exports = {
-        plugins: [
-            require('autoprefixer'),
-            require('cssnano'),
-            // More postCSS modules here if needed
-        ]
-    }
+// postcss.config.js
+module.exports = {
+    plugins: [
+        'tailwindcss',
+        process.env.NODE_ENV === 'production'
+            ? [
+                '@fullhuman/postcss-purgecss',
+                {
+                    content: [
+                        './pages/**/*.{js,jsx,ts,tsx}',
+                        './components/**/*.{js,jsx,ts,tsx}',
+                    ],
+                    defaultExtractor: content => content.match(/[\w-/.:]+(?<!:)/g) || [],
+                },
+            ]
+            : undefined,
+        'autoprefixer'
+    ].filter(value => value),
 }
