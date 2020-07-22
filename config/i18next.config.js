@@ -1,4 +1,7 @@
 const ni18Next = require('next-i18next').default
+const path = require('path');
+
+path.resolve('../public/static/locales/');
 
 const NextI18Next = new ni18Next({
     defaultLanguage: 'en',
