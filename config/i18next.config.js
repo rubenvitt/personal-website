@@ -6,7 +6,7 @@ path.resolve('../public/static/locales/');
 const NextI18Next = new ni18Next({
     defaultLanguage: 'en',
     otherLanguages: ['de'],
-    localePath: 'public/locales'
+    localePath: 'public/static/locales'
 });
 
 if (process.env.NODE_ENV !== 'production') {

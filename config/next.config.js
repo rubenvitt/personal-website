@@ -7,7 +7,7 @@ module.exports = {
             const { I18NextHMRPlugin } = require('i18next-hmr/plugin');
             config.plugins.push(
                 new I18NextHMRPlugin({
-                    localesDir: path.resolve(__dirname, '../public/locales')
+                    localesDir: path.resolve(__dirname, '../public/static/locales')
                 })
             );
         }
