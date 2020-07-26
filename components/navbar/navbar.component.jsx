@@ -1,13 +1,17 @@
 import React, {useState} from "react";
-import {MobileMenu} from "./mobile/menu/mobile-menu.component";
 import {useTranslation} from "../../config/i18next.config";
+import {useRouter} from "next/router";
+import {MenuList} from "./menu-items.list";
 import {MobileMenuButton} from "./mobile/menu-button/mobile-menu-button";
+import {MobileMenu} from "./mobile/menu/mobile-menu.component";
 
 export const NavBar = () => {
     const [profileMenuOpen, setProfileMenuOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const {t} = useTranslation('common');
+
+    const path = useRouter().pathname
 
     const toggleProfileMenu = () => {
         setProfileMenuOpen(!profileMenuOpen);
@@ -29,23 +33,19 @@ export const NavBar = () => {
                              src="assets/images/rubeen.png"
                              alt="Rubeen logo"/>
                     </div>
+
                     <div className="hidden sm:-my-px sm:ml-6 sm:flex">
-                        <a href="#"
-                           className="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
-                            {t('nav.main_page')}
-                        </a>
-                        <a href="#"
-                           className="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            {t('nav.cv')}
-                        </a>
-                        <a href="#"
-                           className="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            {t('nav.portfolio')}
-                        </a>
-                        <a href="#"
-                           className="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            {t('nav.contact')}
-                        </a>
+                        {MenuList(t).map((element, i) => {
+                            return <a href={element.url}
+                                      className={
+                                          ((i === 0) ? '' : 'ml-8 ')
+                                          + ((element.url === path)
+                                              ? 'border-indigo-500 text-gray-900 focus-border-indigo-700'
+                                              : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300')
+                                          + ' inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none'
+                                      }
+                            >{element.title}</a>
+                        })}
                     </div>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:items-center">
