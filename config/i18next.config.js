@@ -4,6 +4,7 @@ const path = require('path');
 path.resolve('../public/static/locales/');
 
 const NextI18Next = new ni18Next({
+    keySeparator: '.',
     defaultLanguage: 'en',
     otherLanguages: ['de'],
     localePath: 'public/static/locales'
