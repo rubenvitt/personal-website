@@ -1,0 +1,37 @@
+.xing {
+
+  @apply text-gray-400;
+
+  :focus {
+    color: #026466;
+  }
+
+  :hover {
+    color: #026466;
+  }
+}
+
+.github {
+  @apply text-gray-400;
+
+  :focus {
+    color: #333;
+  }
+
+  :hover {
+    color: #333;
+  }
+}
+
+.linkedIn {
+
+  @apply text-gray-400;
+
+  :focus {
+    color: #0077b5;
+  }
+
+  :hover {
+    color: #0077b5;
+  }
+}
