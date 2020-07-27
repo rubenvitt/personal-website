@@ -6,6 +6,7 @@ import {useTranslation} from "react-i18next";
 import {calculateDaysBetween} from "../helper/DateCalculator";
 import {CvSummary} from "../components/cv/summary.component";
 import {CvSkills} from "../components/cv/skills.component";
+import {CvWork} from "../components/cv/work.component";
 
 export default function Home() {
     const {t} = useTranslation("cv")
@@ -15,6 +16,7 @@ export default function Home() {
             <PageContainer title={t('title')}>
                 <CvSummary />
                 <CvSkills />
+                <CvWork />
             </PageContainer>
         </div>
     )

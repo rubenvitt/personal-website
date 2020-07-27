@@ -12,9 +12,9 @@ export const CvSkills = () => {
                     <div className="px-4 py-5 sm:p-6">
                         <div className="flex items-center">
                             <div className="flex-shrink-0 bg-indigo-500 rounded-md p-3">
-                                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                <svg className="h-10 w-10 text-white" fill="currentColor" viewBox="0 0 24 24"
+                                     stroke="none">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"
                                           d={skill.svg}/>
                                 </svg>
                             </div>
@@ -28,7 +28,7 @@ export const CvSkills = () => {
                                                     className="inline-flex items-center ml-2 px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-yellow-100 text-yellow-800">
                                                     <svg className="-ml-0.5 mr-0.5 h-4 w-4 text-yellow-400"
                                                          fill="currentColor" viewBox="0 -1.5 23 23">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z" />
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z" />
                                                     </svg> Certified
                                             </span> : null
                                         }
