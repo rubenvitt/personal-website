@@ -7,7 +7,7 @@
     "work_experience": "Arbeitserfahrung",
     "work_experience_detail": "Nach meiner Bachelorarbeit konnte ich bereits $workdays Tage Arbeitserfahrung sammeln. Derzeit arbeite ich bei der fme AG in Braunschweig.",
     "education": "Bildung",
-    "education_detail": "Auch nach meinem Abschluss lerne ich gerne neue Dinge. So habe ich bereits 13 Zertifikate in Onlinekursen abgeschlossen und bin offen für weitere.",
+    "education_detail": "Auch nach meinem Abschluss lerne ich gerne neue Dinge. So habe ich bereits $certNum Zertifikate in Onlinekursen abgeschlossen und bin offen für weitere.",
     "mindset": "Technologien und Mindset",
     "mindset_detail": "Ich liebe neue Programmiersprachen und Konzepte, moderne Tools und modernes Arbeiten. Ich liebe die Arbeit aus dem Home-Office und das Ausprobieren von Neuem.",
     "more": "Weiteres über mich",

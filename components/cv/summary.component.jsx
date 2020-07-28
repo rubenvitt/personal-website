@@ -1,10 +1,12 @@
 import {PageContainer} from "../page-container/page-container.component";
 import {calculateDaysBetween} from "../../helper/DateCalculator";
 import {useTranslation} from "react-i18next";
+import {skillList, SkillType} from "./skill-items.list";
 
 export const CvSummary = () => {
     const {t} = useTranslation("cv")
-    let workdays = calculateDaysBetween(new Date("2019-08-01"), Date.now())
+    const workdays = calculateDaysBetween(new Date("2019-08-01"), Date.now())
+    const certCount = skillList(t).map(x => x.certificates?.length ?? 0).reduce((a, b) => a + b);
 
     return <div className="py-12 bg-white border-b border-gray-100">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,7 +59,7 @@ export const CvSummary = () => {
                             <div className="ml-4">
                                 <h4 className="text-lg leading-6 font-medium text-gray-900">{t('summary.education')}</h4>
                                 <p className="mt-2 text-base leading-6 text-gray-500">
-                                    {t('summary.education_detail')}
+                                    {t('summary.education_detail').replace("$certNum", certCount)}
                                 </p>
                             </div>
                         </div>
