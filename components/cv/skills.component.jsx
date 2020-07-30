@@ -1,4 +1,4 @@
-import {Direction, skillList, SkillType} from "./skill-items.list";
+import {skillList, SkillType} from "./skill-items.list";
 import {DefaultSkillElement, SkillElement} from "./skill.component";
 import React, {useState} from "react";
 import {SlideOver} from "../shared/slideover.component";
@@ -17,13 +17,13 @@ export const CvSkills = () => {
         </h2>
         <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {
-                skills.filter(x => x.type === SkillType.ProgrammingLanguage).slice(0, 5)
+                skills.filter(x => x.type === SkillType.ProgrammingLanguage).sort((a, b) => b.value - a.value).slice(0, 5)
                     .map((skill, i) => <SkillElement skill={skill} key={i} listIndex={i}/>)
             }
             <DefaultSkillElement skills={skills} buttonHandler={toggleSlideOverState}/>
         </div>
         <SlideOver setSlideOverState={setSlideOverState} slideOverState={slideOverState}
-                   contentFunction={slideOverContent} skillList={skills} />
+                   contentFunction={slideOverContent} skillList={skills}/>
     </div>
 }
 
@@ -31,8 +31,8 @@ const slideOverContent = (skillList) => {
 
     return <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {
-            skillList.map(skill => {
-                return <SlideListElement key={skill.url} skill={skill} />
+            skillList.sort((a, b) => b.value - a.value).map(skill => {
+                return <SlideListElement key={skill.url} skill={skill}/>
             })
         }
     </ul>

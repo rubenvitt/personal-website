@@ -2,7 +2,7 @@ import React from "react";
 import {calcArrowDirection, calcColor} from "../cv/skill.component";
 
 export const SlideListElement = ({skill}) => {
-    return <li key={skill.url} className="col-span-1 bg-white rounded-lg shadow">
+    return <li key={skill.url} className="col-span-1 bg-white rounded-lg shadow hover:bg-gray-100">
         <div className="w-full flex items-center justify-between p-1 space-x-1">
             <div className="ml-1 w-0 flex-1">
                 <dl>
