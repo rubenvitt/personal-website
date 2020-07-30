@@ -22,8 +22,8 @@ export const CvSkills = () => {
             }
             <DefaultSkillElement skills={skills} buttonHandler={toggleSlideOverState}/>
         </div>
-        <SlideOver setSlideOverState={setSlideOverState} slideOverState={slideOverState}
-                   contentFunction={slideOverContent} skillList={skills}/>
+        <SlideOver title='My programming languages' setSlideOverState={setSlideOverState} slideOverState={slideOverState}
+                   contentFunction={slideOverContent} content={skills}/>
     </div>
 }
 

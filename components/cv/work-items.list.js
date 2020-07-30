@@ -2,7 +2,7 @@ export const workList = (t) => {
     return [
         {
             position: 'JobTitle',
-            company: 'Company',
+            company: 'My first test company (long)',
             responsibilities: [
                 "this", "and this", "this and...", "this!"
             ],

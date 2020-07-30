@@ -3,7 +3,7 @@ import {CSSTransition} from "react-transition-group";
 import style from './slideover.component.module.scss'
 import test from "../../pages/test";
 
-export const SlideOver = ({slideOverState, setSlideOverState, contentFunction, skillList}) => {
+export const SlideOver = ({slideOverState, setSlideOverState, contentFunction, content, title}) => {
     const toggleSlideOver = () => {
         setSlideOverState(!slideOverState);
     };
@@ -66,11 +66,11 @@ export const SlideOver = ({slideOverState, setSlideOverState, contentFunction, s
                         <div className="h-full flex flex-col space-y-6 py-6 bg-white shadow-xl overflow-y-scroll">
                             <header className="px-4 sm:px-6">
                                 <h2 className="text-lg leading-7 font-medium text-gray-900">
-                                    Panel title
+                                    {title}
                                 </h2>
                             </header>
                             <div className="relative flex-1 px-4 sm:px-6">
-                                {contentFunction(skillList)}
+                                {contentFunction(content)}
                                 {/*<!-- Replace with your content -->
                             <div className="absolute inset-0 px-4 sm:px-6">
                                 <div className="h-full border-2 border-dashed border-gray-200"/>
