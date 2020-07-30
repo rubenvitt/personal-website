@@ -115,6 +115,11 @@ export const skillList = (t) => {
             status: {direction: Direction.UNCHANGED},
             certificates: [
                 {title: 'TEST-CERT', url: 'https://rubeen.one', date: new Date("2020-01-02")},
+                {title: 'TEST-CERT', url: 'https://rubeen.one', date: new Date("2020-01-02")},
+                {title: 'TEST-CERT', url: 'https://rubeen.one', date: new Date("2020-01-02")},
+                {title: 'TEST-CERT', url: 'https://rubeen.one', date: new Date("2020-01-02")},
+                {title: 'TEST-CERT', url: 'https://rubeen.one', date: new Date("2020-01-02")},
+                {title: 'TEST-CERT', url: 'https://rubeen.one', date: new Date("2020-01-02")},
             ]
         },
         {
