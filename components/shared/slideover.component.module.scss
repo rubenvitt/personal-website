@@ -1,0 +1,16 @@
+.test {
+  display: block !important;
+}
+
+.enter {
+  transition: ease-in-out 500ms;
+  opacity: 1;
+}
+
+.enterActive {
+  opacity: 0;
+}
+
+.enterDone {
+  background-color: green !important;
+}

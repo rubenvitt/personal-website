@@ -68,9 +68,9 @@ export const SkillElement = ({skill, listIndex}) => {
     </div>
 }
 
-export const DefaultSkillElement = ({skills}) => {
-    return skills <= 11 ? null
-        : <a href="#"
+export const DefaultSkillElement = ({skills, buttonHandler}) => {
+    return skills.length <= 11 ? null
+        : <button onClick={buttonHandler}
              className="bg-white shadow overflow-hidden sm:rounded-md block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
             <div className="flex items-center px-4 py-4 sm:px-6">
                 <div className="min-w-0 flex-1 flex items-center">
@@ -92,13 +92,13 @@ export const DefaultSkillElement = ({skills}) => {
                 </div>
                 <div>
                     <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
+                        <path fillRule="evenodd"
                               d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                              clip-rule="evenodd"/>
+                              clipRule="evenodd"/>
                     </svg>
                 </div>
             </div>
-        </a>
+        </button>
 }
 
 function calcCols(certs) {
@@ -115,7 +115,7 @@ function calcCols(certs) {
 }
 
 
-const calcColor = ({direction}) => {
+export const calcColor = ({direction}) => {
     switch (direction) {
         case Direction.UP:
             return 'text-green-500';
@@ -126,7 +126,7 @@ const calcColor = ({direction}) => {
     }
 }
 
-const calcArrowDirection = ({direction}) => {
+export const calcArrowDirection = ({direction}) => {
     switch (direction) {
         case Direction.UP:
             return 'rotate-180';
