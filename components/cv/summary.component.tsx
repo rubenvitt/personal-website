@@ -1,6 +1,6 @@
 import {calculateDaysBetween} from "../../helper/DateCalculator";
 import {useTranslation} from "react-i18next";
-import {skillList, SkillType} from "../../lib/skill-items.list";
+import {skillList, SkillType} from "../../data/skill-items.list";
 
 export const CvSummary = () => {
     const {t} = useTranslation("cv")

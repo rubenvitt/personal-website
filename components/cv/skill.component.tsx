@@ -1,5 +1,5 @@
 import React from "react";
-import {SkillDirection} from "../../lib/skill-items.list";
+import {SkillDirection} from "../../data/skill-items.list";
 
 export const SkillElement = ({skill, listIndex}) => {
     return <div key={listIndex} className="group bg-white overflow-hidden shadow rounded-lg hover:bg-gray-100">

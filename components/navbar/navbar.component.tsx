@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useTranslation} from "../../config/i18next.config";
 import {useRouter} from "next/router";
-import {MenuList} from "../../lib/menu-items.list";
+import {MenuList} from "../../data/menu-items.list";
 import {MobileMenuButton} from "./mobile/menu-button/mobile-menu-button";
 import {MobileMenu} from "./mobile/menu/mobile-menu.component";
 import {SocialButtons} from "./soial-buttons.component";

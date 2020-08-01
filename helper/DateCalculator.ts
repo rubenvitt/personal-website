@@ -1,4 +1,4 @@
-import {DurationItem} from "../lib/work-items.list";
+import {DurationItem} from "../data/work-items.list";
 
 const ONE_DAY = 24 * 60 * 60 * 1000;
 export const calculateDaysBetween = (start, end) => {

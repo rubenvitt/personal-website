@@ -1,4 +1,4 @@
-import {MenuList} from "../../../../lib/menu-items.list";
+import {MenuList} from "../../../../data/menu-items.list";
 import {useTranslation} from "../../../../config/i18next.config";
 import React from "react";
 import {useRouter} from "next/router";

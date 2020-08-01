@@ -1,6 +1,6 @@
 import React from "react";
 import {calcArrowDirection, calcColor} from "../cv/skill.component";
-import {Skill} from "../../lib/skill-items.list";
+import {Skill} from "../../data/skill-items.list";
 
 class SlideListElementProps {
     skill: Skill

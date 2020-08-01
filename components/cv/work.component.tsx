@@ -1,7 +1,7 @@
-import {workList} from "../../lib/work-items.list";
+import {workList} from "../../data/work-items.list";
 import React, {FunctionComponent, useState} from "react";
 import {SlideOver} from "../shared/slideover.component";
-import {WorkModel} from "../../lib/work-items.list";
+import {WorkModel} from "../../data/work-items.list";
 import {zeroPad} from "../../helper/NumberHelper";
 import {calcDurationBetween} from "../../helper/DateCalculator";
 
