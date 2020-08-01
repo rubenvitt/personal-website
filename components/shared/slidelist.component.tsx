@@ -1,8 +1,13 @@
 import React from "react";
 import {calcArrowDirection, calcColor} from "../cv/skill.component";
+import {Skill} from "../../lib/skill-items.list";
 
-export const SlideListElement = ({skill}) => {
-    return <li key={skill.url} className="col-span-1 bg-white rounded-lg shadow hover:bg-gray-100">
+class SlideListElementProps {
+    skill: Skill
+}
+
+export const SlideListElement = ({skill}: SlideListElementProps) => {
+    return <li key={skill.title} className="col-span-1 bg-white rounded-lg shadow hover:bg-gray-100">
         <div className="w-full flex items-center justify-between p-1 space-x-1">
             <div className="ml-1 w-0 flex-1">
                 <dl>

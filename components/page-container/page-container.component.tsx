@@ -1,6 +1,11 @@
 import React, {useState} from "react";
 import {NavBar} from "../navbar/navbar.component";
 
+class PageContainerProperties {
+    children: any
+    title: any
+}
+
 export const PageContainer = ({children, title}) => {
     const titleNotAvailable = title === null || title === ''
 

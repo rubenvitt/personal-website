@@ -1,5 +1,5 @@
 import React from "react";
-import {Direction} from "./skill-items.list";
+import {SkillDirection} from "../../lib/skill-items.list";
 
 export const SkillElement = ({skill, listIndex}) => {
     return <div key={listIndex} className="bg-white overflow-hidden shadow rounded-lg">
@@ -42,7 +42,7 @@ export const SkillElement = ({skill, listIndex}) => {
                                           d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
                                           clipRule="evenodd"/>
                                 </svg>
-                                {skill.status.direction}
+                                {skill.status}
                             </div>
                         </dd>
                     </dl>
@@ -101,7 +101,7 @@ export const DefaultSkillElement = ({skills, buttonHandler}) => {
         </button>
 }
 
-function calcCols(certs) {
+function calcCols(certs): number {
     if (certs < 7)
         return certs
     if (certs % 6 === 0)
@@ -115,24 +115,24 @@ function calcCols(certs) {
 }
 
 
-export const calcColor = ({direction}) => {
+export const calcColor: (direction: SkillDirection) => (string) = (direction) => {
     switch (direction) {
-        case Direction.UP:
+        case SkillDirection.UP:
             return 'text-green-500';
-        case Direction.DOWN:
+        case SkillDirection.DOWN:
             return 'text-red-500';
-        case Direction.UNCHANGED:
+        case SkillDirection.UNCHANGED:
             return 'text-yellow-300';
     }
 }
 
-export const calcArrowDirection = ({direction}) => {
+export const calcArrowDirection: (direction: SkillDirection) => (string) = (direction) => {
     switch (direction) {
-        case Direction.UP:
+        case SkillDirection.UP:
             return 'rotate-180';
-        case Direction.DOWN:
+        case SkillDirection.DOWN:
             return '';
-        case Direction.UNCHANGED:
+        case SkillDirection.UNCHANGED:
             return '-rotate-90';
     }
 }

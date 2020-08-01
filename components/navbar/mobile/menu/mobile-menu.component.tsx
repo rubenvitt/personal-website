@@ -1,10 +1,14 @@
-import {MenuList} from "../../menu-items.list";
+import {MenuList} from "../../../../lib/menu-items.list";
 import {useTranslation} from "../../../../config/i18next.config";
 import React from "react";
 import {useRouter} from "next/router";
 import {route} from "next/dist/next-server/server/router";
 
-export const MobileMenu = ({isOpen}) => {
+class MobileMenuProps {
+    isOpen: boolean
+}
+
+export const MobileMenu = ({isOpen}: MobileMenuProps) => {
 
     const {t} = useTranslation('common');
     const router = useRouter();
