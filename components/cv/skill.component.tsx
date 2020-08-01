@@ -2,7 +2,7 @@ import React from "react";
 import {SkillDirection} from "../../lib/skill-items.list";
 
 export const SkillElement = ({skill, listIndex}) => {
-    return <div key={listIndex} className="bg-white overflow-hidden shadow rounded-lg">
+    return <div key={listIndex} className="group bg-white overflow-hidden shadow rounded-lg hover:bg-gray-100">
         <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center">
                 <div className="flex-shrink-0 bg-gray-500 rounded-md p-3">
@@ -51,7 +51,7 @@ export const SkillElement = ({skill, listIndex}) => {
         </div>
         {
             skill.certificates && skill.certificates.length > 0 ?
-                <div className="align-bottom bg-gray-50 px-4 py-4 sm:px-6">
+                <div className="align-bottom bg-gray-50 px-4 py-4 sm:px-6 group-hover:bg-gray-200">
                     <div
                         className={"text-sm leading-5 grid grid-cols-" + calcCols(skill.certificates.length) + " gap-5"}>
                         {skill.certificates.map((cert, i) => {

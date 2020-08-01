@@ -25,7 +25,7 @@ export const workList: (t: any) => (WorkModel)[] = (t) => [
             "Java & Kotlin", "JavaScript & Typescript", "Postgres & Oracle DB", "Docker & Kubernetes"
         ],
         duration: {
-            start: new Date(2020, 9, 5)
+            start: new Date(2019, 9, 5)
         },
         image: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
         summary: 'I did this and this'

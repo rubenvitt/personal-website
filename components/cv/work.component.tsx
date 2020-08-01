@@ -3,6 +3,7 @@ import React, {FunctionComponent, useState} from "react";
 import {SlideOver} from "../shared/slideover.component";
 import {WorkModel} from "../../lib/work-items.list";
 import {zeroPad} from "../../helper/NumberHelper";
+import {calcDurationBetween} from "../../helper/DateCalculator";
 
 export const CvWork = () => {
 
@@ -78,15 +79,11 @@ const WorkItem = ({work}: WorkItemProps) => {
                             Some specs
                         </p>
                         <div className="flex text-sm leading-5 text-gray-500">
-                            <time dateTime="2020-03-16">
-                                {/*work.duration*/}
-                            </time>
-                            <span className="mx-1">
-                  &middot;
-                </span>
-                            <span>
-                  6 min read
-                </span>
+                            <span>{calcDurationBetween(work.duration)}</span>
+                            <span className="mx-1">&middot;</span>
+                            <span>{work.responsibilities.length} responsibilities</span>
+                            <span className="mx-1">&middot;</span>
+                            <span>{work.technologies.length} technologies</span>
                         </div>
                     </div>
                 </div>
