@@ -27,12 +27,12 @@ export const workList: (t: any) => (WorkModel)[] = (t) => [
         duration: {
             start: new Date(2019, 9, 5)
         },
-        image: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        image: '/assets/images/work/fme-02.jpg',
         summary: 'I did this and this'
     },
     {
-        position: 'JobTitle',
-        company: 'Company',
+        position: 'Junior Software Developer',
+        company: 'dotSource GmbH',
         responsibilities: [
             "this", "and this", "this and...", "this!"
         ],
@@ -40,15 +40,15 @@ export const workList: (t: any) => (WorkModel)[] = (t) => [
             "Java", "C#", "Haskell"
         ],
         duration: {
-            start: new Date(2011, 7, 1),
-            end: new Date(2014, 5, 31)
+            start: new Date(2019, 8, 1),
+            end: new Date(2019, 9, 15)
         },
-        image: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        image: '/assets/images/work/dotsource.jpg',
         summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
     },
     {
-        position: 'JobTitle',
-        company: 'Company',
+        position: 'Student',
+        company: 'fme AG',
         responsibilities: [
             "this", "and this", "this and...", "this!"
         ],
@@ -56,15 +56,15 @@ export const workList: (t: any) => (WorkModel)[] = (t) => [
             "Java", "C#", "Haskell"
         ],
         duration: {
-            start: new Date(2011, 7, 1),
-            end: new Date(2014, 5, 31)
+            start: new Date(2018, 5, 1),
+            end: new Date(2019, 7, 31)
         },
-        image: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        image: '/assets/images/work/fme-01.jpg',
         summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
     },
     {
-        position: 'JobTitle',
-        company: 'Company',
+        position: 'Student Worker',
+        company: 'Elektrobit',
         responsibilities: [
             "this", "and this", "this and...", "this!"
         ],
@@ -72,15 +72,15 @@ export const workList: (t: any) => (WorkModel)[] = (t) => [
             "Java", "C#", "Haskell"
         ],
         duration: {
-            start: new Date(2011, 7, 1),
-            end: new Date(2014, 5, 31)
+            start: new Date(2017, 1, 15),
+            end: new Date(2018, 4, 30)
         },
-        image: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        image: '/assets/images/work/elektrobit.jpg',
         summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
     },
     {
-        position: 'JobTitle',
-        company: 'Company',
+        position: 'Student Assistant',
+        company: 'Ostfalia',
         responsibilities: [
             "this", "and this", "this and...", "this!"
         ],
@@ -88,15 +88,15 @@ export const workList: (t: any) => (WorkModel)[] = (t) => [
             "Java", "C#", "Haskell"
         ],
         duration: {
-            start: new Date(2011, 7, 1),
-            end: new Date(2014, 5, 31)
+            start: new Date(2015, 11, 1),
+            end: new Date(2016, 7, 31)
         },
-        image: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        image: '/assets/images/work/ostfalia.jpg',
         summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
     },
     {
-        position: 'JobTitle',
-        company: 'Company',
+        position: 'Disk Jockey',
+        company: 'Self Employed | Rubeen',
         responsibilities: [
             "this", "and this", "this and...", "this!"
         ],
@@ -104,10 +104,10 @@ export const workList: (t: any) => (WorkModel)[] = (t) => [
             "Java", "C#", "Haskell"
         ],
         duration: {
-            start: new Date(2011, 7, 1),
-            end: new Date(2014, 5, 31)
+            start: new Date(2015, 1, 1),
+            end: new Date(2016, 1, 31)
         },
-        image: 'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        image: '/assets/images/work/dj.jpg',
         summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
     },
 ]
