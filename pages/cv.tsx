@@ -5,6 +5,7 @@ import {useTranslation} from "react-i18next";
 import {CvSummary} from "../components/cv/summary.component";
 import {CvSkills} from "../components/cv/skills.component";
 import {CvWork} from "../components/cv/work.component";
+import {CvEducation} from "../components/cv/education.component";
 
 export default function Home() {
     const {t} = useTranslation("cv")
@@ -15,6 +16,7 @@ export default function Home() {
                 <CvSummary />
                 <CvSkills />
                 <CvWork />
+                <CvEducation />
             </PageContainer>
         </div>
     )

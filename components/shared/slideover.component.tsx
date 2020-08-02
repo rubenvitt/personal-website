@@ -15,7 +15,7 @@ export const SlideOver = ({slideOverState, setSlideOverState, contentFunction, c
             enterDone: style.test
         }}
     >
-        <div id={'test'} className="fixed inset-0 overflow-hidden z-30 hidden">
+        <div className="fixed inset-0 overflow-hidden z-30 hidden">
             <div className="absolute inset-0 overflow-hidden">
                 {/*<!--
               Background overlay, show/hide based on slide-over state.
@@ -28,7 +28,7 @@ export const SlideOver = ({slideOverState, setSlideOverState, contentFunction, c
                 To: "opacity-0"
             -->*/}
                 <div onClick={toggleSlideOver}
-                     className={"absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"}/>
+                     className={"absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity transition duration-500 ease-in-out"}/>
                 <section className="absolute inset-y-0 right-0 pl-10 max-w-full flex">
                     {/*<!--
                   Slide-over panel, show/hide based on slide-over state.
@@ -41,7 +41,7 @@ export const SlideOver = ({slideOverState, setSlideOverState, contentFunction, c
                     To: "translate-x-full"
                 -->*/}
                     <div
-                        className={(slideOverState ? 'translate-x-0' : "translate-x-full") + " transform transition ease-in-out duration-500 sm:duration-700 relative w-screen max-w-md"}>
+                        className={(slideOverState ? 'translate-x-0' : "translate-x-full") + " transform transition ease-in-out duration-500 sm:duration-700 relative w-screen max-w-md transition duration-500 ease-in-out"}>
                         {/*<!--
                       Close button, show/hide based on slide-over state.
 
@@ -53,7 +53,7 @@ export const SlideOver = ({slideOverState, setSlideOverState, contentFunction, c
                         To: "opacity-0"
                     -->*/}
                         <div
-                            className={(slideOverState ? 'opacity 0' : "opacity-100") + " ease-in-out duration-500 absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4"}>
+                            className={(slideOverState ? 'opacity 0' : "opacity-100") + " ease-in-out duration-500 absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4 transition"}>
 
                             <button onClick={toggleSlideOver} aria-label="Close panel"
                                     className="text-gray-300 hover:text-white transition ease-in-out duration-150">
@@ -71,11 +71,6 @@ export const SlideOver = ({slideOverState, setSlideOverState, contentFunction, c
                             </header>
                             <div className="relative flex-1 px-4 sm:px-6">
                                 {contentFunction(content)}
-                                {/*<!-- Replace with your content -->
-                            <div className="absolute inset-0 px-4 sm:px-6">
-                                <div className="h-full border-2 border-dashed border-gray-200"/>
-                            </div>
-                            /*<!-- /End replace -->*/}
                             </div>
                         </div>
                     </div>

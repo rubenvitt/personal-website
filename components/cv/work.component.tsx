@@ -9,7 +9,7 @@ export const CvWork = () => {
 
     const works = workList("t-todo")
 
-    return <div className="relative pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+    return <div className="relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8">
         <div className="relative max-w-7xl mx-auto">
             <h2 className="text-xl leading-6 font-medium text-gray-900">
                 Work experience
@@ -40,7 +40,7 @@ const WorkItem = ({work}: WorkItemProps) => {
         <SlideOver content={work} contentFunction={workSlideOverContent} setSlideOverState={setSlideOverState}
                    slideOverState={slideOverState} title={work.company}/>
         <button onClick={toggleSlideOverState}
-                className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50">
+                className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50 transition duration-150 ease-in-out">
             <div className="flex-shrink-0">
                 <img className="h-48 w-full object-cover"
                      src={work.image}

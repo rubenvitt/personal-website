@@ -1,7 +1,4 @@
-export class DurationItem {
-    start: Date;
-    end?: Date;
-}
+import {DurationItem} from "../helper/DateCalculator";
 
 export class WorkModel {
     position: string;
@@ -28,86 +25,86 @@ export const workList: (t: any) => (WorkModel)[] = (t) => [
             start: new Date(2019, 9, 5)
         },
         image: '/assets/images/work/fme-02.jpg',
-        summary: 'I did this and this'
+        summary: 'Working remotely for a really nice company located in Braunschweig. Application Development & Consulting as Fullstack Developer.'
     },
     {
         position: 'Junior Software Developer',
         company: 'dotSource GmbH',
         responsibilities: [
-            "this", "and this", "this and...", "this!"
+            "Extension Bugfixing", "Extension Development"
         ],
         technologies: [
-            "Java", "C#", "Haskell"
+            "Java"
         ],
         duration: {
             start: new Date(2019, 8, 1),
             end: new Date(2019, 9, 15)
         },
         image: '/assets/images/work/dotsource.jpg',
-        summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
+        summary: 'First position after my degree in Leipzig. Application Development in an e-commerce environment.'
     },
     {
         position: 'Student',
         company: 'fme AG',
         responsibilities: [
-            "this", "and this", "this and...", "this!"
+            'Subversion -> GitLab Migration', 'Introduction Code-Search', 'GitLab administration', 'Bachelor thesis', 'GitLab compliance app'
         ],
         technologies: [
-            "Java", "C#", "Haskell"
+            'Docker', 'Java', 'JavaScript', 'Bash + Batch', 'REST'
         ],
         duration: {
             start: new Date(2018, 5, 1),
             end: new Date(2019, 7, 31)
         },
         image: '/assets/images/work/fme-01.jpg',
-        summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
+        summary: 'I was responsible for a larger migration project, introduced a codesearch-system, implemented a Gitlab-Compliance app and wrote my thesis.'
     },
     {
         position: 'Student Worker',
         company: 'Elektrobit',
         responsibilities: [
-            "this", "and this", "this and...", "this!"
+            'HMI-Development', 'UI-Scripts', 'UI implementation'
         ],
         technologies: [
-            "Java", "C#", "Haskell"
+            'EB-Guide', 'Java'
         ],
         duration: {
             start: new Date(2017, 1, 15),
             end: new Date(2018, 4, 30)
         },
         image: '/assets/images/work/elektrobit.jpg',
-        summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
+        summary: 'Implementation of design-specifications including writing of small Java scripts for UI-interactions for inbuilt car-navigation systems.'
     },
     {
         position: 'Student Assistant',
         company: 'Ostfalia',
         responsibilities: [
-            "this", "and this", "this and...", "this!"
+            'Project Management', 'Project Planning'
         ],
         technologies: [
-            "Java", "C#", "Haskell"
+            'Windows 10 iot', 'different Smart Home managing frontends'
         ],
         duration: {
             start: new Date(2015, 11, 1),
             end: new Date(2016, 7, 31)
         },
         image: '/assets/images/work/ostfalia.jpg',
-        summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
+        summary: 'Helping-Hand for planning a sensor-network project & project management in the starting-phase of a smart home project.'
     },
     {
         position: 'Disk Jockey',
         company: 'Self Employed | Rubeen',
         responsibilities: [
-            "this", "and this", "this and...", "this!"
+            'finances', 'marketing', 'music', 'contracts'
         ],
         technologies: [
-            "Java", "C#", "Haskell"
+            'Traktor', 'Hardware'
         ],
         duration: {
             start: new Date(2015, 1, 1),
             end: new Date(2016, 1, 31)
         },
         image: '/assets/images/work/dj.jpg',
-        summary: 'This is my description. It is a little bit longer and I want to tell a story, but I dont know which story it should be...'
+        summary: 'As a DJ I learned alot about self-marketing, organisation & writing contracts. Also I improved my personal soft-skills.'
     },
 ]
