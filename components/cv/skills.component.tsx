@@ -3,19 +3,21 @@ import { DefaultSkillElement, SkillElement } from './skill.component';
 import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
 import { SlideListElement } from '../shared/slidelist.component';
+import { useTranslation } from 'react-i18next';
 
 export const CvSkills = (): JSX.Element => {
     const [slideOverState, setSlideOverState] = useState(false);
     const toggleSlideOverState = () => {
         setSlideOverState(!slideOverState);
     };
+    const { t } = useTranslation('cv');
 
-    const languages: Skill[] = skillList(null)
-        .filter((x) => x.type === SkillType.ProgrammingLanguage)
-        .map((x) => x as ProgrammingLanguageSkill);
+    const languages: Skill[] = skillList(t)
+        .filter((it) => it.type === SkillType.ProgrammingLanguage)
+        .map((it) => it as ProgrammingLanguageSkill);
     return (
         <div className="px-2 py-2">
-            <h2 className="text-xl leading-6 font-medium text-gray-900">I speak following languages</h2>
+            <h2 className="text-xl leading-6 font-medium text-gray-900">{t('skills.title')}</h2>
             <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {languages
                     .sort((a, b) => b.value - a.value)
@@ -26,7 +28,7 @@ export const CvSkills = (): JSX.Element => {
                 <DefaultSkillElement skills={languages} buttonHandler={toggleSlideOverState} />
             </div>
             <SlideOver
-                title="My programming languages"
+                title={t('skills.slideover.title')}
                 setSlideOverState={setSlideOverState}
                 slideOverState={slideOverState}
                 contentFunction={slideOverContent}

@@ -1,12 +1,153 @@
 {
+  "title": "",
+  "developer": "Developer",
+  "my_name": "Ruben Vitt",
+  "small_description": "Hey, I'm a 23 years old bachelor graduated computer scientist. I work since one year at fme.",
+  "until": "until",
+  "until_now": "until now",
+  "responsibilities": "responsibilities",
+  "technologies": "technologies",
+
+  "duration": {
+    "ms": "ms",
+    "mss": "ms",
+    "s": "second",
+    "ss": "seconds",
+    "min": "minute",
+    "mins": "minutes",
+    "h": "hour",
+    "hs": "hours",
+    "week": "week",
+    "weeks": "weeks",
+    "year": "year",
+    "years": "years"
+  },
+  "education": {
+    "title": "Education",
+    "status": {
+      "INCOMPLETE": "incomplete",
+      "COMPLETED": "completed",
+      "SWITCHED": "switched"
+    },
+    "hagen": {
+      "subject": "Computer Science",
+      "university": "FernUni Hagen",
+      "degree": "Master of Science"
+    },
+    "suderburg": {
+      "subject": "Applied Computer Science",
+      "university": "Ostfalia Suderburg",
+      "degree": "Bachelor of Science",
+      "courses": {
+        "course_1": "THIS"
+      }
+    },
+    "wolfenbüttel": {
+      "subject": "Computer Science",
+      "university": "Ostfalia Wolfenbüttel",
+      "degree": "Bachelor of Science"
+    }
+  },
   "summary": {
     "work_experience": "Work Experience",
-    "work_experience_detail": "lalala I have professional experience (after university) since currently $workdays days. Currently I'm working at fme AG in Braunschweig, Germany.",
+    "work_experience_detail": "I have professional experience (after university) since currently $workdays days. Currently I'm working at fme AG in Braunschweig, Germany.",
     "education": "Education",
     "education_detail": "After the university degree I can't stop to learn. Currently I finished $certNum online course-certificates already and I'm open for new ones.",
     "mindset": "Technologies & Mindset",
     "mindset_detail": "I love new programming languages, modern tools and modern work. I love to work from home & testing out new things.",
     "more": "Some more words",
     "more_detail": "I really like cycling in the woods or near the sea, programming of course and to listen or make music. Another wonderful thing is kayaking on rivers."
+  },
+  "skills": {
+    "title": "I speak following languages",
+    "slideover": {
+      "title": "My programming languages"
+    },
+    "status": {
+      "UNCHANGED": "Not actively in use",
+      "IMPROVED": "Actively improving",
+      "NOT USED": "Not used for some time"
+    },
+    "default": {
+      "there_is_more_headline": "There's more!",
+      "there_is_more_content": "Get to know more of my language skills"
+    }
+  },
+  "certs": {
+    "certified": "Certified"
+  },
+  "work": {
+    "title": "Work experience",
+    "some_specs": "Some specs",
+    "employed_for": "Employed for",
+    "slideover": {
+      "title": "Work Details",
+      "responsibilities": "Responsible for",
+      "technologies": "Technologies"
+    },
+    "fme-2": {
+      "position": "Associate Consultant",
+      "company": "fme AG",
+      "summary": "Working remotely for a really nice company located in Braunschweig. Application Development & Consulting as Fullstack Developer.",
+      "res": {
+        "app_dev": "Application Development",
+        "consulting": "Consulting",
+        "devop": "DevOp",
+        "cicd": "Continuous Integration & Delivery (CI/CD)",
+        "kubernetes": "Kubernetes Cluster",
+        "internal": "Internal Projects"
+      }
+    },
+    "dotsource": {
+      "position": "Junior Software Developer",
+      "company": "dotSource GmbH",
+      "summary": "First position after my degree in Leipzig. Application Development in an e-commerce environment.",
+      "res": {
+        "bugfix": "Extension Bugfixing",
+        "dev": "Extension Development"
+      }
+    },
+    "fme-1": {
+      "position": "Student",
+      "company": "fme AG",
+      "summary": "I was responsible for a larger migration project, introduced a codesearch-system, implemented a Gitlab-Compliance app and wrote my thesis.",
+      "res": {
+        "svngitlab": "Subversion -> GitLab Migration",
+        "codesearch": "Introduction Code-Search",
+        "gitlabadmin": "GitLab administration",
+        "bachelor": "Bachelor thesis",
+        "gitlabcompliance": "GitLab compliance app"
+      }
+    },
+    "elektrobit": {
+      "position": "Working Student",
+      "company": "Elektrobit",
+      "summary": "Implementation of design-specifications including writing of small Java scripts for UI-interactions for inbuilt car-navigation systems.",
+      "res": {
+        "hmi": "HMI-Development",
+        "uiscripts": "UI-Scripts",
+        "uiimpl": "UI Implementation"
+      }
+    },
+    "ostfalia": {
+      "position": "Student Assistant",
+      "company": "Ostfalia",
+      "summary": "Helping-Hand for planning a sensor-network project & project management in the starting-phase of a smart home project.",
+      "res": {
+        "management": "Project Management",
+        "planning": "Project Planning"
+      }
+    },
+    "dj": {
+      "position": "Disk Jockey",
+      "company": "Self Employed | Rubeen",
+      "summary": "As a DJ I learned alot about self-marketing, organisation & writing contracts. Also I improved my personal soft-skills.",
+      "res": {
+        "finances": "finances",
+        "marketing": "marketing",
+        "music": "music",
+        "contracts": "contracts"
+      }
+    }
   }
 }

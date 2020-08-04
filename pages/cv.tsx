@@ -8,7 +8,8 @@ import { CvWork } from '../components/cv/work.component';
 import { CvEducation } from '../components/cv/education.component';
 
 export default function Home(): JSX.Element {
-    const { t } = useTranslation('cv');
+    const { t, i18n } = useTranslation('cv');
+
     return (
         <div>
             <PageHead />
