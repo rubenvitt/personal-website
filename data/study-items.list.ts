@@ -1,4 +1,4 @@
-import {DurationItem} from "../helper/DateCalculator";
+import { DurationItem } from '../helper/DateCalculator';
 
 export class Study {
     subject: string;
@@ -8,8 +8,14 @@ export class Study {
     courses: string[];
     degree: string;
 
-
-    constructor(subject: string, university: string, degree: string, duration: DurationItem, status: Status, courses: string[]) {
+    constructor(
+        subject: string,
+        university: string,
+        degree: string,
+        duration: DurationItem,
+        status: Status,
+        courses: string[],
+    ) {
         this.subject = subject;
         this.university = university;
         this.duration = duration;
@@ -20,35 +26,45 @@ export class Study {
 }
 
 export enum Status {
-    COMPLETED = "COMPLETED",
-    INCOMPLETE = "INCOMPLETE",
-    SWITCHED = "SWITCHED"
+    COMPLETED = 'COMPLETED',
+    INCOMPLETE = 'INCOMPLETE',
+    SWITCHED = 'SWITCHED',
 }
 
-export const studyList = () => {
-
+export const studyList = (): Study[] => {
     return [
-        new Study("Applied Computer Science", "Ostfalia Suderburg", 'Bachelor of Science', {
+        new Study(
+            'Applied Computer Science',
+            'Ostfalia Suderburg',
+            'Bachelor of Science',
+            {
                 start: new Date(2015, 8, 1),
-                end: new Date(2016, 6, 31)
-            }, Status.SWITCHED, [
-                'this', "this", "and this"
-            ]
-        ),
-        new Study("Computer Science", "Ostfalia Wolfenbüttel", 'Bachelor of Science', {
-                start: new Date(2016, 8, 1),
-                end: new Date(2019, 6, 31)
-            }, Status.COMPLETED, [
-                "this", "this", "and this"
-            ]
-        ),
-        new Study("Computer Science", "Fernuni Hagen", "Master of Science", {
-                start: new Date(2019, 8, 1),
-                end: new Date(2020, 0, 31)
+                end: new Date(2016, 6, 31),
             },
-            Status.INCOMPLETE, [
-                "this", "this", "and this"
-            ]
+            Status.SWITCHED,
+            ['this', 'this', 'and this'],
         ),
-    ]
-}
+        new Study(
+            'Computer Science',
+            'Ostfalia Wolfenbüttel',
+            'Bachelor of Science',
+            {
+                start: new Date(2016, 8, 1),
+                end: new Date(2019, 6, 31),
+            },
+            Status.COMPLETED,
+            ['this', 'this', 'and this'],
+        ),
+        new Study(
+            'Computer Science',
+            'Fernuni Hagen',
+            'Master of Science',
+            {
+                start: new Date(2019, 8, 1),
+                end: new Date(2020, 0, 31),
+            },
+            Status.INCOMPLETE,
+            ['this', 'this', 'and this'],
+        ),
+    ];
+};

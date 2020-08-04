@@ -1,1 +1,1 @@
-export const zeroPad = (num, places) => String(num).padStart(places, '0')
+export const zeroPad = (num: number, places: number): string => String(num).padStart(places, '0');

@@ -1,4 +1,4 @@
-const ni18Next = require('next-i18next').default
+const ni18Next = require('next-i18next').default;
 const path = require('path');
 
 path.resolve('../public/static/locales/');
@@ -7,7 +7,7 @@ const NextI18Next = new ni18Next({
     keySeparator: '.',
     defaultLanguage: 'en',
     otherLanguages: ['de'],
-    localePath: 'public/static/locales'
+    localePath: 'public/static/locales',
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -15,4 +15,4 @@ if (process.env.NODE_ENV !== 'production') {
     applyClientHMR(NextI18Next.i18n);
 }
 
-module.exports = NextI18Next
+module.exports = NextI18Next;

@@ -1,4 +1,5 @@
-const path = require('path')
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
 const { I18NextHMRPlugin } = require('i18next-hmr/plugin');
 
 module.exports = {
@@ -7,11 +8,11 @@ module.exports = {
             const { I18NextHMRPlugin } = require('i18next-hmr/plugin');
             config.plugins.push(
                 new I18NextHMRPlugin({
-                    localesDir: path.resolve(__dirname, '../public/static/locales')
-                })
+                    localesDir: path.resolve(__dirname, '../public/static/locales'),
+                }),
             );
         }
 
         return config;
-    }
-}
+    },
+};

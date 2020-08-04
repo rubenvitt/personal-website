@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     theme: {
@@ -8,7 +8,5 @@ module.exports = {
             },
         },
     },
-    plugins: [
-        require('@tailwindcss/ui'),
-    ]
-}
+    plugins: [require('@tailwindcss/ui')],
+};
