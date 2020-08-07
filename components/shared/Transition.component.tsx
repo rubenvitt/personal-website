@@ -1,7 +1,17 @@
 import { CSSTransition as ReactCSSTransition } from 'react-transition-group';
 import React, { useRef, useEffect, useContext } from 'react';
 
-const TransitionContext = React.createContext({
+class ParentProps {
+    appear?: boolean | unknown;
+    isInitialRender?: boolean | unknown;
+    show?: boolean | unknown;
+}
+
+class TransitionContextProps {
+    parent: ParentProps;
+}
+
+const TransitionContext = React.createContext<TransitionContextProps>({
     parent: {},
 });
 
@@ -15,15 +25,15 @@ function useIsInitialRender() {
 
 function CSSTransition({
     show,
-    enter = '',
-    enterFrom = '',
-    enterTo = '',
-    leave = '',
-    leaveFrom = '',
-    leaveTo = '',
+    enter,
+    enterFrom,
+    enterTo,
+    leave,
+    leaveFrom,
+    leaveTo,
     appear,
     children,
-}) {
+}: TransitionComponentProps) {
     const enterClasses = enter.split(' ').filter((s) => s.length);
     const enterFromClasses = enterFrom.split(' ').filter((s) => s.length);
     const enterToClasses = enterTo.split(' ').filter((s) => s.length);
@@ -73,8 +83,20 @@ function CSSTransition({
     );
 }
 
-function TransitionComponent({ show, appear, ...rest }) {
-    const { parent } = useContext(TransitionContext);
+export class TransitionComponentProps {
+    show?: unknown;
+    enter = '';
+    enterFrom = '';
+    enterTo = '';
+    leave = '';
+    leaveFrom = '';
+    leaveTo = '';
+    appear?: unknown;
+    children: JSX.Element;
+}
+
+function TransitionComponent({ show, appear, ...rest }: TransitionComponentProps) {
+    const { parent }: TransitionContextProps = useContext(TransitionContext);
     const isInitialRender = useIsInitialRender();
     const isChild = show === undefined;
 

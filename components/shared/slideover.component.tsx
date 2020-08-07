@@ -1,5 +1,5 @@
 import React from 'react';
-import TransitionComponent from './transition.component';
+import TransitionComponent from './Transition.component';
 
 class SlideOverProps {
     slideOverState: boolean;
