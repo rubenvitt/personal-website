@@ -76,7 +76,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    ${skill.status}
+                                    {skill.status}
                                 </div>
                             </dd>
                         </dl>
