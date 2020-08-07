@@ -4,16 +4,14 @@ import { SlideOver } from '../shared/slideover.component';
 import { WorkModel } from '../../data/work-items.list';
 import { zeroPad } from '../../helper/NumberHelper';
 import { calcDurationBetween } from '../../helper/DateCalculator';
-import { useTranslation } from 'react-i18next';
 
 export const CvWork: () => JSX.Element = () => {
-    const { t } = useTranslation('cv');
-    const works = workList(t);
+    const works = workList;
 
     return (
         <div className="relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8">
             <div className="relative max-w-7xl mx-auto">
-                <h2 className="text-xl leading-6 font-medium text-gray-900">{t('work.title')}</h2>
+                <h2 className="text-xl leading-6 font-medium text-gray-900">Work experience</h2>
                 <div className="mt-12 grid gap-5 max-w-lg mx-auto md:grid-cols-2 md:max-w-none lg:grid-cols-3">
                     {works.map((work, i) => {
                         return (
@@ -38,8 +36,6 @@ const WorkItem = ({ work }: WorkItemProps) => {
         setSlideOverState(!slideOverState);
     };
 
-    const { t } = useTranslation('cv');
-
     return (
         <>
             <SlideOver
@@ -47,7 +43,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
                 contentFunction={workSlideOverContent}
                 setSlideOverState={setSlideOverState}
                 slideOverState={slideOverState}
-                title={t('work.slideover.title')}
+                title={'Work Details'}
             />
             <button
                 onClick={toggleSlideOverState}
@@ -64,11 +60,11 @@ const WorkItem = ({ work }: WorkItemProps) => {
                                     '-' +
                                     zeroPad(work.duration.start.getMonth(), 2)}
                                 {work.duration.end
-                                    ? ` ${t('until')} ${work.duration.end.getFullYear().toString().slice(2)}-${zeroPad(
+                                    ? ` until ${work.duration.end.getFullYear().toString().slice(2)}-${zeroPad(
                                           work.duration.end.getMonth(),
                                           2,
                                       )}`
-                                    : ` ${t('until_now')}`}
+                                    : ` until now`}
                             </span>
                             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-blue-100 text-blue-800 mr-2">
                                 {work.position}
@@ -81,17 +77,13 @@ const WorkItem = ({ work }: WorkItemProps) => {
                     </div>
                     <div className="mt-6 flex items-center">
                         <div className="ml-3">
-                            <p className="text-sm leading-5 font-medium text-gray-900">{t('work.some_specs')}</p>
+                            <p className="text-sm leading-5 font-medium text-gray-900">Some specs</p>
                             <div className="flex text-sm leading-5 text-gray-500">
-                                <span>{calcDurationBetween(work.duration, t)}</span>
+                                <span>{calcDurationBetween(work.duration)}</span>
                                 <span className="mx-1">&middot;</span>
-                                <span>
-                                    {work.responsibilities.length} {t('responsibilities')}
-                                </span>
+                                <span>{work.responsibilities.length} responsibilities</span>
                                 <span className="mx-1">&middot;</span>
-                                <span>
-                                    {work.technologies.length} {t('technologies')}
-                                </span>
+                                <span>{work.technologies.length} technologies</span>
                             </div>
                         </div>
                     </div>
@@ -102,8 +94,6 @@ const WorkItem = ({ work }: WorkItemProps) => {
 };
 
 const workSlideOverContent = (work: WorkModel) => {
-    const { t } = useTranslation('cv');
-
     return (
         <div className="bg-white">
             <div className="shadow overflow-hidden sm:rounded-lg">
@@ -119,18 +109,16 @@ const workSlideOverContent = (work: WorkModel) => {
                 <div className="px-4 border-b border-gray-100 py-5 sm:px-6">
                     <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500">{t('work.employed_for')}</dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500">Employed for</dt>
                         </div>
                     </dl>
-                    <dd className="mt-1 text-sm leading-5 text-gray-900">{calcDurationBetween(work.duration, t)}</dd>
+                    <dd className="mt-1 text-sm leading-5 text-gray-900">{calcDurationBetween(work.duration)}</dd>
                 </div>
 
                 <div className="px-4 py-5 sm:px-6 border-b border-gray-100">
                     <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500">
-                                {t('work.slideover.responsibilities')}
-                            </dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500">Responsible for</dt>
                         </div>
                     </dl>
                     <dd className="mt-1 text-sm leading-5 text-gray-900">
@@ -149,9 +137,7 @@ const workSlideOverContent = (work: WorkModel) => {
                 <div className="px-4 py-5 sm:px-6 border-b border-gray-100">
                     <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500">
-                                {t('work.slideover.technologies')}
-                            </dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500">Technologies</dt>
                         </div>
                     </dl>
                     <dd className="mt-1 text-sm leading-5 text-gray-900">

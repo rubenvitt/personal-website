@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTranslation } from '../../config/i18next.config';
 import { useRouter } from 'next/router';
 import { MenuList } from '../../data/menu-items.list';
 import { MobileMenuButton } from './mobile/menu-button/mobile-menu-button';
@@ -8,8 +7,6 @@ import { SocialButtons } from './soial-buttons.component';
 
 export const NavBar = (): JSX.Element => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    const { t } = useTranslation('common');
 
     const path = useRouter().pathname;
 
@@ -32,7 +29,7 @@ export const NavBar = (): JSX.Element => {
                         </div>
 
                         <div className="hidden sm:-my-px sm:ml-6 sm:flex">
-                            {MenuList(t).map((element, i) => {
+                            {MenuList.map((element, i) => {
                                 return (
                                     <a
                                         key={i}

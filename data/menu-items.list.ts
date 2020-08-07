@@ -1,5 +1,3 @@
-import { TFunction } from 'next-i18next';
-
 export class MenuListItem {
     title: string;
     url: string;
@@ -10,9 +8,9 @@ export class MenuListItem {
     }
 }
 
-export const MenuList = (t: TFunction): MenuListItem[] => [
-    new MenuListItem(t('nav.main_page'), '/'),
-    new MenuListItem(t('nav.cv'), '/cv'),
-    new MenuListItem(t('nav.portfolio'), '/portfolio'),
-    new MenuListItem(t('nav.contact'), '/contact'),
+export const MenuList = [
+    new MenuListItem('Main', '/'),
+    new MenuListItem('Resume', '/cv'),
+    new MenuListItem('Portfolio', '/portfolio'),
+    new MenuListItem('Contact', '/contact'),
 ];

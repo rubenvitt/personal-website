@@ -1,5 +1,4 @@
 import { MenuList } from '../../../../data/menu-items.list';
-import { useTranslation } from '../../../../config/i18next.config';
 import React from 'react';
 import { useRouter } from 'next/router';
 
@@ -8,13 +7,12 @@ class MobileMenuProps {
 }
 
 export const MobileMenu = ({ isOpen }: MobileMenuProps): JSX.Element => {
-    const { t } = useTranslation('common');
     const router = useRouter();
 
     return (
         <div className={'sm:hidden ' + (isOpen ? '' : 'hidden')}>
             <div className="pt-2 pb-3">
-                {MenuList(t).map((element) => {
+                {MenuList.map((element) => {
                     return (
                         <a
                             key={element.url}
@@ -26,7 +24,7 @@ export const MobileMenu = ({ isOpen }: MobileMenuProps): JSX.Element => {
                                 ' mt-1 block pl-3 pr-4 py-2 border-l-4 text-base font-medium focus:outline-none transition duration-150 ease-in-out'
                             }
                         >
-                            {t(element.title)}
+                            {element.title}
                         </a>
                     );
                 })}

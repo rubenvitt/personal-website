@@ -1,12 +1,10 @@
 import React from 'react';
 import { calculateDaysBetween } from '../../helper/DateCalculator';
-import { useTranslation } from 'react-i18next';
 import { skillList, SkillType } from '../../data/skill-items.list';
 
 export const CvSummary = (): JSX.Element => {
-    const { t } = useTranslation('cv');
     const workdays = calculateDaysBetween(new Date('2019-08-01').getTime(), Date.now());
-    const certCount = skillList(t)
+    const certCount = skillList
         .filter((x) => x.type === SkillType.ProgrammingLanguage)
         .map((x) => x.certificates?.length ?? 0)
         .reduce((a, b) => a + b);
@@ -16,13 +14,13 @@ export const CvSummary = (): JSX.Element => {
             <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="lg:text-center">
                     <p className="text-base leading-6 text-orange-600 font-semibold tracking-wide uppercase">
-                        {t('developer')}
+                        Developer
                     </p>
                     <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-                        {t('my_name')}
+                        Ruben Vitt
                     </h3>
                     <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
-                        {t('small_description')}
+                        Hey, I'm a 23 years old bachelor graduated computer scientist. I work since one year at fme.
                     </p>
                 </div>
 
@@ -43,11 +41,10 @@ export const CvSummary = (): JSX.Element => {
                                     </div>
                                 </div>
                                 <div className="ml-4">
-                                    <h4 className="text-lg leading-6 font-medium text-gray-900">
-                                        {t('summary.work_experience')}
-                                    </h4>
+                                    <h4 className="text-lg leading-6 font-medium text-gray-900">Work Experience</h4>
                                     <p className="mt-2 text-base leading-6 text-gray-500">
-                                        {t('summary.work_experience_detail').replace('$workdays', String(workdays))}
+                                        I have professional experience (after university) since currently {workdays}
+                                        days. Currently I'm working at fme AG in Braunschweig, Germany.
                                     </p>
                                 </div>
                             </div>
@@ -67,11 +64,10 @@ export const CvSummary = (): JSX.Element => {
                                     </div>
                                 </div>
                                 <div className="ml-4">
-                                    <h4 className="text-lg leading-6 font-medium text-gray-900">
-                                        {t('summary.education')}
-                                    </h4>
+                                    <h4 className="text-lg leading-6 font-medium text-gray-900">Education</h4>
                                     <p className="mt-2 text-base leading-6 text-gray-500">
-                                        {t('summary.education_detail').replace('$certNum', String(certCount))}
+                                        After the university degree I can't stop to learn. Currently I finished
+                                        {certCount} online course-certificates already and I'm open for new ones.
                                     </p>
                                 </div>
                             </div>
@@ -92,10 +88,11 @@ export const CvSummary = (): JSX.Element => {
                                 </div>
                                 <div className="ml-4">
                                     <h4 className="text-lg leading-6 font-medium text-gray-900">
-                                        {t('summary.mindset')}
+                                        Technologies & Mindset
                                     </h4>
                                     <p className="mt-2 text-base leading-6 text-gray-500">
-                                        {t('summary.mindset_detail')}
+                                        I love new programming languages, modern tools and modern work. I love to work
+                                        from home & testing out new things.
                                     </p>
                                 </div>
                             </div>
@@ -115,8 +112,11 @@ export const CvSummary = (): JSX.Element => {
                                     </div>
                                 </div>
                                 <div className="ml-4">
-                                    <h4 className="text-lg leading-6 font-medium text-gray-900">{t('summary.more')}</h4>
-                                    <p className="mt-2 text-base leading-6 text-gray-500">{t('summary.more_detail')}</p>
+                                    <h4 className="text-lg leading-6 font-medium text-gray-900">Some more words</h4>
+                                    <p className="mt-2 text-base leading-6 text-gray-500">
+                                        I really like cycling in the woods or near the sea, programming of course and to
+                                        listen or make music. Another wonderful thing is kayaking on rivers.
+                                    </p>
                                 </div>
                             </div>
                         </li>

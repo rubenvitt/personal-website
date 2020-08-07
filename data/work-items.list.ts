@@ -1,5 +1,4 @@
 import { DurationItem } from '../helper/DateCalculator';
-import { TFunction } from 'next-i18next';
 
 export class WorkModel {
     position: string;
@@ -11,46 +10,47 @@ export class WorkModel {
     summary: string;
 }
 
-export const workList: (t: TFunction) => WorkModel[] = (t) => [
+export const workList = [
     {
-        position: t('work.fme-2.position'),
-        company: t('work.fme-2.company'),
+        position: 'Associate Consultant',
+        company: 'fme AG',
         responsibilities: [
-            t('work.fme-2.res.app_dev'),
-            t('work.fme-2.res.consulting'),
-            t('work.fme-2.res.devop'),
-            t('work.fme-2.res.cicd'),
-            t('work.fme-2.res.kubernetes'),
-            t('work.fme-2.res.internal'),
+            'Application Development',
+            'Consulting',
+            'DevOp',
+            'Continuous Integration & Delivery (CI/CD)',
+            'Kubernetes Cluster',
+            'Internal Projects',
         ],
         technologies: ['Java & Kotlin', 'JavaScript & Typescript', 'Postgres & Oracle DB', 'Docker & Kubernetes'],
         duration: {
             start: new Date(2019, 9, 5),
         },
         image: '/assets/images/work/fme-02.jpg',
-        summary: t('work.fme-2.summary'),
+        summary:
+            'Working remotely for a really nice company located in Braunschweig. Application Development & Consulting as Fullstack Developer.',
     },
     {
-        position: t('work.dotsource.position'),
-        company: t('work.dotsource.company'),
-        responsibilities: [t('work.dotsource.res.bugfix'), t('work.dotsource.res.dev')],
+        position: 'Junior Software Developer',
+        company: 'dotSource GmbH',
+        responsibilities: ['Extension Bugfixing', 'Extension Development'],
         technologies: ['Java'],
         duration: {
             start: new Date(2019, 8, 1),
             end: new Date(2019, 9, 15),
         },
         image: '/assets/images/work/dotsource.jpg',
-        summary: t('work.dotsource.summary'),
+        summary: 'First position after my degree in Leipzig. Application Development in an e-commerce environment.',
     },
     {
-        position: t('work.fme-1.position'),
-        company: t('work.fme-1.company'),
+        position: 'Student',
+        company: 'fme AG',
         responsibilities: [
-            t('work.fme-1.res.svngitlab'),
-            t('work.fme-1.res.codesearch'),
-            t('work.fme-1.res.gitlabadmin'),
-            t('work.fme-1.res.bachelor'),
-            t('work.fme-1.res.gitlabcompliance'),
+            'Subversion -> GitLab Migration',
+            'Introduction Code-Search',
+            'GitLab administration',
+            'Bachelor thesis',
+            'GitLab compliance app',
         ],
         technologies: ['Docker', 'Java', 'JavaScript', 'Bash + Batch', 'REST'],
         duration: {
@@ -58,51 +58,46 @@ export const workList: (t: TFunction) => WorkModel[] = (t) => [
             end: new Date(2019, 7, 31),
         },
         image: '/assets/images/work/fme-01.jpg',
-        summary: t('work.fme-1.summary'),
+        summary:
+            'I was responsible for a larger migration project, introduced a codesearch-system, implemented a Gitlab-Compliance app and wrote my thesis.',
     },
     {
-        position: t('work.elektrobit.position'),
-        company: t('work.elektrobit.company'),
-        responsibilities: [
-            t('work.elektrobit.res.hmi'),
-            t('work.elektrobit.res.uiscripts'),
-            t('work.elektrobit.res.uiimpl'),
-        ],
+        position: 'Working Student',
+        company: 'Elektrobit',
+        responsibilities: ['HMI-Development', 'UI-Scripts', 'UI Implementation'],
         technologies: ['EB-Guide', 'Java'],
         duration: {
             start: new Date(2017, 1, 15),
             end: new Date(2018, 4, 30),
         },
         image: '/assets/images/work/elektrobit.jpg',
-        summary: t('work.elektrobit.summary'),
+        summary:
+            'Implementation of design-specifications including writing of small Java scripts for UI-interactions for inbuilt car-navigation systems.',
     },
     {
-        position: t('work.ostfalia.position'),
-        company: t('work.ostfalia.company'),
-        responsibilities: [t('work.ostfalia.res.management'), t('work.ostfalia.res.planning')],
+        position: 'Student Assistant',
+        company: 'Ostfalia',
+        responsibilities: ['Project Management', 'Project Planning'],
         technologies: ['Windows 10 iot', 'Smart Home management FrontEnds'],
         duration: {
             start: new Date(2015, 11, 1),
             end: new Date(2016, 7, 31),
         },
         image: '/assets/images/work/ostfalia.jpg',
-        summary: t('work.ostfalia.summary'),
+        summary:
+            'Helping-Hand for planning a sensor-network project & project management in the starting-phase of a smart home project.',
     },
     {
-        position: t('work.dj.position'),
-        company: t('work.dj.company'),
-        responsibilities: [
-            t('work.dj.res.finances'),
-            t('work.dj.res.marketing'),
-            t('work.dj.res.music'),
-            t('work.dj.res.contracts'),
-        ],
+        position: 'Disk Jockey',
+        company: 'Self Employed | Rubeen',
+        responsibilities: ['finances', 'marketing', 'music', 'contracts'],
         technologies: ['Traktor', 'Hardware'],
         duration: {
             start: new Date(2015, 1, 1),
             end: new Date(2016, 1, 31),
         },
         image: '/assets/images/work/dj.jpg',
-        summary: t('work.dj.summary'),
+        summary:
+            'As a DJ I learned alot about self-marketing, organisation & writing contracts. Also I improved my personal soft-skills.',
     },
 ];
