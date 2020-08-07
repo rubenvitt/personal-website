@@ -1,8 +1,19 @@
 /* purgecss start ignore */
-@tailwind  base;
-@tailwind  components;
+@tailwind base;
+@tailwind components;
 /* purgecss end ignore */
 
-@tailwind  utilities;
+@tailwind utilities;
 
 @import "slideover.styles";
+
+@import url('https://rsms.me/inter/inter.css');
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  * {
+    font-family: 'Inter var', sans-serif;
+  }
+}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // example taken from: https://github.com/isaachinman/next-i18next/blob/master/examples/simple/server.js
 
 const express = require('express');

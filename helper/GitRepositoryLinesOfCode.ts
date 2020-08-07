@@ -13,7 +13,7 @@ export const countGithub = (repo: string): Promise<number> => {
         });
 };
 
-export const getMainGithubLanguage = (repo: string): Promise<string[]> => {
+export const getMainGithubLanguage = async (repo: string): Promise<string[]> => {
     return fetch('https://api.github.com/repos/' + repo + '/languages')
         .then((response: Response) => response.json())
         .then((langs) => {
