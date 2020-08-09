@@ -28,6 +28,7 @@ export const ContactInformation = (): JSX.Element => {
                     })}
                 </div>
             </div>
+            <div className="hidden text-xing text-linkedin text-tutanota text-calendly text-github" />
         </div>
     );
 };
