@@ -7,7 +7,7 @@ export const SocialButtons = (): JSX.Element => {
                 href="https://github.com/rubenvitt"
                 target="_blank"
                 rel="noreferrer"
-                className="github p-1 border-2 border-transparent rounded-full focus:outline-none transition duration-150 ease-in-out"
+                className="text-gray-400 hover:text-github focus:text-github p-1 border-2 border-transparent rounded-full focus:outline-none transition duration-150 ease-in-out"
                 aria-label="Notifications"
             >
                 <svg className="h-6 w-6" stroke="none" fill="currentColor" viewBox="0 0 24 24">
@@ -24,7 +24,7 @@ export const SocialButtons = (): JSX.Element => {
                 href="http://xing.com/profile/Ruben_Vitt"
                 target="_blank"
                 rel="noreferrer"
-                className="xing p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out"
+                className="text-gray-400 hover:text-xing focus:text-xing p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out"
                 aria-label="Notifications"
             >
                 <svg className="h-6 w-6" stroke="none" fill="currentColor" viewBox="0 0 24 24">
@@ -41,7 +41,7 @@ export const SocialButtons = (): JSX.Element => {
                 href="https://www.linkedin.com/in/ruben-vitt-389801140/"
                 target="_blank"
                 rel="noreferrer"
-                className="linkedIn p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out"
+                className="text-gray-400 hover:text-linkedin focus:text-linkedin p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out"
                 aria-label="Notifications"
             >
                 <svg className="h-6 w-6" stroke="none" fill="currentColor" viewBox="0 0 24 24">
