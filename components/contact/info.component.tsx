@@ -13,7 +13,7 @@ export const ContactInformation = (): JSX.Element => {
                                 href={element.serviceUrl}
                                 onMouseOver={element.hoverFunction}
                                 key={element.brandName}
-                                className={`flex justify-center col-span-1 lg:col-span-${element.colSpan} text-gray-300 text-lg leading-6 border rounded-lg border-gray-200 py-5 font-medium hover:text-${element.hoverColor} hover:border-${element.hoverColor} hover:bg-gray-50`}
+                                className={`flex justify-center col-span-1 lg:col-span-${element.colSpan} text-gray-300 text-lg leading-6 border rounded-lg border-gray-200 py-5 font-medium ${element.hoverColor} hover:bg-gray-50`}
                             >
                                 <svg
                                     className="flex-shrink-0 mr-1.5 h-5 w-5"
