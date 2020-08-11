@@ -2,12 +2,11 @@ import React from 'react';
 import { contactInformationList } from '../../data/contact-items.list';
 
 export const ContactInformation = (): JSX.Element => {
-    const contactsList = contactInformationList;
     return (
         <div className="bg-white">
             <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 <div className="grid gap-8 grid-cols-2 lg:grid-cols-3">
-                    {contactsList.map((element) => {
+                    {contactInformationList.map((element) => {
                         return (
                             <a
                                 href={element.serviceUrl}
@@ -19,6 +18,7 @@ export const ContactInformation = (): JSX.Element => {
                                     className="flex-shrink-0 mr-1.5 h-5 w-5"
                                     viewBox={`0 0 ${element.viewBox} ${element.viewBox}`}
                                     fill="currentColor"
+                                    clipRule="evenOdd"
                                 >
                                     <path d={element.imagePath} />
                                 </svg>
