@@ -1,5 +1,6 @@
 import React from 'react';
 import { Skill, SkillDirection } from '../../data/skill-items.list';
+import Shape from 'shape-library';
 
 class SkillElementProps {
     skill: Skill;
@@ -38,18 +39,14 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                 {skill.title}
                                 {skill.certificates && skill.certificates.length > 0 ? (
                                     <span className="inline-flex items-center ml-2 px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-yellow-100 text-yellow-800">
-                                        <svg
-                                            className="-ml-0.5 mr-0.5 h-4 w-4 text-yellow-400"
-                                            fill="currentColor"
-                                            viewBox="0 -1.5 23 23"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="1"
-                                                d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z"
-                                            />
-                                        </svg>{' '}
+                                        <Shape
+                                            type="animatedicons"
+                                            category="Simple-Animated"
+                                            name="wand and stars"
+                                            primaryColor="#975A16"
+                                            secondaryColor="#D69E2E"
+                                            size={24}
+                                        />{' '}
                                         Certified
                                     </span>
                                 ) : null}

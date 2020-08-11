@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PortfolioItem as DataItem, PortfolioItemType, portfolioList } from '../../data/portfolio-items.list';
+import Shape from 'shape-library';
 
 export const PortfolioList = (): JSX.Element => {
     const [linesOfCode, setLinesOfCode] = useState('...');

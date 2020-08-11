@@ -98,7 +98,7 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                     />
                                 </svg>
                                 <span>
-                                    {study.duration.start.toLocaleDateString()} until
+                                    {study.duration.start.toLocaleDateString()} until{' '}
                                     {study.duration.end?.toLocaleDateString() ?? 'until now'}
                                 </span>
                             </div>
