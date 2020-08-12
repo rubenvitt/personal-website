@@ -46,7 +46,8 @@ export const CvSummary = (): JSX.Element => {
                                 <div className="ml-4">
                                     <h4 className="text-lg leading-6 font-medium text-gray-900">Work Experience</h4>
                                     <p className="mt-2 text-base leading-6 text-gray-500">
-                                        I have professional experience (after university) since currently {workdays}
+                                        I have professional experience (after university) since currently{' '}
+                                        {workdays + ' '}
                                         days. Currently I'm working at fme AG in Braunschweig, Germany.
                                     </p>
                                 </div>
@@ -72,7 +73,8 @@ export const CvSummary = (): JSX.Element => {
                                     <h4 className="text-lg leading-6 font-medium text-gray-900">Education</h4>
                                     <p className="mt-2 text-base leading-6 text-gray-500">
                                         After the university degree I can't stop to learn. Currently I finished
-                                        {certCount} online course-certificates already and I'm open for new ones.
+                                        {' ' + certCount + ' '} online course-certificates already and I'm open for new
+                                        ones.
                                     </p>
                                 </div>
                             </div>
