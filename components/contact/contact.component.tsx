@@ -2,8 +2,13 @@ import React from 'react';
 import { ContactInformation } from './info.component';
 import { ContactSidebar } from './sidebar.component';
 import * as Calendly from 'react-calendly';
+import { CalendlyEventListener } from 'react-calendly';
 
 export const ContactComponent = (): JSX.Element => {
+    function showBanner() {
+        alert('Thanks!');
+    }
+
     return (
         <div className="relative bg-white">
             <div className="absolute inset-0">
@@ -17,11 +22,19 @@ export const ContactComponent = (): JSX.Element => {
                 <div className="bg-white pb-16 px-4 sm:px-6 lg:col-span-3 lg:pb-24 lg:px-8 xl:pl-12">
                     <div className="max-w-lg mx-auto lg:max-w-none">
                         <div className="h-full">
-                            <Calendly.InlineWidget
-                                url={'https://calendly.com/rubeen'}
-                                pageSettings={{ hideLandingPageDetails: true }}
-                                styles={{ display: 'block', overflow: 'hidden', height: '1000px' }}
-                            />
+                            <CalendlyEventListener onEventScheduled={showBanner}>
+                                <Calendly.InlineWidget
+                                    url={'https://calendly.com/rubeen'}
+                                    pageSettings={{
+                                        hideLandingPageDetails: true,
+                                        primaryColor: '#DD6B20',
+                                        backgroundColor: '#cccccc',
+                                    }}
+                                    styles={{ display: 'block', overflow: 'hidden', height: '1000px' }}
+                                >
+                                    Loading.
+                                </Calendly.InlineWidget>
+                            </CalendlyEventListener>
                         </div>
                     </div>
                 </div>

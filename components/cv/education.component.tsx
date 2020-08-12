@@ -8,7 +8,7 @@ export const CvEducation = (): JSX.Element => {
     });
 
     return (
-        <div className="relative pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+        <div className="relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8">
             <div className="relative max-w-7xl mx-auto">
                 <h2 className="text-xl leading-6 font-medium text-gray-900">Education</h2>
                 <div className="bg-white shadow overflow-hidden sm:rounded-md mt-3 lg:mt-6">
@@ -87,10 +87,19 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                 </div>
                             </div>
                             <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
-                                <Shape type="icons" category='Office' name='Calendar' primaryColor='currentColor' secondaryColor='#f5a623' size={24} backgroundColor="none" borderRadius={0} />
+                                <Shape
+                                    type="icons"
+                                    category="Office"
+                                    name="Calendar"
+                                    primaryColor="currentColor"
+                                    secondaryColor="#f5a623"
+                                    size={24}
+                                    backgroundColor="none"
+                                    borderRadius={0}
+                                />
                                 <span>
-                                    {study.duration.start.toLocaleDateString()} until{' '}
-                                    {study.duration.end?.toLocaleDateString() ?? 'until now'}
+                                    {study.duration.start.toLocaleDateString('en-gb')} until{' '}
+                                    {study.duration.end?.toLocaleDateString('en-gb') ?? 'until now'}
                                 </span>
                             </div>
                         </div>

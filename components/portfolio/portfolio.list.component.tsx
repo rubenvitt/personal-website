@@ -3,8 +3,6 @@ import { PortfolioItem as DataItem, PortfolioItemType, portfolioList } from '../
 import Shape from 'shape-library';
 
 export const PortfolioList = (): JSX.Element => {
-    const [linesOfCode, setLinesOfCode] = useState('...');
-    const [mainLanguages, setMainLanguages] = useState([]);
     const list = portfolioList().sort((a, b) => {
         if (a.portfolioItemType === b.portfolioItemType) {
             return a.title.localeCompare(b.title);
@@ -15,8 +13,8 @@ export const PortfolioList = (): JSX.Element => {
 
     return (
         <div className="mx-3 mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {list.map((item) => {
-                return <PortfolioItem item={item} />;
+            {list.map((item, i) => {
+                return <PortfolioItem key={i} item={item} />;
             })}
         </div>
     );
