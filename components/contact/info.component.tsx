@@ -1,10 +1,11 @@
 import React from 'react';
 import { contactInformationList } from '../../data/contact-items.list';
+import * as Calendly from 'react-calendly';
 
 export const ContactInformation = (): JSX.Element => {
     return (
-        <div className="bg-white">
-            <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div>
+            <div className="max-w-screen-xl mx-auto py-12">
                 <div className="grid gap-8 grid-cols-2 lg:grid-cols-3">
                     {contactInformationList.map((element) => {
                         return (
