@@ -1,6 +1,7 @@
 import React from 'react';
-import { Skill, SkillDirection } from '../../data/skill-items.list';
-import Shape from 'shape-library';
+import { CertificateSkill, Skill, SkillDirection, SkillType } from '../../data/skill-items.list';
+import Lottie from 'react-lottie';
+import { ShapeAnimation } from '../../data/icons/animation-data/icons';
 
 class SkillElementProps {
     skill: Skill;
@@ -39,41 +40,56 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                 {skill.title}
                                 {skill.certificates && skill.certificates.length > 0 ? (
                                     <span className="inline-flex items-center ml-2 px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-yellow-100 text-yellow-800">
-                                        <Shape
-                                            type="animatedicons"
-                                            category="Simple-Animated"
-                                            name="wand and stars"
-                                            primaryColor="#975A16"
-                                            secondaryColor="#D69E2E"
-                                            size={24}
+                                        <Lottie
+                                            options={{
+                                                loop: true,
+                                                autoplay: true,
+                                                animationData: ShapeAnimation.WandAndStartAnimation,
+                                                rendererSettings: {
+                                                    preserveAspectRatio: 'xMidYMid slice',
+                                                },
+                                            }}
+                                            height={24}
+                                            width={24}
                                         />{' '}
                                         Certified
                                     </span>
                                 ) : null}
                             </dt>
                             <dd className="flex items-baseline">
-                                <div className="text-2xl leading-8 font-semibold text-gray-900">{skill.value}%</div>
+                                <div className="text-2xl leading-8 font-semibold text-gray-900">
+                                    {skill.type !== SkillType.Certificate
+                                        ? Number.isNaN(skill.value)
+                                            ? ''
+                                            : skill.value + '%'
+                                        : (skill as CertificateSkill).date.toLocaleDateString('en-gb')}
+                                    {}
+                                </div>
                                 <div
                                     className={
                                         'ml-2 flex items-baseline text-sm leading-5 font-semibold ' +
                                         calcColor(skill.status)
                                     }
                                 >
-                                    <svg
-                                        className={
-                                            'self-center flex-shrink-0 h-5 w-5 transform ' +
-                                            calcArrowDirection(skill.status)
-                                        }
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                    {skill.status}
+                                    {skill.type !== SkillType.Certificate ? (
+                                        <>
+                                            <svg
+                                                className={
+                                                    'self-center flex-shrink-0 h-5 w-5 transform ' +
+                                                    calcArrowDirection(skill.status)
+                                                }
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path
+                                                    fillRule="evenodd"
+                                                    d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
+                                                    clipRule="evenodd"
+                                                />
+                                            </svg>
+                                            {skill.status}
+                                        </>
+                                    ) : null}
                                 </div>
                             </dd>
                         </dl>
@@ -115,26 +131,24 @@ export const DefaultSkillElement = ({ skills, buttonHandler }: DefaultSkillEleme
                         <div>
                             <div className="text-sm leading-5 font-medium text-orange-500 truncate">There's more!</div>
                             <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                                <svg
-                                    className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                >
-                                    <path d="M2.25,12.584c-0.713,0-1.292,0.578-1.292,1.291s0.579,1.291,1.292,1.291c0.713,0,1.292-0.578,1.292-1.291S2.963,12.584,2.25,12.584z M2.25,14.307c-0.238,0-0.43-0.193-0.43-0.432s0.192-0.432,0.43-0.432c0.238,0,0.431,0.193,0.431,0.432S2.488,14.307,2.25,14.307z M5.694,6.555H18.61c0.237,0,0.431-0.191,0.431-0.43s-0.193-0.431-0.431-0.431H5.694c-0.238,0-0.43,0.192-0.43,0.431S5.457,6.555,5.694,6.555z M2.25,8.708c-0.713,0-1.292,0.578-1.292,1.291c0,0.715,0.579,1.292,1.292,1.292c0.713,0,1.292-0.577,1.292-1.292C3.542,9.287,2.963,8.708,2.25,8.708z M2.25,10.43c-0.238,0-0.43-0.192-0.43-0.431c0-0.237,0.192-0.43,0.43-0.43c0.238,0,0.431,0.192,0.431,0.43C2.681,10.238,2.488,10.43,2.25,10.43z M18.61,9.57H5.694c-0.238,0-0.43,0.192-0.43,0.43c0,0.238,0.192,0.431,0.43,0.431H18.61c0.237,0,0.431-0.192,0.431-0.431C19.041,9.762,18.848,9.57,18.61,9.57z M18.61,13.443H5.694c-0.238,0-0.43,0.193-0.43,0.432s0.192,0.432,0.43,0.432H18.61c0.237,0,0.431-0.193,0.431-0.432S18.848,13.443,18.61,13.443z M2.25,4.833c-0.713,0-1.292,0.578-1.292,1.292c0,0.713,0.579,1.291,1.292,1.291c0.713,0,1.292-0.578,1.292-1.291C3.542,5.412,2.963,4.833,2.25,4.833z M2.25,6.555c-0.238,0-0.43-0.191-0.43-0.43s0.192-0.431,0.43-0.431c0.238,0,0.431,0.192,0.431,0.431S2.488,6.555,2.25,6.555z" />
-                                </svg>
                                 <span className="">Get to know more of my language skills</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path
-                            fillRule="evenodd"
-                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
+                <div className={'transform rotate-180'}>
+                    <Lottie
+                        options={{
+                            loop: true,
+                            autoplay: true,
+                            animationData: ShapeAnimation.BackAnimation,
+                            rendererSettings: {
+                                preserveAspectRatio: 'xMidYMid slice',
+                            },
+                        }}
+                        height={96}
+                        width={96}
+                    />
                 </div>
             </div>
         </button>
@@ -157,6 +171,8 @@ export const calcColor: (direction: SkillDirection) => string = (direction) => {
             return 'text-red-500';
         case SkillDirection.UNCHANGED:
             return 'text-yellow-300';
+        case SkillDirection.NA:
+            return 'text-gray-600';
     }
 };
 

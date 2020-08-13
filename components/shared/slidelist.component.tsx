@@ -1,6 +1,6 @@
 import React from 'react';
 import { calcArrowDirection, calcColor } from '../cv/skill.component';
-import { Skill } from '../../data/skill-items.list';
+import { Skill, SkillDirection } from '../../data/skill-items.list';
 
 class SlideListElementProps {
     skill: Skill;
@@ -28,28 +28,32 @@ export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element 
                         <dl>
                             <dt className="text-xs leading-5 font-medium text-gray-500 truncate">{skill.title}</dt>
                             <dd className="flex items-baseline">
-                                <div className="text-2l leading-8 font-semibold text-gray-900">{skill.value}%</div>
-                                <div
-                                    className={
-                                        'ml-2 flex items-baseline text-sm leading-5 font-semibold ' +
-                                        calcColor(skill.status)
-                                    }
-                                >
-                                    <svg
-                                        className={
-                                            'self-center flex-shrink-0 h-5 w-5 transform ' +
-                                            calcArrowDirection(skill.status)
-                                        }
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
+                                <div className="text-2l leading-8 font-semibold text-gray-900">
+                                    {Number.isNaN(skill.value) ? '' : skill.value + '%'}
                                 </div>
+                                {skill.status !== SkillDirection.NA ? (
+                                    <div
+                                        className={
+                                            'ml-2 flex items-baseline text-sm leading-5 font-semibold ' +
+                                            calcColor(skill.status)
+                                        }
+                                    >
+                                        <svg
+                                            className={
+                                                'self-center flex-shrink-0 h-5 w-5 transform ' +
+                                                calcArrowDirection(skill.status)
+                                            }
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    </div>
+                                ) : null}
                             </dd>
                         </dl>
                     </div>

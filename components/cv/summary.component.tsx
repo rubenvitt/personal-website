@@ -1,7 +1,7 @@
 import React from 'react';
 import { calculateDaysBetween } from '../../helper/DateCalculator';
 import { skillList, SkillType } from '../../data/skill-items.list';
-import Shape from 'shape-library';
+import { Icons } from '../../data/icons/icons';
 
 export const CvSummary = (): JSX.Element => {
     const workdays = calculateDaysBetween(new Date('2019-08-01').getTime(), Date.now());
@@ -31,16 +31,15 @@ export const CvSummary = (): JSX.Element => {
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                                        <Shape
-                                            type="icons"
-                                            category="Office"
-                                            name="Briefcase"
-                                            primaryColor="#ffffff"
-                                            size={24}
-                                            theme={0}
-                                            backgroundColor="none"
-                                            borderRadius={0}
-                                        />
+                                        <svg width="24" height="24">
+                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d={Icons.BriefCase}
+                                                fill="currentColor"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className="ml-4">
@@ -57,16 +56,15 @@ export const CvSummary = (): JSX.Element => {
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                                        <Shape
-                                            type="icons"
-                                            category="Office"
-                                            name="Book"
-                                            primaryColor="#ffffff"
-                                            secondaryColor="#22a6b3"
-                                            size={24}
-                                            backgroundColor="none"
-                                            borderRadius={0}
-                                        />
+                                        <svg width="24" height="24">
+                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d={Icons.Book}
+                                                fill="currentColor"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className="ml-4">
@@ -83,16 +81,15 @@ export const CvSummary = (): JSX.Element => {
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                                        <Shape
-                                            type="icons"
-                                            category="Object"
-                                            name="Cloud"
-                                            primaryColor="#ffffff"
-                                            secondaryColor="#4A90E2"
-                                            size={24}
-                                            backgroundColor="none"
-                                            borderRadius={0}
-                                        />
+                                        <svg width="24" height="24">
+                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d={Icons.Cloud}
+                                                fill="currentColor"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className="ml-4">
@@ -110,15 +107,15 @@ export const CvSummary = (): JSX.Element => {
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                                        <Shape
-                                            type="icons"
-                                            category="Object"
-                                            name="More"
-                                            primaryColor="#ffffff"
-                                            size={24}
-                                            backgroundColor="none"
-                                            borderRadius={0}
-                                        />
+                                        <svg width="24" height="24">
+                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d={Icons.More}
+                                                fill="currentColor"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className="ml-4">

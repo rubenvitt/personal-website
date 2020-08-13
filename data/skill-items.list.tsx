@@ -1,14 +1,18 @@
 import React from 'react';
+import {number} from "prop-types";
 
 export enum SkillType {
     ProgrammingLanguage = 'Programming Language',
     HumanLanguage = 'Human Language',
+    Certificate = 'Certificate',
+
 }
 
 export enum SkillDirection {
     UP = 'IMPROVED',
     UNCHANGED = 'UNCHANGED',
     DOWN = 'NOT USED',
+    NA = 'N/A',
 }
 
 export abstract class Skill {
@@ -33,6 +37,22 @@ export abstract class Skill {
         this.type = type;
         this.status = status;
         this.certificates = certificates;
+    }
+}
+
+export class CertificateSkill extends Skill {
+    date: Date;
+
+    constructor(
+        title: string,
+        svg: string,
+        value: number,
+        type: SkillType,
+        date: Date,
+        certificates?: Certificate[],
+    ) {
+        super(title, svg, value, type, SkillDirection.NA, certificates);
+        this.date = date;
     }
 }
 
@@ -238,5 +258,21 @@ export const skillList: ProgrammingLanguageSkill[] = [
         60,
         SkillType.HumanLanguage,
         SkillDirection.UP,
+    ),
+
+    // Human languages
+    new CertificateSkill(
+        'YouthPass',
+        'M5.44995 2.6C5.44995 2.27 5.71995 2 6.04995 2C6.37995 2 6.64995 2.27 6.64995 2.6V3.55005H20.05C20.38 3.55005 20.65 3.82005 20.65 4.15005V13.15C20.65 13.48 20.38 13.75 20.05 13.75H6.64995V20.8H8.14985C8.47985 20.8 8.74985 21.07 8.74985 21.4C8.74985 21.73 8.47985 22 8.14985 22H3.94985C3.61985 22 3.34985 21.73 3.34985 21.4C3.34985 21.07 3.61985 20.8 3.94985 20.8H5.44995V13.15V4.15005V2.6ZM6.64995 12.55H19.45V4.75005H6.64995V12.55Z',
+        Number.NaN,
+        SkillType.Certificate,
+        new Date('2020-01-01'),
+    ),
+    new CertificateSkill(
+        'English',
+        'M5.44995 2.6C5.44995 2.27 5.71995 2 6.04995 2C6.37995 2 6.64995 2.27 6.64995 2.6V3.55005H20.05C20.38 3.55005 20.65 3.82005 20.65 4.15005V13.15C20.65 13.48 20.38 13.75 20.05 13.75H6.64995V20.8H8.14985C8.47985 20.8 8.74985 21.07 8.74985 21.4C8.74985 21.73 8.47985 22 8.14985 22H3.94985C3.61985 22 3.34985 21.73 3.34985 21.4C3.34985 21.07 3.61985 20.8 3.94985 20.8H5.44995V13.15V4.15005V2.6ZM6.64995 12.55H19.45V4.75005H6.64995V12.55Z',
+        60,
+        SkillType.Certificate,
+        new Date('2020-04-01'),
     ),
 ];

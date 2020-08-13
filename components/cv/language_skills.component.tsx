@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
 import { SlideListElement } from '../shared/slidelist.component';
 
-export const CvSkills = (): JSX.Element => {
+export const CvLanguageSkills = (): JSX.Element => {
     const [slideOverState, setSlideOverState] = useState(false);
     const toggleSlideOverState = () => {
         setSlideOverState(!slideOverState);
