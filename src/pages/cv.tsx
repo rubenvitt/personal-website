@@ -7,6 +7,7 @@ import { CvWork } from '../components/cv/work.component';
 import { CvEducation } from '../components/cv/education.component';
 import { CvHumanLanguages } from '../components/cv/human_languages.component';
 import { CvOtherSkills } from '../components/cv/other_skills.component';
+import {PageFooter} from "../components/page-footer/page-footer.component";
 
 export default function Home(): JSX.Element {
     return (
@@ -19,8 +20,8 @@ export default function Home(): JSX.Element {
                 <CvWork />
                 <CvEducation />
                 <CvHumanLanguages />
-                <div className="pb-20 lg:pb-28" />
             </PageContainer>
+            <PageFooter />
         </div>
     );
 }

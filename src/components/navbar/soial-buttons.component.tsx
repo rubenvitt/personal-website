@@ -1,8 +1,12 @@
 import React from 'react';
 
-export const SocialButtons = (): JSX.Element => {
+export class SocialButtonProps {
+    marginLeft: boolean;
+}
+
+export const SocialButtons = ({ marginLeft }: SocialButtonProps): JSX.Element => {
     return (
-        <div className="ml-6 flex items-center">
+        <div className={(marginLeft ? 'ml-6' : '') + ' flex items-center'}>
             <a
                 href="https://github.com/rubenvitt"
                 target="_blank"
