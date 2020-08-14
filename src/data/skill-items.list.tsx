@@ -1,11 +1,12 @@
 import React from 'react';
-import {number} from "prop-types";
+import { Icons } from './icons/icons';
 
 export enum SkillType {
     ProgrammingLanguage = 'Programming Language',
     HumanLanguage = 'Human Language',
     Certificate = 'Certificate',
-
+    SoftSkill = 'Soft Skill',
+    TechnicalSkill = 'Technical Skill',
 }
 
 export enum SkillDirection {
@@ -40,17 +41,27 @@ export abstract class Skill {
     }
 }
 
-export class CertificateSkill extends Skill {
-    date: Date;
+export class TaggedSkill extends Skill {
+    tag: string;
 
     constructor(
         title: string,
         svg: string,
         value: number,
         type: SkillType,
-        date: Date,
+        status: SkillDirection,
+        tag: string,
         certificates?: Certificate[],
     ) {
+        super(title, svg, value, type, status, certificates);
+        this.tag = tag;
+    }
+}
+
+export class CertificateSkill extends Skill {
+    date: Date;
+
+    constructor(title: string, svg: string, value: number, type: SkillType, date: Date, certificates?: Certificate[]) {
         super(title, svg, value, type, SkillDirection.NA, certificates);
         this.date = date;
     }
@@ -108,7 +119,7 @@ export const skillList: ProgrammingLanguageSkill[] = [
         SkillDirection.UP,
         [
             new Certificate(
-                'JetBrains (Coursera)',
+                'JetBrains (Kotlin for Java Developers)',
                 'https://www.coursera.org/account/accomplishments/records/PLMNXAPJBE9U?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharebutton_course&utm_user=ac7ca8516080249ebb7e652afda8288433429dd7',
                 new Date(2020, 4, 23),
             ),
@@ -146,7 +157,7 @@ export const skillList: ProgrammingLanguageSkill[] = [
         SkillDirection.DOWN,
         [
             new Certificate(
-                'Percival, Hossain (Udemy)',
+                'Percival, Hossain (The Complete Ruby on Rails Developer Course)',
                 'https://www.udemy.com/certificate/UC-f3a735d4-388f-4558-b6dd-19fb6925c834/',
                 new Date('2020-05-08'),
             ),
@@ -260,19 +271,19 @@ export const skillList: ProgrammingLanguageSkill[] = [
         SkillDirection.UP,
     ),
 
-    // Human languages
-    new CertificateSkill(
-        'YouthPass',
-        'M5.44995 2.6C5.44995 2.27 5.71995 2 6.04995 2C6.37995 2 6.64995 2.27 6.64995 2.6V3.55005H20.05C20.38 3.55005 20.65 3.82005 20.65 4.15005V13.15C20.65 13.48 20.38 13.75 20.05 13.75H6.64995V20.8H8.14985C8.47985 20.8 8.74985 21.07 8.74985 21.4C8.74985 21.73 8.47985 22 8.14985 22H3.94985C3.61985 22 3.34985 21.73 3.34985 21.4C3.34985 21.07 3.61985 20.8 3.94985 20.8H5.44995V13.15V4.15005V2.6ZM6.64995 12.55H19.45V4.75005H6.64995V12.55Z',
-        Number.NaN,
-        SkillType.Certificate,
-        new Date('2020-01-01'),
-    ),
-    new CertificateSkill(
-        'English',
-        'M5.44995 2.6C5.44995 2.27 5.71995 2 6.04995 2C6.37995 2 6.64995 2.27 6.64995 2.6V3.55005H20.05C20.38 3.55005 20.65 3.82005 20.65 4.15005V13.15C20.65 13.48 20.38 13.75 20.05 13.75H6.64995V20.8H8.14985C8.47985 20.8 8.74985 21.07 8.74985 21.4C8.74985 21.73 8.47985 22 8.14985 22H3.94985C3.61985 22 3.34985 21.73 3.34985 21.4C3.34985 21.07 3.61985 20.8 3.94985 20.8H5.44995V13.15V4.15005V2.6ZM6.64995 12.55H19.45V4.75005H6.64995V12.55Z',
-        60,
-        SkillType.Certificate,
-        new Date('2020-04-01'),
-    ),
+    //Tagged skills
+    new TaggedSkill('Kubernetes', Icons.Kubernetes, 60, SkillType.TechnicalSkill, SkillDirection.UP, 'Container', [
+        new Certificate(
+            'Bred Fisher (Kubernetes Mastery)',
+            'https://www.udemy.com/certificate/UC-e1f401f9-e7a5-453d-ad28-3a813c5533f9/',
+            new Date('2020-05-15'),
+        ),
+    ]),
+    new TaggedSkill('Docker', Icons.Docker, 95, SkillType.TechnicalSkill, SkillDirection.UP, 'Container', [
+        new Certificate(
+            'Bred Fisher (Docker Mastery)',
+            'https://www.udemy.com/certificate/UC-e66c9add-c0eb-4df6-a1a3-54e38fc4a452/',
+            new Date('2020-05-09'),
+        ),
+    ]),
 ];
