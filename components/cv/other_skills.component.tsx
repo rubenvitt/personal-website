@@ -1,8 +1,10 @@
-import { ProgrammingLanguageSkill, Skill, skillList, SkillType } from '../../data/skill-items.list';
+import {Skill, skillList, SkillType } from '../../data/skill-items.list';
 import { DefaultSkillElement, SkillElement } from './skill.component';
 import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
 import { SlideListElement } from '../shared/slidelist.component';
+
+const maxElementsVisible = 6;
 
 export const CvOtherSkills = (): JSX.Element => {
     const [slideOverState, setSlideOverState] = useState(false);
@@ -20,14 +22,14 @@ export const CvOtherSkills = (): JSX.Element => {
             <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {skills
                     .sort((a, b) => b.value - a.value)
-                    .slice(0, 5)
+                    .slice(0, maxElementsVisible - 1)
                     .map((skill, i) => (
                         <SkillElement skill={skill} key={i} listIndex={i} />
                     ))}
-                <DefaultSkillElement skills={skills} buttonHandler={toggleSlideOverState} />
+                <DefaultSkillElement max={maxElementsVisible} skills={skills} buttonHandler={toggleSlideOverState} />
             </div>
             <SlideOver
-                title="My programming languages"
+                title="My additional skills"
                 setSlideOverState={setSlideOverState}
                 slideOverState={slideOverState}
                 contentFunction={slideOverContent}
@@ -39,7 +41,7 @@ export const CvOtherSkills = (): JSX.Element => {
 
 const slideOverContent = (skillList: Skill[]) => {
     return (
-        <ul className="grid grid-cols-1 gap-2">
+        <ul className="grid grid-cols-2 gap-2">
             {skillList
                 .sort((a, b) => b.value - a.value)
                 .map((skill) => {
