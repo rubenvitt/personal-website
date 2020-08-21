@@ -41,7 +41,6 @@
     "eslint-plugin-react": "latest",
     "mongodb": "latest",
     "react-native-svg": "latest",
-    "typescript": "latest",
-    "@types/next-connect": "latest"
+    "typescript": "latest"
   }
 }
