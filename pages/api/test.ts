@@ -12,7 +12,7 @@ const handler = nextConnect();
 handler.use(middleware);
 
 handler.get(async (req: ExtendedRequest, res: NextApiResponse) => {
-    const doc = await req.db.collection('work-items').find({}).toArray();
+    const doc = await req.db.collection('workItems').find({}).toArray();
     res.json(doc);
 });
 

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "dotenv -e .env -- node server.js",
+    "dev:online": "dotenv -e .online.env -- node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "global:install-dependencies": "npm i -g dotenv"
