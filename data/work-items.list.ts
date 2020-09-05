@@ -14,6 +14,7 @@ export const workList = [
     {
         position: 'Associate Consultant',
         company: 'fme AG',
+        place: 'Braunschweig, Germany',
         responsibilities: [
             'Application Development',
             'Consulting',
@@ -33,6 +34,7 @@ export const workList = [
     {
         position: 'Junior Software Developer',
         company: 'dotSource GmbH',
+        place: 'Leipzig, Germany',
         responsibilities: ['Extension Bugfixing', 'Extension Development'],
         technologies: ['Java'],
         duration: {
@@ -45,6 +47,7 @@ export const workList = [
     {
         position: 'Student',
         company: 'fme AG',
+        place: 'Braunschweig, Germany',
         responsibilities: [
             'Subversion -> GitLab Migration',
             'Introduction Code-Search',
@@ -64,6 +67,7 @@ export const workList = [
     {
         position: 'Working Student',
         company: 'Elektrobit',
+        place: 'Braunschweig, Germany',
         responsibilities: ['HMI-Development', 'UI-Scripts', 'UI Implementation'],
         technologies: ['EB-Guide', 'Java'],
         duration: {
@@ -77,6 +81,7 @@ export const workList = [
     {
         position: 'Student Assistant',
         company: 'Ostfalia',
+        place: 'Suderburg, Germany',
         responsibilities: ['Project Management', 'Project Planning'],
         technologies: ['Windows 10 iot', 'Smart Home management FrontEnds'],
         duration: {
@@ -90,6 +95,7 @@ export const workList = [
     {
         position: 'Disk Jockey',
         company: 'Self Employed | Rubeen',
+        place: 'Salzgitter, Germany',
         responsibilities: ['finances', 'marketing', 'music', 'contracts'],
         technologies: ['Traktor', 'Hardware'],
         duration: {

@@ -2,6 +2,7 @@ import React from 'react';
 import { CertificateSkill, Skill, SkillDirection, SkillType, TaggedSkill } from '../../data/skill-items.list';
 import Lottie from 'react-lottie';
 import { ShapeAnimation } from '../../data/icons/animation-data/icons';
+import { ComplexIcons } from '../../data/icons/complexIcons';
 
 class SkillElementProps {
     skill: Skill;
@@ -22,7 +23,12 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
         >
             {(skill as TaggedSkill).tag !== undefined ? (
                 <div className="flex items-center bg-gray-100 px-4 py-2 border-b border-gray-200 sm:px-6">
-                    <svg className="inline-block mr-1 h-5 w-5 text-blue-900" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                    <svg
+                        className="inline-block mr-1 h-5 w-5 text-blue-900"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        stroke="none"
+                    >
                         <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -127,7 +133,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                     key={i}
                                     className="truncate bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
                                 >
-                                    {cert.title}
+                                    {cert.title} {ComplexIcons.Find}
                                 </a>
                             );
                         })}

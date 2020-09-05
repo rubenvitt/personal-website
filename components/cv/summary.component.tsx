@@ -1,7 +1,8 @@
 import React from 'react';
-import { calculateDaysBetween } from '../../helper/DateCalculator';
+import { calcDurationBetween, calculateDaysBetween, DurationItem } from '../../helper/DateCalculator';
 import { skillList, SkillType } from '../../data/skill-items.list';
 import { Icons } from '../../data/icons/icons';
+import { workList } from '../../data/work-items.list';
 
 export const CvSummary = (): JSX.Element => {
     const workdays = calculateDaysBetween(new Date('2019-08-01').getTime(), Date.now());
@@ -9,6 +10,7 @@ export const CvSummary = (): JSX.Element => {
         .filter((x) => x.type === SkillType.ProgrammingLanguage)
         .map((x) => x.certificates?.length ?? 0)
         .reduce((a, b) => a + b);
+    const lastWork = workList.reduce((a, b) => (a.duration.start > b.duration.start ? a : b));
 
     return (
         <div className="py-12 bg-white border-b border-gray-100">
@@ -21,7 +23,8 @@ export const CvSummary = (): JSX.Element => {
                         Ruben Vitt
                     </h3>
                     <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
-                        Hey, I'm a 23 years old bachelor graduated computer scientist. I work since one year at fme.
+                        Hey, I'm a {calcDurationBetween({ start: new Date('1997-04-07') })} old bachelor graduated
+                        computer scientist. I work since {calcDurationBetween(lastWork.duration)} at {lastWork.company}.
                     </p>
                 </div>
 
@@ -45,9 +48,9 @@ export const CvSummary = (): JSX.Element => {
                                 <div className="ml-4">
                                     <h4 className="text-lg leading-6 font-medium text-gray-900">Work Experience</h4>
                                     <p className="mt-2 text-base leading-6 text-gray-500">
-                                        I have professional experience (after university) since currently{' '}
-                                        {workdays + ' '}
-                                        days. Currently I'm working at fme AG in Braunschweig, Germany.
+                                        I have professional experience (after university) since {workdays + ' '} days.
+                                        Currently I'm working as {lastWork.position} at {lastWork.company} in{' '}
+                                        {lastWork.place}.
                                     </p>
                                 </div>
                             </div>
@@ -77,7 +80,7 @@ export const CvSummary = (): JSX.Element => {
                                 </div>
                             </div>
                         </li>
-                        <li className="mt-10 md:mt-0">
+                        <li className="mt-10 md:mt-5">
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
@@ -103,7 +106,7 @@ export const CvSummary = (): JSX.Element => {
                                 </div>
                             </div>
                         </li>
-                        <li className="mt-10 md:mt-0">
+                        <li className="mt-10 md:mt-5">
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
