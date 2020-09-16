@@ -3,6 +3,15 @@ export class DurationItem {
     end?: Date;
 }
 
+export const fixDurationItem = (item: DurationItem): void => {
+    if (typeof item.start === 'string') {
+        item.start = new Date(item.start);
+    }
+    if (typeof item.end === 'string') {
+        item.end = new Date(item.end);
+    }
+};
+
 const ONE_DAY = 24 * 60 * 60 * 1000;
 export const calculateDaysBetween = (start: number, end: number): number => {
     return Math.round(Math.abs(end - start) / ONE_DAY);

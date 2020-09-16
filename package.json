@@ -25,7 +25,7 @@
     "react-lottie": "latest",
     "react-transition-group": "latest",
     "sass": "latest",
-    "tailwindcss": "^1.8.2",
+    "tailwindcss": "latest",
     "tslint": "latest"
   },
   "devDependencies": {

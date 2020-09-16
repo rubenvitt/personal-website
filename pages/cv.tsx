@@ -3,13 +3,36 @@ import { PageHead } from '../components/page-head/page-head.component';
 import { PageContainer } from '../components/page-container/page-container.component';
 import { CvSummary } from '../components/cv/summary.component';
 import { CvLanguageSkills } from '../components/cv/language_skills.component';
-import { CvWork } from '../components/cv/work.component';
 import { CvEducation } from '../components/cv/education.component';
 import { CvHumanLanguages } from '../components/cv/human_languages.component';
 import { CvOtherSkills } from '../components/cv/other_skills.component';
-import {PageFooter} from "../components/page-footer/page-footer.component";
+import { PageFooter } from '../components/page-footer/page-footer.component';
+import CvWork from '../components/cv/work.component';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { WorkModel } from '../data/work-items.list';
 
-export default function Home(): JSX.Element {
+export const getStaticProps: GetStaticProps = async (context) => {
+    try {
+        const res = await fetch('http://localhost:3004/api/work-items/');
+        const workItems: WorkModel[] = await res.json();
+        return {
+            props: {
+                workList: workItems,
+            },
+            revalidate: 1,
+        };
+    } catch (e) {
+        console.error(e);
+        return {
+            props: {
+                workList: [],
+            },
+            revalidate: 1,
+        };
+    }
+};
+
+export default function Home({ workList }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
     return (
         <div>
             <PageHead />
@@ -17,7 +40,7 @@ export default function Home(): JSX.Element {
                 <CvSummary />
                 <CvLanguageSkills />
                 <CvOtherSkills />
-                <CvWork />
+                <CvWork workItems={workList} />
                 <CvEducation />
                 <CvHumanLanguages />
             </PageContainer>

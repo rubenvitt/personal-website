@@ -1,23 +1,37 @@
-import { workList, WorkModel } from '../../data/work-items.list';
+import { WorkModel } from '../../data/work-items.list';
 import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
 import { zeroPad } from '../../helper/NumberHelper';
-import { calcDurationBetween } from '../../helper/DateCalculator';
+import { calcDurationBetween, fixDurationItem } from '../../helper/DateCalculator';
 
-export const CvWork: () => JSX.Element = () => {
+type CvWorkProps = {
+    workItems: WorkModel[];
+};
+
+export const CvWork = ({ workItems }: CvWorkProps): JSX.Element => {
+    if (workItems.length === 0) {
+        return <></>;
+    }
+
+    workItems.forEach((item) => {
+        fixDurationItem(item.duration);
+    });
     return (
         <div className="relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8">
             <div className="relative max-w-7xl mx-auto">
                 <h2 className="text-xl leading-6 font-medium text-gray-900">Work experience</h2>
                 <div className="mt-12 grid gap-5 max-w-lg mx-auto md:grid-cols-2 md:max-w-none lg:grid-cols-3">
-                    {workList.map((work, i) => {
-                        return <WorkItem work={work} key={i} />;
-                    })}
+                    {workItems &&
+                        workItems.map((work, i) => {
+                            return <WorkItem work={work} key={i} />;
+                        })}
                 </div>
             </div>
         </div>
     );
 };
+
+export default CvWork;
 
 class WorkItemProps {
     work: WorkModel;
