@@ -1,5 +1,5 @@
 import React from 'react';
-import { calculateMail } from '../../helper/MailHelper';
+import { calculateMail } from '../../helper/mail-helper';
 
 export const ContactSidebar = (): JSX.Element => {
     return (

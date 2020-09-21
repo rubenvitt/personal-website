@@ -1,8 +1,8 @@
 import { WorkModel } from '../../data/work-items.list';
 import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
-import { zeroPad } from '../../helper/NumberHelper';
-import { calcDurationBetween, fixDurationItem } from '../../helper/DateCalculator';
+import { zeroPad } from '../../helper/number-helper';
+import { calcDurationBetween, fixDurationItem } from '../../helper/date-calculator';
 
 type CvWorkProps = {
     workItems: WorkModel[];

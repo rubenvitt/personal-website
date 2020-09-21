@@ -1,4 +1,4 @@
-import { calculateMail } from '../helper/MailHelper';
+import { calculateMail } from '../helper/mail-helper';
 import React from 'react';
 
 export class ContactInformation {

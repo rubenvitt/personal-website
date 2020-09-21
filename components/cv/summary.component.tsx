@@ -1,5 +1,5 @@
 import React from 'react';
-import { calcDurationBetween, calculateDaysBetween, DurationItem } from '../../helper/DateCalculator';
+import { calcDurationBetween, calculateDaysBetween, DurationItem } from '../../helper/date-calculator';
 import { skillList, SkillType } from '../../data/skill-items.list';
 import { Icons } from '../../data/icons/icons';
 import { workList } from '../../data/work-items.list';

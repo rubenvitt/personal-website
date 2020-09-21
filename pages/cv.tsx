@@ -10,11 +10,12 @@ import { PageFooter } from '../components/page-footer/page-footer.component';
 import CvWork from '../components/cv/work.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { WorkModel } from '../data/work-items.list';
+import { hostname } from 'os';
+import { fetchWorkItems } from '../helper/http-helper';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
-        const res = await fetch('http://localhost:3004/api/work-items/');
-        const workItems: WorkModel[] = await res.json();
+        const workItems = await fetchWorkItems();
         return {
             props: {
                 workList: workItems,

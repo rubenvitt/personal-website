@@ -1,4 +1,4 @@
-import { DurationItem } from '../helper/DateCalculator';
+import { DurationItem } from '../helper/date-calculator';
 
 export class Study {
     subject: string;
