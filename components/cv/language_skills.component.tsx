@@ -6,15 +6,16 @@ import { SlideListElement } from '../shared/slidelist.component';
 
 const maxElementsVisible = 6;
 
-export const CvLanguageSkills = (): JSX.Element => {
+interface CvLanguageSkillsProps {
+    languages: ProgrammingLanguageSkill[];
+}
+
+export const CvLanguageSkills = ({ languages }: CvLanguageSkillsProps): JSX.Element => {
     const [slideOverState, setSlideOverState] = useState(false);
     const toggleSlideOverState = () => {
         setSlideOverState(!slideOverState);
     };
 
-    const languages: Skill[] = skillList
-        .filter((it) => it.type === SkillType.ProgrammingLanguage)
-        .map((it) => it as ProgrammingLanguageSkill);
     return (
         <div className="px-2 py-2">
             <h2 className="text-xl leading-6 font-medium text-gray-900">I speak following (computer) languages</h2>

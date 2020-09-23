@@ -11,14 +11,18 @@ import CvWork from '../components/cv/work.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { WorkModel } from '../data/work-items.list';
 import { hostname } from 'os';
-import { fetchWorkItems } from '../helper/http-helper';
+import { fetchSkillItems, fetchWorkItems } from '../helper/http-helper';
+import { skillList } from '../data/skill-items.list';
+import { filterProgrammingLanguages } from '../helper/skill-helper';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
         const workItems = await fetchWorkItems();
+        const skillItems = await fetchSkillItems();
         return {
             props: {
                 workList: workItems,
+                skillList: skillItems,
             },
             revalidate: 1,
         };
@@ -27,19 +31,20 @@ export const getStaticProps: GetStaticProps = async (context) => {
         return {
             props: {
                 workList: [],
+                skillList: [],
             },
             revalidate: 1,
         };
     }
 };
 
-export default function Home({ workList }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
+export default function Home({ workList, skillList }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
     return (
         <div>
             <PageHead />
             <PageContainer>
                 <CvSummary />
-                <CvLanguageSkills />
+                <CvLanguageSkills languages={filterProgrammingLanguages(skillList)} />
                 <CvOtherSkills />
                 <CvWork workItems={workList} />
                 <CvEducation />
