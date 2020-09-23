@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AdminLoginComponent } from '../../components/admin/login.component';
 import { useCookies } from 'react-cookie';
 import { Cookie, CookieSetOptions } from 'universal-cookie';
+import { AdminPageContentComponent } from '../../components/admin/content.component';
 
 export default function AdminPage(): JSX.Element {
     const [cookies, setCookie, rmCookie] = useCookies(['access-token']);
@@ -20,7 +21,7 @@ export default function AdminPage(): JSX.Element {
     return (
         <>
             {checkedAccessToken ? (
-                <>Success</>
+                <AdminPageContentComponent />
             ) : (
                 <AdminLoginComponent
                     lastResult={checkedAccessToken}
@@ -29,9 +30,6 @@ export default function AdminPage(): JSX.Element {
                     }}
                 />
             )}
-            <div>
-                <div className="bg-green-100 dark:bg-blue-400">Todo ...</div>
-            </div>
         </>
     );
 }
