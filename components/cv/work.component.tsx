@@ -17,7 +17,7 @@ export const CvWork = ({ workItems }: CvWorkProps): JSX.Element => {
         fixDurationItem(item.duration);
     });
     return (
-        <div className="relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8">
+        <div className={`${workItems.length > 0 ? '' : 'hidden'} relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8`}>
             <div className="relative max-w-7xl mx-auto">
                 <h2 className="text-xl leading-6 font-medium text-gray-900">Work experience</h2>
                 <div className="mt-12 grid gap-5 max-w-lg mx-auto md:grid-cols-2 md:max-w-none lg:grid-cols-3">

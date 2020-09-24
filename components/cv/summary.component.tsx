@@ -1,15 +1,14 @@
 import React from 'react';
-import { calcDurationBetween, calculateDaysBetween, DurationItem } from '../../helper/date-calculator';
-import { skillList, SkillType } from '../../data/skill-items.list';
+import { calcDurationBetween, calculateDaysBetween } from '../../helper/date-calculator';
 import { Icons } from '../../data/icons/icons';
 import { workList } from '../../data/work-items.list';
 
-export const CvSummary = (): JSX.Element => {
+interface CvSummaryProps {
+    certCount: number;
+}
+
+export const CvSummary = ({ certCount }: CvSummaryProps): JSX.Element => {
     const workdays = calculateDaysBetween(new Date('2019-08-01').getTime(), Date.now());
-    const certCount = skillList
-        .filter((x) => x.type === SkillType.ProgrammingLanguage)
-        .map((x) => x.certificates?.length ?? 0)
-        .reduce((a, b) => a + b);
     const lastWork = workList.reduce((a, b) => (a.duration.start > b.duration.start ? a : b));
 
     return (

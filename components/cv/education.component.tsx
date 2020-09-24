@@ -9,7 +9,7 @@ export const CvEducation = (): JSX.Element => {
     });
 
     return (
-        <div className="relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8">
+        <div className={`${studies.length > 0 ? '' : 'hidden'} relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8`}>
             <div className="relative max-w-7xl mx-auto">
                 <h2 className="text-xl leading-6 font-medium text-gray-900">Education</h2>
                 <div className="bg-white shadow overflow-hidden sm:rounded-md mt-3 lg:mt-6">

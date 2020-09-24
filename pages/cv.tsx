@@ -9,11 +9,13 @@ import { CvOtherSkills } from '../components/cv/other_skills.component';
 import { PageFooter } from '../components/page-footer/page-footer.component';
 import CvWork from '../components/cv/work.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { WorkModel } from '../data/work-items.list';
-import { hostname } from 'os';
 import { fetchSkillItems, fetchWorkItems } from '../helper/http-helper';
-import { skillList } from '../data/skill-items.list';
-import { filterProgrammingLanguages } from '../helper/skill-helper';
+import {
+    calculateCertCount,
+    filterHumanLanguageSkills,
+    filterOtherSkills,
+    filterProgrammingLanguages,
+} from '../helper/skill-helper';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
@@ -43,12 +45,12 @@ export default function Home({ workList, skillList }: InferGetStaticPropsType<ty
         <div>
             <PageHead />
             <PageContainer>
-                <CvSummary />
+                <CvSummary certCount={calculateCertCount(skillList)} />
                 <CvLanguageSkills languages={filterProgrammingLanguages(skillList)} />
-                <CvOtherSkills />
+                <CvOtherSkills skills={filterOtherSkills(skillList)} />
                 <CvWork workItems={workList} />
                 <CvEducation />
-                <CvHumanLanguages />
+                <CvHumanLanguages languages={filterHumanLanguageSkills(skillList)} />
             </PageContainer>
             <PageFooter />
         </div>
