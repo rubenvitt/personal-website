@@ -20,7 +20,9 @@ import { calculateLastWork, remapWorkDurationToDate } from '../helper/work-helpe
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
-        const workItems = await fetchWorkItems();
+        const workItems = await fetchWorkItems().then((items) => {
+            return items.sort((a, b) => ('' + b.duration.start).localeCompare(a.duration.start + ''));
+        });
         const skillItems = await fetchSkillItems();
         return {
             props: {
