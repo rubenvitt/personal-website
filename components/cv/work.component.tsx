@@ -1,4 +1,4 @@
-import { WorkModel } from '../../data/work-items.list';
+import { WorkModel } from '../../types/work-items.types';
 import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
 import { zeroPad } from '../../helper/number-helper';

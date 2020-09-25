@@ -1,4 +1,4 @@
-import { ProgrammingLanguageSkill, Skill } from '../../data/skill-items.list';
+import { ProgrammingLanguageSkill, Skill } from '../../types/skill-items.types';
 import { DefaultSkillElement, SkillElement } from './skill.component';
 import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';

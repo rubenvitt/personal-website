@@ -1,5 +1,5 @@
 import React from 'react';
-import { GenericSkill } from '../../data/skill-items.list';
+import { GenericSkill } from '../../types/skill-items.types';
 
 class CvHumanLanguagesProps {
     languages: GenericSkill[];

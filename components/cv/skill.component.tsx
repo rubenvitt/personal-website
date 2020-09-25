@@ -1,5 +1,5 @@
 import React from 'react';
-import { CertificateSkill, Skill, SkillDirection, SkillType, TaggedSkill } from '../../data/skill-items.list';
+import { CertificateSkill, Skill, SkillDirection, SkillType, TaggedSkill } from '../../types/skill-items.types';
 import Lottie from 'react-lottie';
 import { ShapeAnimation } from '../../data/icons/animation-data/icons';
 import { ComplexIcons } from '../../data/icons/complexIcons';

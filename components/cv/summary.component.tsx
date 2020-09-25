@@ -1,15 +1,15 @@
 import React from 'react';
 import { calcDurationBetween, calculateDaysBetween } from '../../helper/date-calculator';
 import { Icons } from '../../data/icons/icons';
-import { workList } from '../../data/work-items.list';
+import { WorkModel } from '../../types/work-items.types';
 
 interface CvSummaryProps {
     certCount: number;
+    lastWork: WorkModel;
 }
 
-export const CvSummary = ({ certCount }: CvSummaryProps): JSX.Element => {
+export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element => {
     const workdays = calculateDaysBetween(new Date('2019-08-01').getTime(), Date.now());
-    const lastWork = workList.reduce((a, b) => (a.duration.start > b.duration.start ? a : b));
 
     return (
         <div className="py-12 bg-white border-b border-gray-100">

@@ -16,6 +16,7 @@ import {
     filterOtherSkills,
     filterProgrammingLanguages,
 } from '../helper/skill-helper';
+import { calculateLastWork, remapWorkDurationToDate } from '../helper/work-helper';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
@@ -41,11 +42,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Home({ workList, skillList }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
+    remapWorkDurationToDate(workList);
     return (
         <div>
             <PageHead />
             <PageContainer>
-                <CvSummary certCount={calculateCertCount(skillList)} />
+                <CvSummary certCount={calculateCertCount(skillList)} lastWork={calculateLastWork(workList)} />
                 <CvLanguageSkills languages={filterProgrammingLanguages(skillList)} />
                 <CvOtherSkills skills={filterOtherSkills(skillList)} />
                 <CvWork workItems={workList} />
