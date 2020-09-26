@@ -23,13 +23,14 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                     </h3>
                     <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
                         Hey, I'm a {calcDurationBetween({ start: new Date('1997-04-07') })} old bachelor graduated
-                        computer scientist. I work since {calcDurationBetween(lastWork.duration)} at {lastWork.company}.
+                        computer scientist. I'm working since {calcDurationBetween(lastWork.duration)} at{' '}
+                        {lastWork.company}.
                     </p>
                 </div>
 
                 <div className="mt-10">
                     <ul className="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
-                        <li>
+                        <li className="md:mr-2">
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
@@ -54,7 +55,7 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                                 </div>
                             </div>
                         </li>
-                        <li className="mt-10 md:mt-0">
+                        <li className="mt-10 md:mt-0 md:ml-2">
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
@@ -79,7 +80,7 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                                 </div>
                             </div>
                         </li>
-                        <li className="mt-10 md:mt-5">
+                        <li className="mt-10 md:mt-5 md:mr-2">
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
@@ -105,7 +106,7 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                                 </div>
                             </div>
                         </li>
-                        <li className="mt-10 md:mt-5">
+                        <li className="mt-10 md:mt-5 md:ml-2">
                             <div className="flex">
                                 <div className="flex-shrink-0">
                                     <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">

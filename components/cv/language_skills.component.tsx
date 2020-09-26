@@ -17,15 +17,12 @@ export const CvLanguageSkills = ({ languages }: CvLanguageSkillsProps): JSX.Elem
     };
 
     return (
-        <div className={`${languages.length > 0 ? '' : 'hidden'} px-2 py-2`}>
+        <div className={`${languages.length > 0 ? '' : 'hidden'} pt-2 relative px-4 sm:px-6 lg:px-8`}>
             <h2 className="text-xl leading-6 font-medium text-gray-900">I speak following (computer) languages</h2>
             <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {languages
-                    .sort((a, b) => b.value - a.value)
-                    .slice(0, maxElementsVisible - 1)
-                    .map((skill, i) => (
-                        <SkillElement skill={skill} key={i} listIndex={i} />
-                    ))}
+                {languages.slice(0, maxElementsVisible - 1).map((skill, i) => (
+                    <SkillElement skill={skill} key={i} listIndex={i} />
+                ))}
                 <DefaultSkillElement max={maxElementsVisible} skills={languages} buttonHandler={toggleSlideOverState} />
             </div>
             <SlideOver

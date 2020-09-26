@@ -24,7 +24,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
         const workItems = await fetchWorkItems().then((items) => {
             return items.sort((a, b) => ('' + b.duration.start).localeCompare(a.duration.start + ''));
         });
-        const skillItems = await fetchSkillItems();
+        const skillItems = await fetchSkillItems().then((items) => {
+            return items.sort((a, b) => b.value - a.value);
+        });
         const studyItems = await fetchStudyItems();
         console.log(`Got following study items: ${studyItems}`);
         return {

@@ -17,15 +17,12 @@ export const CvOtherSkills = ({ skills }: CvOtherSkillsProps): JSX.Element => {
     };
 
     return (
-        <div className={`${skills.length > 0 ? '' : 'hidden'} px-2 py-2`}>
+        <div className={`${skills.length > 0 ? '' : 'hidden'} relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8`}>
             <h2 className="text-xl leading-6 font-medium text-gray-900">I also know</h2>
             <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {skills
-                    .sort((a, b) => b.value - a.value)
-                    .slice(0, maxElementsVisible - 1)
-                    .map((skill, i) => (
-                        <SkillElement skill={skill} key={i} listIndex={i} />
-                    ))}
+                {skills.slice(0, maxElementsVisible - 1).map((skill, i) => (
+                    <SkillElement skill={skill} key={i} listIndex={i} />
+                ))}
                 <DefaultSkillElement max={maxElementsVisible} skills={skills} buttonHandler={toggleSlideOverState} />
             </div>
             <SlideOver
