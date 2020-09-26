@@ -1,10 +1,15 @@
 import React from 'react';
-import { Status, Study, studyList } from '../../data/study-items.list';
+import { Status, StudyModel, studyList } from '../../data/study-items.list';
 import { ShapeAnimation } from '../../data/icons/animation-data/icons';
 import Lottie from 'react-lottie';
 
-export const CvEducation = (): JSX.Element => {
+interface CvEducationProps {
+    studyList: StudyModel[];
+}
+
+export const CvEducation = ({ studyList }: CvEducationProps): JSX.Element => {
     const studies = studyList.sort((a, b) => {
+        console.log(a.university + ': ' + a.duration.end);
         return b.duration.end.getTime() - a.duration.end.getTime();
     });
 
@@ -24,7 +29,7 @@ export const CvEducation = (): JSX.Element => {
 
 class EducationItemProps {
     i: number;
-    study: Study;
+    study: StudyModel;
 }
 
 const EducationItem = ({ i, study }: EducationItemProps) => {

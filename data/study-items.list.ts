@@ -1,6 +1,6 @@
 import { DurationItem } from '../helper/date-calculator';
 
-export class Study {
+export class StudyModel {
     subject: string;
     university: string;
     duration: DurationItem;
@@ -34,41 +34,4 @@ export enum Status {
     SWITCHED = 'switched',
 }
 
-export const studyList = [
-    new Study(
-        'Applied Computer Science',
-        'Ostfalia Suderburg',
-        'Bachelor of Science',
-        {
-            start: new Date(2015, 8, 1),
-            end: new Date(2016, 6, 31),
-        },
-        Status.SWITCHED,
-        ['THIS', 'this', 'and this'],
-        'https://ostfalia.de/b',
-    ),
-    new Study(
-        'Computer Science',
-        'Ostfalia Wolfenbüttel',
-        'Bachelor of Science',
-        {
-            start: new Date(2016, 8, 1),
-            end: new Date(2019, 6, 31),
-        },
-        Status.COMPLETED,
-        ['this', 'this', 'and this'],
-        'https://ostfalia.de/i',
-    ),
-    new Study(
-        'Computer Science',
-        'FernUni Hagen',
-        'Master of Science',
-        {
-            start: new Date(2019, 8, 1),
-            end: new Date(2020, 0, 31),
-        },
-        Status.INCOMPLETE,
-        ['this', 'this', 'and this'],
-        'https://fernuni-hagen.de',
-    ),
-];
+export const studyList = [];

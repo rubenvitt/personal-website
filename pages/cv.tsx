@@ -9,7 +9,7 @@ import { CvOtherSkills } from '../components/cv/other_skills.component';
 import { PageFooter } from '../components/page-footer/page-footer.component';
 import CvWork from '../components/cv/work.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { fetchSkillItems, fetchWorkItems } from '../helper/http-helper';
+import { fetchSkillItems, fetchStudyItems, fetchWorkItems } from '../helper/http-helper';
 import {
     calculateCertCount,
     filterHumanLanguageSkills,
@@ -17,6 +17,7 @@ import {
     filterProgrammingLanguages,
 } from '../helper/skill-helper';
 import { calculateLastWork, remapWorkDurationToDate } from '../helper/work-helper';
+import { remapStudyDurationToDate } from '../helper/study-helper';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
@@ -24,10 +25,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
             return items.sort((a, b) => ('' + b.duration.start).localeCompare(a.duration.start + ''));
         });
         const skillItems = await fetchSkillItems();
+        const studyItems = await fetchStudyItems();
+        console.log(`Got following study items: ${studyItems}`);
         return {
             props: {
                 workList: workItems,
                 skillList: skillItems,
+                studyList: studyItems,
             },
             revalidate: 1,
         };
@@ -37,14 +41,20 @@ export const getStaticProps: GetStaticProps = async (context) => {
             props: {
                 workList: [],
                 skillList: [],
+                studyList: [],
             },
             revalidate: 1,
         };
     }
 };
 
-export default function Home({ workList, skillList }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
+export default function Home({
+    workList,
+    skillList,
+    studyList,
+}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
     remapWorkDurationToDate(workList);
+    remapStudyDurationToDate(studyList);
     return (
         <div>
             <PageHead />
@@ -53,7 +63,7 @@ export default function Home({ workList, skillList }: InferGetStaticPropsType<ty
                 <CvLanguageSkills languages={filterProgrammingLanguages(skillList)} />
                 <CvOtherSkills skills={filterOtherSkills(skillList)} />
                 <CvWork workItems={workList} />
-                <CvEducation />
+                <CvEducation studyList={studyList} />
                 <CvHumanLanguages languages={filterHumanLanguageSkills(skillList)} />
             </PageContainer>
             <PageFooter />
