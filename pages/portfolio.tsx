@@ -2,16 +2,68 @@ import React from 'react';
 import { PageHead } from '../components/page-head/page-head.component';
 import { PageContainer } from '../components/page-container/page-container.component';
 import { PortfolioList } from '../components/portfolio/portfolio.list.component';
-import {PageFooter} from "../components/page-footer/page-footer.component";
+import { PageFooter } from '../components/page-footer/page-footer.component';
 import Lottie from 'react-lottie';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { fetchPortfolioItems, fetchSkillItems, fetchStudyItems, fetchWorkItems } from '../helper/http-helper';
+import { PortfolioItemType } from '../types/portfolio-items.types';
 
-export default function Home(): JSX.Element {
+/*
+const list = portfolioList().sort((a, b) => {
+        if (a.portfolioItemType === b.portfolioItemType) {
+            return a.title.localeCompare(b.title);
+        } else {
+            return (b.portfolioItemType ?? 1) - (a.portfolioItemType ?? 1);
+        }
+    });
+ */
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    try {
+        const portfolioItems = await fetchPortfolioItems()
+            .then((items) => {
+                return items.sort((a, b) => {
+                    if (a.portfolioItemType === b.portfolioItemType) {
+                        return a.title.localeCompare(b.title);
+                    } else {
+                        return (b.portfolioItemType ?? 1) - (a.portfolioItemType ?? 1);
+                    }
+                });
+            })
+            .then((items) => {
+                return items.map((item) => {
+                    if (typeof item.portfolioItemType === 'string') {
+                        item.portfolioItemType = Number(item.portfolioItemType);
+                    }
+                    console.log(typeof item.portfolioItemType);
+                    console.log(typeof PortfolioItemType.ARCHIVE);
+                    return item;
+                });
+            });
+        return {
+            props: {
+                list: portfolioItems,
+            },
+            revalidate: 1,
+        };
+    } catch (e) {
+        console.error(e);
+        return {
+            props: {
+                list: [],
+            },
+            revalidate: 1,
+        };
+    }
+};
+
+export default function Home({ list }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
     return (
         <div>
             <PageHead />
             <PageContainer>
                 <PortfolioIntroduction />
-                <PortfolioList />
+                <PortfolioList list={list} />
             </PageContainer>
             <PageFooter />
         </div>
@@ -51,9 +103,7 @@ const PortfolioIntroduction = (): JSX.Element => {
                     </div>
                 </div>
             </main>
-            <div className="flex-1">
-
-            </div>
+            <div className="flex-1"></div>
         </div>
     );
 };

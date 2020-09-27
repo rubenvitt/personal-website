@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import { PortfolioItem as DataItem, PortfolioItemType, portfolioList } from '../../data/portfolio-items.list';
+import React from 'react';
+import { PortfolioModel as DataItem, PortfolioItemType } from '../../types/portfolio-items.types';
 
-export const PortfolioList = (): JSX.Element => {
-    const list = portfolioList().sort((a, b) => {
-        if (a.portfolioItemType === b.portfolioItemType) {
-            return a.title.localeCompare(b.title);
-        } else {
-            return (b.portfolioItemType ?? 1) - (a.portfolioItemType ?? 1);
-        }
-    });
+interface PortfolioListProps {
+    list: DataItem[];
+}
 
+export const PortfolioList = ({ list }: PortfolioListProps): JSX.Element => {
     return (
         <div className="mx-3 mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {list.map((item, i) => {
