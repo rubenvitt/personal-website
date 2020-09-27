@@ -35,8 +35,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
                     if (typeof item.portfolioItemType === 'string') {
                         item.portfolioItemType = Number(item.portfolioItemType);
                     }
-                    console.log(typeof item.portfolioItemType);
-                    console.log(typeof PortfolioItemType.ARCHIVE);
                     return item;
                 });
             });
