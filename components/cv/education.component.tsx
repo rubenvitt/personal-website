@@ -9,7 +9,6 @@ interface CvEducationProps {
 
 export const CvEducation = ({ studyList }: CvEducationProps): JSX.Element => {
     const studies = studyList.sort((a, b) => {
-        console.log(a.university + ': ' + a.duration.end);
         return b.duration.end.getTime() - a.duration.end.getTime();
     });
 

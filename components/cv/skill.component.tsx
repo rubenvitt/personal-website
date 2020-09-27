@@ -59,7 +59,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                     </div>
                     <div className="ml-5 w-0 flex-1">
                         <dl>
-                            <dt className="text-sm leading-5 font-medium text-gray-500 truncate">
+                            <dt className="text-sm leading-5 font-medium text-black truncate">
                                 {skill.title}
                                 {skill.certificates && skill.certificates.length > 0 ? (
                                     <span className="inline-flex items-center ml-5 pr-2 py-0.5 rounded text-xs font-medium leading-4 bg-yellow-100 text-yellow-800">
@@ -82,7 +82,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                 ) : null}
                             </dt>
                             <dd className="flex items-baseline">
-                                <div className="text-2xl leading-8 font-semibold text-gray-900">
+                                <div className="text-2xl leading-8 font-semibold text-gray-700">
                                     {skill.type !== SkillType.Certificate
                                         ? Number.isNaN(skill.value)
                                             ? ''
@@ -191,13 +191,13 @@ function calcCols(certs): number {
 export const calcColor: (direction: SkillDirection) => string = (direction) => {
     switch (direction) {
         case SkillDirection.UP:
-            return 'text-green-500';
+            return 'text-green-700';
         case SkillDirection.DOWN:
-            return 'text-red-500';
+            return 'text-red-700';
         case SkillDirection.UNCHANGED:
-            return 'text-yellow-300';
+            return 'text-yellow-700';
         case SkillDirection.NA:
-            return 'text-gray-600';
+            return 'text-gray-700';
     }
 };
 

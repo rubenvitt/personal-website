@@ -38,7 +38,7 @@ export const CvOtherSkills = ({ skills }: CvOtherSkillsProps): JSX.Element => {
 
 const slideOverContent = (skillList: Skill[]) => {
     return (
-        <ul className="grid grid-cols-2 gap-2">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {skillList
                 .sort((a, b) => b.value - a.value)
                 .map((skill) => {

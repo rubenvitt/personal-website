@@ -28,7 +28,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
             return items.sort((a, b) => b.value - a.value);
         });
         const studyItems = await fetchStudyItems();
-        console.log(`Got following study items: ${studyItems}`);
         return {
             props: {
                 workList: workItems,
