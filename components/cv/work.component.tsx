@@ -1,24 +1,17 @@
-import { workList } from '../../data/work-items.list';
+import { workList, WorkModel } from '../../data/work-items.list';
 import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
-import { WorkModel } from '../../data/work-items.list';
 import { zeroPad } from '../../helper/NumberHelper';
 import { calcDurationBetween } from '../../helper/DateCalculator';
 
 export const CvWork: () => JSX.Element = () => {
-    const works = workList;
-
     return (
         <div className="relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8">
             <div className="relative max-w-7xl mx-auto">
                 <h2 className="text-xl leading-6 font-medium text-gray-900">Work experience</h2>
                 <div className="mt-12 grid gap-5 max-w-lg mx-auto md:grid-cols-2 md:max-w-none lg:grid-cols-3">
-                    {works.map((work, i) => {
-                        return (
-                            <>
-                                <WorkItem work={work} key={i} />
-                            </>
-                        );
+                    {workList.map((work, i) => {
+                        return <WorkItem work={work} key={i} />;
                     })}
                 </div>
             </div>
