@@ -19,5 +19,5 @@ export const filterHumanLanguageSkills = (skills: Skill[]) => {
 };
 
 export const calculateCertCount = (skills: Skill[]) => {
-    return skills.map((x) => x.certificates?.length ?? 0).reduce((a, b) => a + b);
+    return skills.length === 0 ? 0 : skills.map((x) => x.certificates?.length ?? 0).reduce((a, b) => a + b);
 };

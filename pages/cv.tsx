@@ -18,14 +18,17 @@ import {
 } from '../helper/skill-helper';
 import { calculateLastWork, remapWorkDurationToDate } from '../helper/work-helper';
 import { remapStudyDurationToDate } from '../helper/study-helper';
+import { GraphQLClient } from 'graphql-request';
+import { URLGraphCMS } from '../config/constants.config';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
-        const workItems = await fetchWorkItems().then((items) => {
+        const graphcms = new GraphQLClient(URLGraphCMS);
+        const workItems = await fetchWorkItems(graphcms).then((items) => {
             return items.sort((a, b) => ('' + b.duration.start).localeCompare(a.duration.start + ''));
         });
-        const skillItems = await fetchSkillItems().then((items) => {
-            return items.sort((a, b) => b.value - a.value);
+        const skillItems = await fetchSkillItems(graphcms).then((items) => {
+            return items.sort((a, b) => b.level - a.level);
         });
         const studyItems = await fetchStudyItems();
         return {

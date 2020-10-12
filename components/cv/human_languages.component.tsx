@@ -18,7 +18,7 @@ export const CvHumanLanguages = ({ languages }: CvHumanLanguagesProps): JSX.Elem
                     {languages.map((elem, i) => {
                         return (
                             <span key={i}>
-                                {elem.title} (<span className="font-bold">{elem.value}%</span>)
+                                {elem.title} (<span className="font-bold">{elem.level}%</span>)
                                 {i + 1 === languages.length ? '' : ', '}
                             </span>
                         );

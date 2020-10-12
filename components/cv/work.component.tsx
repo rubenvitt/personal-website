@@ -88,9 +88,9 @@ const WorkItem = ({ work }: WorkItemProps) => {
                             <div className="flex text-sm leading-5 text-gray-500">
                                 <span>{calcDurationBetween(work.duration)}</span>
                                 <span className="mx-1">&middot;</span>
-                                <span>{work.responsibilities.length} responsibilities</span>
+                                <span>{work.responsibilities?.length ?? 0} responsibilities</span>
                                 <span className="mx-1">&middot;</span>
-                                <span>{work.technologies.length} technologies</span>
+                                <span>{work.technologies?.length ?? 0} technologies</span>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@ const workSlideOverContent = (work: WorkModel) => {
                     </dl>
                     <dd className="mt-1 text-sm leading-5 text-gray-900">
                         <ul>
-                            {work.responsibilities.map((element, i) => {
+                            {work.responsibilities?.map((element, i) => {
                                 return (
                                     <li className="list-disc" key={i}>
                                         {element}
@@ -149,7 +149,7 @@ const workSlideOverContent = (work: WorkModel) => {
                     </dl>
                     <dd className="mt-1 text-sm leading-5 text-gray-900">
                         <ul>
-                            {work.technologies.map((element, i) => {
+                            {work.technologies?.map((element, i) => {
                                 return (
                                     <li className="list-disc" key={i}>
                                         {element}

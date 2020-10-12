@@ -18,7 +18,7 @@ export const calculateDaysBetween = (start: number, end: number): number => {
 };
 
 export const calcDurationBetween = (duration: DurationItem): string => {
-    const dur = (duration.end?.getTime() ?? new Date().getTime()) - duration.start?.getTime();
+    const dur = (duration?.end?.getTime() ?? new Date().getTime()) - duration?.start?.getTime();
 
     if (dur < 1000) {
         const number = Math.floor(dur);

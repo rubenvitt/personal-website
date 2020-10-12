@@ -1,5 +1,12 @@
 import React from 'react';
-import { CertificateSkill, Skill, SkillDirection, SkillType, TaggedSkill } from '../../types/skill-items.types';
+import {
+    CertificateSkill,
+    ProgrammingLanguageSkill,
+    Skill,
+    SkillDirection,
+    SkillType,
+    TaggedSkill
+} from '../../types/skill-items.types';
 import Lottie from 'react-lottie';
 import { ShapeAnimation } from '../../data/icons/animation-data/icons';
 import { ComplexIcons } from '../../data/icons/complexIcons';
@@ -21,7 +28,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
             key={listIndex}
             className="group bg-white overflow-hidden shadow rounded-lg hover:bg-gray-100 transition duration-150 ease-in-out"
         >
-            {(skill as TaggedSkill).tag !== undefined ? (
+            {(skill as TaggedSkill).tag ? (
                 <div className="flex items-center bg-gray-100 px-4 py-2 border-b border-gray-200 sm:px-6">
                     <svg
                         className="inline-block mr-1 h-5 w-5 text-blue-900"
@@ -84,16 +91,16 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                             <dd className="flex items-baseline">
                                 <div className="text-2xl leading-8 font-semibold text-gray-700">
                                     {skill.type !== SkillType.Certificate
-                                        ? Number.isNaN(skill.value)
+                                        ? Number.isNaN(skill.level)
                                             ? ''
-                                            : skill.value + '%'
+                                            : skill.level + '%'
                                         : (skill as CertificateSkill).date.toLocaleDateString('en-gb')}
                                     {}
                                 </div>
                                 <div
                                     className={
                                         'ml-2 flex items-baseline text-sm leading-5 font-semibold ' +
-                                        calcColor(skill.status)
+                                        calcColor(skill.skillDirection)
                                     }
                                 >
                                     {skill.type !== SkillType.Certificate ? (
@@ -101,7 +108,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                             <svg
                                                 className={
                                                     'self-center flex-shrink-0 h-5 w-5 transform ' +
-                                                    calcArrowDirection(skill.status)
+                                                    calcArrowDirection(skill.skillDirection)
                                                 }
                                                 fill="currentColor"
                                                 viewBox="0 0 20 20"
@@ -112,7 +119,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                                     clipRule="evenodd"
                                                 />
                                             </svg>
-                                            {skill.status}
+                                            {skill.skillDirection}
                                         </>
                                     ) : null}
                                 </div>
@@ -133,7 +140,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                     key={i}
                                     className="truncate bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
                                 >
-                                    {cert.title} {ComplexIcons.Find}
+                                    {cert.title} by {cert.author} at {cert.platform}
                                 </a>
                             );
                         })}

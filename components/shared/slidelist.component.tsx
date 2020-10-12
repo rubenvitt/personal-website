@@ -9,7 +9,7 @@ class SlideListElementProps {
 export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element => {
     return (
         <li key={skill.title} className="col-span-1 bg-white rounded-lg shadow hover:bg-gray-100">
-            {(skill as TaggedSkill).tag !== undefined ? (
+            {(skill as TaggedSkill).tag ? (
                 <div className="border-b border-gray-200 bg-gray-100 py-1 px-2 text-xs">
                     {(skill as TaggedSkill).tag}
                 </div>
@@ -34,19 +34,19 @@ export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element 
                             <dt className="text-xs leading-5 font-medium text-black truncate">{skill.title}</dt>
                             <dd className="flex items-baseline">
                                 <div className="text-2l leading-8 font-semibold text-gray-700">
-                                    {Number.isNaN(skill.value) ? '' : skill.value + '%'}
+                                    {Number.isNaN(skill.level) ? '' : skill.level + '%'}
                                 </div>
-                                {skill.status !== SkillDirection.NA ? (
+                                {skill.skillDirection !== SkillDirection.NA ? (
                                     <div
                                         className={
                                             'ml-2 flex items-baseline text-sm leading-5 font-semibold ' +
-                                            calcColor(skill.status)
+                                            calcColor(skill.skillDirection)
                                         }
                                     >
                                         <svg
                                             className={
                                                 'self-center flex-shrink-0 h-5 w-5 transform ' +
-                                                calcArrowDirection(skill.status)
+                                                calcArrowDirection(skill.skillDirection)
                                             }
                                             fill="currentColor"
                                             viewBox="0 0 20 20"

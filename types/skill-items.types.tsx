@@ -1,9 +1,9 @@
 export enum SkillType {
-    ProgrammingLanguage = 'Programming Language',
-    HumanLanguage = 'Human Language',
+    ProgrammingLanguage = 'ProgrammingLanguage',
+    HumanLanguage = 'HumanLanguage',
     Certificate = 'Certificate',
-    SoftSkill = 'Soft Skill',
-    TechnicalSkill = 'Technical Skill',
+    SoftSkill = 'SoftSkill',
+    TechnicalSkill = 'TechnicalSkill',
 }
 
 export enum SkillDirection {
@@ -14,26 +14,27 @@ export enum SkillDirection {
 }
 
 export abstract class Skill {
+    id: string;
     title: string;
     svg: string;
-    value: number;
+    level: number;
     type: SkillType;
-    status: SkillDirection;
+    skillDirection: SkillDirection;
     certificates?: Certificate[];
 
     protected constructor(
         title: string,
         svg: string,
-        value: number,
+        level: number,
         type: SkillType,
         status: SkillDirection,
         certificates?: Certificate[],
     ) {
         this.title = title;
         this.svg = svg;
-        this.value = value;
+        this.level = level;
         this.type = type;
-        this.status = status;
+        this.skillDirection = status;
         this.certificates = certificates;
     }
 }
@@ -44,13 +45,13 @@ export class TaggedSkill extends Skill {
     constructor(
         title: string,
         svg: string,
-        value: number,
+        level: number,
         type: SkillType,
         status: SkillDirection,
         tag: string,
         certificates?: Certificate[],
     ) {
-        super(title, svg, value, type, status, certificates);
+        super(title, svg, level, type, status, certificates);
         this.tag = tag;
     }
 }
@@ -58,22 +59,19 @@ export class TaggedSkill extends Skill {
 export class CertificateSkill extends Skill {
     date: Date;
 
-    constructor(title: string, svg: string, value: number, type: SkillType, date: Date, certificates?: Certificate[]) {
-        super(title, svg, value, type, SkillDirection.NA, certificates);
+    constructor(title: string, svg: string, level: number, type: SkillType, date: Date, certificates?: Certificate[]) {
+        super(title, svg, level, type, SkillDirection.NA, certificates);
         this.date = date;
     }
 }
 
 class Certificate {
+    id: string;
     title: string;
     url: string;
     date: Date;
-
-    constructor(title: string, url: string, date: Date) {
-        this.title = title;
-        this.url = url;
-        this.date = date;
-    }
+    platform: string;
+    author: string;
 }
 
 export class ProgrammingLanguageSkill extends Skill {
@@ -82,13 +80,13 @@ export class ProgrammingLanguageSkill extends Skill {
     constructor(
         title: string,
         svg: string,
-        value: number,
+        level: number,
         type: SkillType,
         status: SkillDirection,
         certificates?: Certificate[],
         frameworks?: string[],
     ) {
-        super(title, svg, value, type, status, certificates);
+        super(title, svg, level, type, status, certificates);
         this.frameworks = frameworks;
     }
 }
@@ -97,11 +95,11 @@ export class GenericSkill extends Skill {
     constructor(
         title: string,
         svg: string,
-        value: number,
+        level: number,
         type: SkillType,
         status: SkillDirection,
         certificates?: Certificate[],
     ) {
-        super(title, svg, value, type, status, certificates);
+        super(title, svg, level, type, status, certificates);
     }
 }

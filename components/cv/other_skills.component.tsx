@@ -40,7 +40,7 @@ const slideOverContent = (skillList: Skill[]) => {
     return (
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {skillList
-                .sort((a, b) => b.value - a.value)
+                .sort((a, b) => b.level - a.level)
                 .map((skill) => {
                     return <SlideListElement key={skill.title} skill={skill} />;
                 })}
