@@ -24,7 +24,7 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                     <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
                         Hey, I'm a {calcDurationBetween({ start: new Date('1997-04-07') })} old bachelor graduated
                         computer scientist. I'm working since {calcDurationBetween(lastWork.duration)} at{' '}
-                        {lastWork.company}.
+                        {lastWork.company.name}.
                     </p>
                 </div>
 
@@ -49,8 +49,8 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                                     <h4 className="text-lg leading-6 font-medium text-gray-900">Work Experience</h4>
                                     <p className="mt-2 text-base leading-6 text-gray-500">
                                         I have professional experience (after university) since {workdays + ' '} days.
-                                        Currently I'm working as {lastWork.position} at {lastWork.company} in{' '}
-                                        {lastWork.place}.
+                                        Currently I'm working as {lastWork.position} at{' '}
+                                        <a href={lastWork.company.url}>{lastWork.company.name}</a> in {lastWork.place}.
                                     </p>
                                 </div>
                             </div>

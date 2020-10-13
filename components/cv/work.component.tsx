@@ -57,7 +57,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
                 className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50 transition duration-150 ease-in-out"
             >
                 <div className="flex-shrink-0">
-                    <img className="h-48 w-full object-cover" src={work.image} alt={work.company} />
+                    <img className="h-48 w-full object-cover" src={work.image} alt={work.company.name} />
                 </div>
                 <div className="block flex-1 p-6 flex flex-col justify-between">
                     <div className="flex-1">
@@ -78,7 +78,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
                             </span>
                         </p>
                         <div className="block">
-                            <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">{work.company}</h3>
+                            <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">{work.company.name}</h3>
                             <p className="mt-3 text-base leading-6 text-gray-500">{work.summary}</p>
                         </div>
                     </div>
@@ -106,11 +106,11 @@ const workSlideOverContent = (work: WorkModel) => {
             <div className="shadow overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">{work.position}</h3>
-                    <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">{work.company}</p>
+                    <a href={work.company.url} className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">{work.company.name}</a>
                 </div>
 
                 <div className="p-0">
-                    <img alt={work.company} src={work.image} />
+                    <img alt={work.company.name} src={work.image} />
                 </div>
 
                 <div className="px-4 border-b border-gray-100 py-5 sm:px-6">
@@ -152,7 +152,7 @@ const workSlideOverContent = (work: WorkModel) => {
                             {work.technologies?.map((element, i) => {
                                 return (
                                     <li className="list-disc" key={i}>
-                                        {element}
+                                        {element.title}
                                     </li>
                                 );
                             })}

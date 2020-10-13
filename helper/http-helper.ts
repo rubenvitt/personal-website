@@ -10,7 +10,7 @@ export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]
             `
     {
         works(stage:DRAFT) {
-            id, position, duration, responsibilities, image, summary, place
+            id, position, duration, responsibilities, image, summary, place, company {name, url}, technologies { title }
         }
     }
     `,
