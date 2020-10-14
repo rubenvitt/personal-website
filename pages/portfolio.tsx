@@ -7,6 +7,8 @@ import Lottie from 'react-lottie';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { fetchPortfolioItems, fetchSkillItems, fetchStudyItems, fetchWorkItems } from '../helper/http-helper';
 import { PortfolioItemType } from '../types/portfolio-items.types';
+import { GraphQLClient } from 'graphql-request';
+import { URLGraphCMS } from '../config/constants.config';
 
 /*
 const list = portfolioList().sort((a, b) => {
@@ -20,8 +22,11 @@ const list = portfolioList().sort((a, b) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
-        const portfolioItems = await fetchPortfolioItems()
+        const graphcms = new GraphQLClient(URLGraphCMS);
+
+        const portfolioItems = await fetchPortfolioItems(graphcms)
             .then((items) => {
+                console.log(items);
                 return items.sort((a, b) => {
                     if (a.portfolioItemType === b.portfolioItemType) {
                         return a.title.localeCompare(b.title);
@@ -33,6 +38,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             .then((items) => {
                 return items.map((item) => {
                     if (typeof item.portfolioItemType === 'string') {
+                        console.log('mapping ', item.portfolioItemType, ' to ', Number(item.portfolioItemType));
                         item.portfolioItemType = Number(item.portfolioItemType);
                     }
                     return item;

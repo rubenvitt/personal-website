@@ -1,8 +1,9 @@
 import { WorkModel } from '../types/work-items.types';
 import { Skill } from '../types/skill-items.types';
 import { StudyModel } from '../data/study-items.list';
-import { PortfolioModel } from '../types/portfolio-items.types';
+import { PortfolioItemType, PortfolioModel } from '../types/portfolio-items.types';
 import { GraphQLClient } from 'graphql-request';
+import { element } from 'prop-types';
 
 export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]> => {
     return await client
@@ -40,6 +41,56 @@ export const fetchStudyItems = async (): Promise<StudyModel[]> => {
     return [];
 };
 
-export const fetchPortfolioItems = async (): Promise<PortfolioModel[]> => {
-    return fetch(process.env.API_HOST + '/api/portfolio-items').then((r) => r.json());
+export const fetchPortfolioItems = async (client: GraphQLClient): Promise<PortfolioModel[]> => {
+    const parsePortfolioItemType = (type: string) => {
+        type = type.toLowerCase();
+        let result = undefined;
+        switch (type) {
+            case 'favorite':
+                result = PortfolioItemType.FAVORITE;
+                break;
+            case 'archive':
+                result = PortfolioItemType.ARCHIVE;
+                break;
+            case 'online':
+                result = PortfolioItemType.ONLINE;
+                break;
+        }
+        console.log(`calculated result: ${result}`);
+        return result;
+    };
+
+    return await client
+        .request(
+            `
+{
+  portfolioItems(stage: DRAFT) {
+    id
+    title
+    url
+    portfolioItemType
+    abbr
+    linesOfCode
+    langs {
+      __typename
+      ... on Skill {
+        id
+        title
+      }
+      ... on Framework {
+        id
+        title
+      }
+    }
+  }
+}
+    `,
+        )
+        .then((data) => data.portfolioItems)
+        .then((data) => {
+            return data.map((element) => {
+                element.portfolioItemType = parsePortfolioItemType(element.portfolioItemType);
+                return element;
+            });
+        });
 };

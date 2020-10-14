@@ -1,17 +1,19 @@
+import { Skill } from './skill-items.types';
+
 export class PortfolioModel {
     title: string;
     portfolioItemType: PortfolioItemType;
     url: string;
     abbr: string;
     linesOfCode?: number;
-    langs?: string[];
+    langs?: Skill[];
 
     constructor(
         abbr: string,
         title: string,
         portfolioItemType: PortfolioItemType,
         url: string,
-        langs?: string[],
+        langs?: Skill[],
         linesOfCode?: number,
     ) {
         this.abbr = abbr;
