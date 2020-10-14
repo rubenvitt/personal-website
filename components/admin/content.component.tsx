@@ -59,7 +59,7 @@ export const AdminPageContentComponent = (): JSX.Element => {
     };
 
     return (
-        <div className="h-screen flex overflow-hidden bg-white">
+        <div className="h-screen flex overflow-hidden bg-white dark:bg-gray-900">
             <AdminMenu menuItems={menuItems} mobileMenuOpen={mobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
 
             {/*<!-- Main column -->*/}

@@ -10,7 +10,7 @@ export const PageTitle = () => {
                 <span className="order-1 ml-3 shadow-sm rounded-md sm:order-0 sm:ml-0">
                     <button
                         type="button"
-                        className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out"
+                        className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out dark:bg-gray-900"
                     >
                         Share
                     </button>

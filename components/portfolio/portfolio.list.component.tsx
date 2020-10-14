@@ -42,7 +42,7 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
             >
                 {item.abbr}
             </div>
-            <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white group-hover:bg-gray-100 rounded-r-md truncate">
+            <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white group-hover:bg-gray-100 rounded-r-md truncate dark:bg-gray-900">
                 <div className="flex-1 px-4 py-2 text-sm leading-5 truncate">
                     <div className="text-gray-900 font-medium hover:text-gray-600 transition ease-in-out duration-150">
                         {item.title}

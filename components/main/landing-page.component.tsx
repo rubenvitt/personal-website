@@ -19,8 +19,9 @@ export const MainLandingPage = (): JSX.Element => {
                                 </span>
                             </h2>
                             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                                Welcome on my website. I'm a {calcDurationBetween({start: new Date("1997-04-07"), end: new Date()})} years old fullstack developer from Germany, working as
-                                Consultant at fme AG.
+                                Welcome on my website. I'm a{' '}
+                                {calcDurationBetween({ start: new Date('1997-04-07'), end: new Date() })} years old
+                                fullstack developer from Germany, working as Consultant at fme AG.
                             </p>
                             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md shadow">
@@ -34,7 +35,7 @@ export const MainLandingPage = (): JSX.Element => {
                                 <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                                     <a
                                         href="/cv"
-                                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-orange-600 bg-white hover:text-orange-500 hover:bg-gray-100 hover:border-orange-500 focus:outline-none focus:border-orange-300 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+                                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-orange-600 bg-white hover:text-orange-500 hover:bg-gray-100 hover:border-orange-500 focus:outline-none focus:border-orange-300 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10 dark:bg-gray-900"
                                     >
                                         View my CV
                                     </a>
@@ -58,7 +59,7 @@ export const MainLandingPage = (): JSX.Element => {
 const Container = ({ children }: PageContainerProps): JSX.Element => {
     return (
         <div>
-            <div className="min-h-screen bg-white">
+            <div className="min-h-screen bg-white dark:bg-gray-900">
                 <NavBar />
                 <div>
                     <main>

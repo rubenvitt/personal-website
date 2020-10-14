@@ -7,7 +7,7 @@ export const PageFooter = () => {
     const path = useRouter().pathname;
 
     return (
-        <div className="bg-white border-t-2 border-gray-100">
+        <div className="bg-white border-t-2 border-gray-100 dark:bg-gray-900">
             <div className="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
                 <nav className="-mx-5 -my-2 flex flex-wrap justify-center">
                     {MenuList.map((item) => {

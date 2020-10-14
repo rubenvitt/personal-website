@@ -12,7 +12,7 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
     const workdays = calculateDaysBetween(new Date('2019-08-01').getTime(), Date.now());
 
     return (
-        <div className="py-12 bg-white border-b border-gray-100">
+        <div className="py-12 bg-white border-b border-gray-100 dark:bg-gray-900">
             <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="lg:text-center">
                     <p className="text-base leading-6 text-orange-600 font-semibold tracking-wide uppercase">

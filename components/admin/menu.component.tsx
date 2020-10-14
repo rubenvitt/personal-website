@@ -17,7 +17,7 @@ interface AdminMenuProps extends MobileMenuToggler {
 
 export const MenuSwitcher = ({ toggleMobileMenu }: MobileMenuToggler): JSX.Element => {
     return (
-        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
+        <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden dark:bg-gray-900">
             <button
                 onClick={toggleMobileMenu}
                 className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 lg:hidden"
@@ -55,7 +55,7 @@ const MobileMenu = ({ menuItems, toggleMobileMenu, mobileMenuOpen }: AdminMenuPr
                 <div onClick={toggleMobileMenu} className={`fixed inset-0`}>
                     <div className="absolute inset-0 bg-gray-600 opacity-75" />
                 </div>
-                <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
+                <div className="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white dark:bg-gray-900">
                     <div className="absolute top-0 right-0 -mr-14 p-1">
                         <button
                             onClick={toggleMobileMenu}

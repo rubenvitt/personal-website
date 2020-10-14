@@ -11,7 +11,7 @@ export const PageContainer = ({ children, title }: PageContainerProps): JSX.Elem
 
     return (
         <div>
-            <div className="min-h-screen bg-white">
+            <div className="min-h-screen bg-white dark:bg-gray-900 dark:bg-gray-900">
                 <NavBar />
                 <div className="py-10">
                     {titleNotAvailable ? (

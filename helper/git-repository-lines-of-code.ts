@@ -8,7 +8,6 @@ export const countGithub = (repo: string): Promise<number> => {
         )
         .then((lineCounts) => {
             const reduce = lineCounts.reduce((lineTotal, lineCount) => lineTotal + lineCount);
-            console.log('Got lines', reduce);
             return reduce;
         });
 };

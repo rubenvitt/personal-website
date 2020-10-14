@@ -54,7 +54,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
             />
             <button
                 onClick={toggleSlideOverState}
-                className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50 transition duration-150 ease-in-out"
+                className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50 transition duration-150 ease-in-out dark:bg-gray-900"
             >
                 <div className="flex-shrink-0">
                     <img className="h-48 w-full object-cover" src={work.image} alt={work.company.name} />
@@ -102,11 +102,13 @@ const WorkItem = ({ work }: WorkItemProps) => {
 
 const workSlideOverContent = (work: WorkModel) => {
     return (
-        <div className="bg-white">
+        <div className="bg-white dark:bg-gray-900">
             <div className="shadow overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">{work.position}</h3>
-                    <a href={work.company.url} className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">{work.company.name}</a>
+                    <a href={work.company.url} className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
+                        {work.company.name}
+                    </a>
                 </div>
 
                 <div className="p-0">

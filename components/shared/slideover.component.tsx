@@ -92,7 +92,7 @@ export const SlideOver = ({
                                         </button>
                                     </div>
                                 </TransitionComponent>
-                                <div className="h-full flex flex-col space-y-6 py-6 bg-white shadow-xl overflow-y-scroll">
+                                <div className="h-full flex flex-col space-y-6 py-6 bg-white shadow-xl overflow-y-scroll dark:bg-gray-900">
                                     <header className="px-4 sm:px-6">
                                         <div className="flex items-start justify-between space-x-3">
                                             <h2 className="text-lg leading-7 font-medium text-gray-900">{title}</h2>

@@ -5,7 +5,7 @@ import {
     Skill,
     SkillDirection,
     SkillType,
-    TaggedSkill
+    TaggedSkill,
 } from '../../types/skill-items.types';
 import Lottie from 'react-lottie';
 import { ShapeAnimation } from '../../data/icons/animation-data/icons';
@@ -26,7 +26,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
     return (
         <div
             key={listIndex}
-            className="group bg-white overflow-hidden shadow rounded-lg hover:bg-gray-100 transition duration-150 ease-in-out"
+            className="group bg-white overflow-hidden shadow rounded-lg hover:bg-gray-100 transition duration-150 ease-in-out dark:bg-gray-900"
         >
             {(skill as TaggedSkill).tag ? (
                 <div className="flex items-center bg-gray-100 px-4 py-2 border-b border-gray-200 sm:px-6">
@@ -155,7 +155,7 @@ export const DefaultSkillElement = ({ skills, buttonHandler, max }: DefaultSkill
     return skills.length <= max ? null : (
         <button
             onClick={buttonHandler}
-            className="bg-white shadow overflow-hidden sm:rounded-md block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out"
+            className="bg-white shadow overflow-hidden sm:rounded-md block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out dark:bg-gray-900"
         >
             <div className="flex items-center px-4 py-4 sm:px-6">
                 <div className="min-w-0 flex-1 flex items-center">

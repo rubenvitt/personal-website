@@ -14,7 +14,7 @@ export const CvHumanLanguages = ({ languages }: CvHumanLanguagesProps): JSX.Elem
         >
             <div className="relative max-w-7xl mx-auto">
                 <h2 className="text-xl leading-6 font-medium text-gray-900">Human languages</h2>
-                <div className="bg-white overflow-hidden sm:rounded-md mt-3 lg:mt-6">
+                <div className="bg-white overflow-hidden sm:rounded-md mt-3 lg:mt-6 dark:bg-gray-900">
                     {languages.map((elem, i) => {
                         return (
                             <span key={i}>

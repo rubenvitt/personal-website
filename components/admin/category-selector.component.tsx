@@ -39,7 +39,7 @@ export const CategorySelector = () => {
                                 onClick={() => {
                                     alert('click on ' + it);
                                 }}
-                                className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate cursor-pointer hover:bg-gray-100 hover:border-gray-500"
+                                className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate cursor-pointer hover:bg-gray-100 hover:border-gray-500 dark:bg-gray-900"
                             >
                                 <div className="flex-1 px-4 py-2 text-sm leading-5 truncate">
                                     <h5 className="text-gray-900 font-medium transition ease-in-out duration-150">
