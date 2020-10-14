@@ -72,7 +72,6 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
                 result = PortfolioItemType.ONLINE;
                 break;
         }
-        console.log(`calculated result: ${result}`);
         return result;
     };
 

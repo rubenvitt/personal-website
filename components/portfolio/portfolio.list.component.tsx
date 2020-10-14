@@ -21,7 +21,6 @@ class PortfolioItemProps {
 
 const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
     let color: string;
-    console.log('portfolioItem-TYPE', item.portfolioItemType);
     switch (item.portfolioItemType) {
         case PortfolioItemType.ONLINE:
             color = 'bg-green-600 group-hover:bg-green-900';

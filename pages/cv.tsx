@@ -31,7 +31,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
             return items.sort((a, b) => b.level - a.level);
         });
         const studyItems = await fetchStudyItems(graphcms);
-        console.log(studyItems);
         return {
             props: {
                 workList: workItems,

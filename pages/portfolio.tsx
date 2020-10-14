@@ -26,7 +26,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
         const portfolioItems = await fetchPortfolioItems(graphcms)
             .then((items) => {
-                console.log(items);
                 return items.sort((a, b) => {
                     if (a.portfolioItemType === b.portfolioItemType) {
                         return a.title.localeCompare(b.title);
@@ -38,7 +37,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
             .then((items) => {
                 return items.map((item) => {
                     if (typeof item.portfolioItemType === 'string') {
-                        console.log('mapping ', item.portfolioItemType, ' to ', Number(item.portfolioItemType));
                         item.portfolioItemType = Number(item.portfolioItemType);
                     }
                     return item;
