@@ -30,7 +30,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
         const skillItems = await fetchSkillItems(graphcms).then((items) => {
             return items.sort((a, b) => b.level - a.level);
         });
-        const studyItems = await fetchStudyItems();
+        const studyItems = await fetchStudyItems(graphcms);
+        console.log(studyItems);
         return {
             props: {
                 workList: workItems,

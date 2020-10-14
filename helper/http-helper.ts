@@ -3,7 +3,6 @@ import { Skill } from '../types/skill-items.types';
 import { StudyModel } from '../data/study-items.list';
 import { PortfolioItemType, PortfolioModel } from '../types/portfolio-items.types';
 import { GraphQLClient } from 'graphql-request';
-import { element } from 'prop-types';
 
 export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]> => {
     return await client
@@ -37,8 +36,25 @@ export const fetchSkillItems = async (client: GraphQLClient): Promise<Skill[]> =
         .then((value) => value.skills);
 };
 
-export const fetchStudyItems = async (): Promise<StudyModel[]> => {
-    return [];
+export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel[]> => {
+    return await client
+        .request(
+            `
+{
+  studies(stage: DRAFT) {
+    duration
+    id
+    studyStatus
+    subject
+    university
+    courses
+    degree
+    url
+  }
+}
+    `,
+        )
+        .then((value) => value.studies);
 };
 
 export const fetchPortfolioItems = async (client: GraphQLClient): Promise<PortfolioModel[]> => {

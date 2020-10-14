@@ -45,7 +45,11 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                         <div className="flex items-center justify-between">
                             <div className="text-sm leading-5 font-medium text-orange-600 break-words">
                                 <span>{study.subject} </span>
-                                <span className={study.status === Status.COMPLETED ? 'text-gray-500' : 'text-gray-300'}>
+                                <span
+                                    className={
+                                        study.studyStatus === Status.COMPLETED ? 'text-gray-500' : 'text-gray-300'
+                                    }
+                                >
                                     | {study.degree}
                                 </span>
                             </div>
@@ -53,14 +57,14 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                 <span
                                     className={
                                         'px-2 inline-flex text-xs leading-5 font-semibold rounded-full ' +
-                                        (study.status === Status.INCOMPLETE
+                                        (study.studyStatus === Status.INCOMPLETE
                                             ? 'bg-red-100 text-red-800'
-                                            : study.status === Status.SWITCHED
+                                            : study.studyStatus === Status.SWITCHED
                                             ? 'bg-yellow-100 text-yellow-800'
                                             : 'bg-green-100 text-green-800')
                                     }
                                 >
-                                    {study.status}
+                                    {study.studyStatus}
                                 </span>
                             </div>
                         </div>

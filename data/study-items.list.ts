@@ -4,7 +4,7 @@ export class StudyModel {
     subject: string;
     university: string;
     duration: DurationItem;
-    status: Status;
+    studyStatus: Status;
     courses: string[];
     degree: string;
     url: string;
@@ -14,14 +14,14 @@ export class StudyModel {
         university: string,
         degree: string,
         duration: DurationItem,
-        status: Status,
+        studyStatus: Status,
         courses: string[],
         url: string,
     ) {
         this.subject = subject;
         this.university = university;
         this.duration = duration;
-        this.status = status;
+        this.studyStatus = studyStatus;
         this.courses = courses;
         this.degree = degree;
         this.url = url;
