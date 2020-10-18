@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
 import { zeroPad } from '../../helper/number-helper';
 import { calcDurationBetween, fixDurationItem } from '../../helper/date-calculator';
+import ReactMarkdown from 'react-markdown';
 
 type CvWorkProps = {
     workItems: WorkModel[];
@@ -79,7 +80,10 @@ const WorkItem = ({ work }: WorkItemProps) => {
                         </p>
                         <div className="block">
                             <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">{work.company.name}</h3>
-                            <p className="mt-3 text-base leading-6 text-gray-500">{work.summary}</p>
+                            <ReactMarkdown
+                                className={'mt-3 text-base leading-6 text-gray-500'}
+                                source={work.shortSummary}
+                            />
                         </div>
                     </div>
                     <div className="mt-6 flex items-center">
@@ -90,7 +94,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
                                 <span className="mx-1">&middot;</span>
                                 <span>{work.responsibilities?.length ?? 0} responsibilities</span>
                                 <span className="mx-1">&middot;</span>
-                                <span>{work.technologies?.length ?? 0} technologies</span>
+                                <span>{work.technologies?.length ?? 0} applied skills</span>
                             </div>
                         </div>
                     </div>
@@ -106,7 +110,9 @@ const workSlideOverContent = (work: WorkModel) => {
             <div className="shadow overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">{work.position}</h3>
-                    <a href={work.company.url} className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">{work.company.name}</a>
+                    <a href={work.company.url} className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
+                        {work.company.name}
+                    </a>
                 </div>
 
                 <div className="p-0">
@@ -149,20 +155,24 @@ const workSlideOverContent = (work: WorkModel) => {
                     </dl>
                     <dd className="mt-1 text-sm leading-5 text-gray-900">
                         <ul>
-                            {work.technologies?.map((element, i) => {
-                                return (
-                                    <li className="list-disc" key={i}>
-                                        {element.title}
-                                    </li>
-                                );
-                            })}
+                            {work.technologies
+                                ?.sort((a, b) => a.title.localeCompare(b.title))
+                                .map((element, i) => {
+                                    return (
+                                        <li className="list-disc" key={i}>
+                                            {element.title}
+                                        </li>
+                                    );
+                                })}
                         </ul>
                     </dd>
                 </div>
 
                 <div className="px-4 py-5 sm:px-6 border-b border-gray-100">
                     <dd className="mt-1 text-sm leading-5 text-gray-900">
-                        <ul>{work.summary}</ul>
+                        <ul>
+                            <ReactMarkdown className={''} source={work.summary} />
+                        </ul>
                     </dd>
                 </div>
             </div>

@@ -10,7 +10,7 @@ export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]
             `
     {
     works(stage:DRAFT) {
-        id, position, duration, responsibilities, image, summary, place, 
+        id, position, duration, responsibilities, image, shortSummary, summary, place, 
         company {name, url},
         technologies { ... on Skill { id, title }, ... on Framework { id title } }
     }
@@ -26,7 +26,7 @@ export const fetchSkillItems = async (client: GraphQLClient): Promise<Skill[]> =
             `
     {
         skills(stage:DRAFT) {
-            id, title, level, skillDirection, type, tag, certificates {
+            id, title, level, skillDirection, type, tag, svg, certificates {
               id, title, url, date, platform, author
             }
         }

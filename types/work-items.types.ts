@@ -1,5 +1,5 @@
 import { DurationItem } from '../helper/date-calculator';
-import {Skill} from "./skill-items.types";
+import { Skill } from './skill-items.types';
 
 class Company {
     name: string;
@@ -13,6 +13,7 @@ export class WorkModel {
     technologies?: Skill[] = [];
     duration: DurationItem;
     image: string;
+    shortSummary: string;
     summary: string;
     place: string;
 }
