@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             return items.sort((a, b) => ('' + b.duration.start).localeCompare(a.duration.start + ''));
         });
         const skillItems = await fetchSkillItems(graphcms).then((items) => {
-            return items.sort((a, b) => b.level - a.level);
+            return items.sort((a, b) => a.title.localeCompare(b.title)).sort((a, b) => b.level - a.level);
         });
         const studyItems = await fetchStudyItems(graphcms);
         return {
