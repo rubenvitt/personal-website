@@ -19,7 +19,8 @@ export const MainLandingPage = (): JSX.Element => {
                                 </span>
                             </h2>
                             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                                Welcome on my website. I'm a {calcDurationBetween({start: new Date("1997-04-07"), end: new Date()})} years old fullstack developer from Germany, working as
+                                Welcome on my website. I'm a {calcDurationBetween({start: new Date("1997-04-07"), end: new Date()})} old fullstack
+                                developer from Germany, working as
                                 Consultant at fme AG.
                             </p>
                             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">

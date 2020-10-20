@@ -59,7 +59,8 @@ export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel
 
 export const fetchPortfolioItems = async (client: GraphQLClient): Promise<PortfolioModel[]> => {
     const parsePortfolioItemType = (type: string) => {
-        type = type.toLowerCase();
+        console.log('type: ', type);
+        type = type?.toLowerCase();
         let result = undefined;
         switch (type) {
             case 'favorite':
@@ -70,6 +71,9 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
                 break;
             case 'online':
                 result = PortfolioItemType.ONLINE;
+                break;
+            case undefined:
+                result = null;
                 break;
         }
         return result;
