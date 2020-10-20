@@ -19,9 +19,9 @@ export const MainLandingPage = (): JSX.Element => {
                                 </span>
                             </h2>
                             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                                Welcome on my website. I'm a {calcDurationBetween({start: new Date("1997-04-07"), end: new Date()})} old fullstack
-                                developer from Germany, working as
-                                Consultant at fme AG.
+                                Welcome on my website. I'm a{' '}
+                                {calcDurationBetween({ start: new Date('1997-04-07'), end: new Date() })} old fullstack
+                                developer from Germany, working as Consultant at fme AG.
                             </p>
                             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md shadow">
@@ -45,7 +45,7 @@ export const MainLandingPage = (): JSX.Element => {
                     </div>
                     <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
                         <img
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="shadow-2xl r-profile-image rounded-l-2xl absolute inset-0 w-full h-full object-cover"
                             src="/assets/images/profile.jpg"
                             alt="Woman on her phone"
                         />
