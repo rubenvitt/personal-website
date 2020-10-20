@@ -16,7 +16,7 @@ export const ContactInformation = (): JSX.Element => {
                                 className={`flex justify-center col-span-1 text-gray-300 text-lg leading-6 border rounded-lg border-gray-200 py-5 font-medium hover:text-${element.hoverColor} focus:text-${element.hoverColor} hover:border-${element.hoverColor} focus:border-${element.hoverColor} hover:bg-gray-50`}
                             >
                                 <svg
-                                    className="flex-shrink-0 mr-1.5 h-5 w-5"
+                                    className="flex-shrink-0 mr-2 h-5 w-5"
                                     viewBox={`0 0 ${element.viewBox} ${element.viewBox}`}
                                     fill="currentColor"
                                     clipRule="evenOdd"

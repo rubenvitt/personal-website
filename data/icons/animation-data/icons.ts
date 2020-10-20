@@ -3,6 +3,7 @@ import wandAndStars from './wand-and-stars.json';
 import pinWithEclipseUnder from './pin-with-eclipse-under.json';
 import lightOn from './light-on.json';
 import hourGlass from './hourglass.json';
+import conversation from './conversation.json';
 
 export const ShapeAnimation = {
     BackAnimation: back,
@@ -10,4 +11,5 @@ export const ShapeAnimation = {
     PinWithEclipseUnder: pinWithEclipseUnder,
     LightOn: lightOn,
     Hourglass: hourGlass,
+    Conversation: conversation,
 };

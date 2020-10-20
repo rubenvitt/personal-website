@@ -5,4 +5,17 @@ module.exports = {
         defaultLineHeights: true,
         standardFontWeights: true,
     },
+    experimental: {
+        darkModeVariant: true,
+    },
+    theme: {
+        extend: {
+            colors: {
+                github: '#333',
+                linkedin: '#0077b5',
+                fastmail: '#243959',
+                xing: '#026466',
+            },
+        },
+    },
 };
