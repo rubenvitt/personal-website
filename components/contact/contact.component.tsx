@@ -1,7 +1,6 @@
 import React from 'react';
 import { ContactInformation } from './info.component';
 import { ContactSidebar } from './sidebar.component';
-import * as Calendly from 'react-calendly';
 import Lottie from 'react-lottie';
 import { ShapeAnimation } from '../../data/icons/animation-data/icons';
 

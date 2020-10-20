@@ -1,6 +1,5 @@
 import React from 'react';
 import { contactInformationList } from '../../data/contact-items.list';
-import * as Calendly from 'react-calendly';
 
 export const ContactInformation = (): JSX.Element => {
     return (
@@ -31,11 +30,10 @@ export const ContactInformation = (): JSX.Element => {
             </div>
             <div
                 className={
-                    'hidden text-xing text-linkedin text-tutanota text-calendly text-github ' +
+                    'hidden text-xing text-linkedin text-tutanota text-github ' +
                     'hover:text-xing focus:text-xing hover:border-xing focus:border-xing ' +
                     'hover:text-linkedin focus:text-linkedin hover:border-linkedin focus:border-linkedin ' +
                     'hover:text-tutanota focus:text-tutanota hover:border-tutanota focus:border-tutanota ' +
-                    'hover:text-calendly focus:text-calendly hover:border-calendly focus:border-calendly ' +
                     'hover:text-github focus:text-github hover:border-github focus:border-github '
                 }
             />
