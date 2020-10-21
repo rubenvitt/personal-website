@@ -6,6 +6,7 @@
 @tailwind utilities;
 
 @import "slideover.styles";
+@import "markdown.styles";
 
 @import url('https://rsms.me/inter/inter.css');
 * {
@@ -16,4 +17,8 @@
   * {
     font-family: 'Inter var', sans-serif;
   }
+}
+
+.r-profile-image:hover {
+  filter: blur(1px);
 }

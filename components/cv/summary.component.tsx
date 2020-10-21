@@ -1,72 +1,73 @@
 import React from 'react';
-import { calculateDaysBetween } from '../../helper/DateCalculator';
-import { skillList, SkillType } from '../../data/skill-items.list';
-import Shape from 'shape-library';
+import { calcDurationBetween, calculateDaysBetween } from '../../helper/date-calculator';
+import { Icons } from '../../data/icons/icons';
+import { WorkModel } from '../../types/work-items.types';
 
-export const CvSummary = (): JSX.Element => {
+interface CvSummaryProps {
+    certCount: number;
+    lastWork: WorkModel;
+}
+
+export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element => {
     const workdays = calculateDaysBetween(new Date('2019-08-01').getTime(), Date.now());
-    const certCount = skillList
-        .filter((x) => x.type === SkillType.ProgrammingLanguage)
-        .map((x) => x.certificates?.length ?? 0)
-        .reduce((a, b) => a + b);
 
     return (
         <div className="py-12 bg-white border-b border-gray-100">
             <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="lg:text-center">
-                    <p className="text-base leading-6 text-orange-600 font-semibold tracking-wide uppercase">
+                <div className="lg:text-center group">
+                    <p className="text-base leading-6 text-orange-600 font-semibold tracking-wide uppercase group-hover:text-orange-900">
                         Developer
                     </p>
                     <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
                         Ruben Vitt
                     </h3>
                     <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
-                        Hey, I'm a 23 years old bachelor graduated computer scientist. I work since one year at fme.
+                        Hey, I'm a {calcDurationBetween({ start: new Date('1997-04-07') })} old bachelor graduated
+                        computer scientist. I'm working since {calcDurationBetween(lastWork.duration)} at{' '}
+                        {lastWork.company.name}.
                     </p>
                 </div>
 
                 <div className="mt-10">
                     <ul className="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
-                        <li>
-                            <div className="flex">
-                                <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                                        <Shape
-                                            type="icons"
-                                            category="Office"
-                                            name="Briefcase"
-                                            primaryColor="#ffffff"
-                                            size={24}
-                                            theme={0}
-                                            backgroundColor="none"
-                                            borderRadius={0}
-                                        />
+                        <li className="md:mr-2">
+                            <div className="flex group">
+                                <div className="flex-shrink-0 group">
+                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 group-hover:bg-orange-700 text-white">
+                                        <svg width="24" height="24">
+                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d={Icons.BriefCase}
+                                                fill="currentColor"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className="ml-4">
                                     <h4 className="text-lg leading-6 font-medium text-gray-900">Work Experience</h4>
                                     <p className="mt-2 text-base leading-6 text-gray-500">
-                                        I have professional experience (after university) since currently{' '}
-                                        {workdays + ' '}
-                                        days. Currently I'm working at fme AG in Braunschweig, Germany.
+                                        I have professional experience (after university) since {workdays + ' '} days.
+                                        Currently I'm working as {lastWork.position} at{' '}
+                                        <a href={lastWork.company.url}>{lastWork.company.name}</a> in {lastWork.place}.
                                     </p>
                                 </div>
                             </div>
                         </li>
-                        <li className="mt-10 md:mt-0">
-                            <div className="flex">
+                        <li className="mt-10 md:mt-0 md:ml-2">
+                            <div className="flex group">
                                 <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                                        <Shape
-                                            type="icons"
-                                            category="Office"
-                                            name="Book"
-                                            primaryColor="#ffffff"
-                                            secondaryColor="#22a6b3"
-                                            size={24}
-                                            backgroundColor="none"
-                                            borderRadius={0}
-                                        />
+                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 group-hover:bg-orange-700 text-white">
+                                        <svg width="24" height="24">
+                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d={Icons.Book}
+                                                fill="currentColor"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className="ml-4">
@@ -79,20 +80,19 @@ export const CvSummary = (): JSX.Element => {
                                 </div>
                             </div>
                         </li>
-                        <li className="mt-10 md:mt-0">
-                            <div className="flex">
+                        <li className="mt-10 md:mt-5 md:mr-2">
+                            <div className="flex group">
                                 <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                                        <Shape
-                                            type="icons"
-                                            category="Object"
-                                            name="Cloud"
-                                            primaryColor="#ffffff"
-                                            secondaryColor="#4A90E2"
-                                            size={24}
-                                            backgroundColor="none"
-                                            borderRadius={0}
-                                        />
+                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 group-hover:bg-orange-700 text-white">
+                                        <svg width="24" height="24">
+                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d={Icons.Cloud}
+                                                fill="currentColor"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className="ml-4">
@@ -106,19 +106,19 @@ export const CvSummary = (): JSX.Element => {
                                 </div>
                             </div>
                         </li>
-                        <li className="mt-10 md:mt-0">
-                            <div className="flex">
+                        <li className="mt-10 md:mt-5 md:ml-2">
+                            <div className="flex group">
                                 <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                                        <Shape
-                                            type="icons"
-                                            category="Object"
-                                            name="More"
-                                            primaryColor="#ffffff"
-                                            size={24}
-                                            backgroundColor="none"
-                                            borderRadius={0}
-                                        />
+                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 group-hover:bg-orange-700 text-white">
+                                        <svg width="24" height="24">
+                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
+                                            <path
+                                                fillRule="evenodd"
+                                                clipRule="evenodd"
+                                                d={Icons.More}
+                                                fill="currentColor"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className="ml-4">

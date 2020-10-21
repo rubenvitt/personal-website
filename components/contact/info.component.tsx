@@ -1,6 +1,5 @@
 import React from 'react';
 import { contactInformationList } from '../../data/contact-items.list';
-import * as Calendly from 'react-calendly';
 
 export const ContactInformation = (): JSX.Element => {
     return (
@@ -16,7 +15,7 @@ export const ContactInformation = (): JSX.Element => {
                                 className={`flex justify-center col-span-1 text-gray-300 text-lg leading-6 border rounded-lg border-gray-200 py-5 font-medium hover:text-${element.hoverColor} focus:text-${element.hoverColor} hover:border-${element.hoverColor} focus:border-${element.hoverColor} hover:bg-gray-50`}
                             >
                                 <svg
-                                    className="flex-shrink-0 mr-1.5 h-5 w-5"
+                                    className="flex-shrink-0 mr-2 h-5 w-5"
                                     viewBox={`0 0 ${element.viewBox} ${element.viewBox}`}
                                     fill="currentColor"
                                     clipRule="evenOdd"
@@ -31,11 +30,10 @@ export const ContactInformation = (): JSX.Element => {
             </div>
             <div
                 className={
-                    'hidden text-xing text-linkedin text-tutanota text-calendly text-github ' +
+                    'hidden text-xing text-linkedin text-tutanota text-github ' +
                     'hover:text-xing focus:text-xing hover:border-xing focus:border-xing ' +
                     'hover:text-linkedin focus:text-linkedin hover:border-linkedin focus:border-linkedin ' +
                     'hover:text-tutanota focus:text-tutanota hover:border-tutanota focus:border-tutanota ' +
-                    'hover:text-calendly focus:text-calendly hover:border-calendly focus:border-calendly ' +
                     'hover:text-github focus:text-github hover:border-github focus:border-github '
                 }
             />

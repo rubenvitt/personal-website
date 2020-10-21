@@ -1,14 +1,19 @@
 import React from 'react';
-import { Status, Study, studyList } from '../../data/study-items.list';
-import Shape from 'shape-library';
+import { Status, StudyModel, studyList } from '../../data/study-items.list';
+import { ShapeAnimation } from '../../data/icons/animation-data/icons';
+import Lottie from 'react-lottie';
 
-export const CvEducation = (): JSX.Element => {
+interface CvEducationProps {
+    studyList: StudyModel[];
+}
+
+export const CvEducation = ({ studyList }: CvEducationProps): JSX.Element => {
     const studies = studyList.sort((a, b) => {
         return b.duration.end.getTime() - a.duration.end.getTime();
     });
 
     return (
-        <div className="relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8">
+        <div className={`${studies.length > 0 ? '' : 'hidden'} relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8`}>
             <div className="relative max-w-7xl mx-auto">
                 <h2 className="text-xl leading-6 font-medium text-gray-900">Education</h2>
                 <div className="bg-white shadow overflow-hidden sm:rounded-md mt-3 lg:mt-6">
@@ -23,7 +28,7 @@ export const CvEducation = (): JSX.Element => {
 
 class EducationItemProps {
     i: number;
-    study: Study;
+    study: StudyModel;
 }
 
 const EducationItem = ({ i, study }: EducationItemProps) => {
@@ -38,9 +43,13 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                 >
                     <div className="px-4 py-4 sm:px-6">
                         <div className="flex items-center justify-between">
-                            <div className="text-sm leading-5 font-medium text-orange-600 truncate">
-                                {study.subject}{' '}
-                                <span className={study.status === Status.COMPLETED ? 'text-gray-500' : 'text-gray-300'}>
+                            <div className="text-sm leading-5 font-medium text-orange-600 break-words">
+                                <span>{study.subject} </span>
+                                <span
+                                    className={
+                                        study.studyStatus === Status.COMPLETED ? 'text-gray-500' : 'text-gray-300'
+                                    }
+                                >
                                     | {study.degree}
                                 </span>
                             </div>
@@ -48,55 +57,69 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                 <span
                                     className={
                                         'px-2 inline-flex text-xs leading-5 font-semibold rounded-full ' +
-                                        (study.status === Status.INCOMPLETE
+                                        (study.studyStatus === Status.INCOMPLETE
                                             ? 'bg-red-100 text-red-800'
-                                            : study.status === Status.SWITCHED
+                                            : study.studyStatus === Status.SWITCHED
                                             ? 'bg-yellow-100 text-yellow-800'
                                             : 'bg-green-100 text-green-800')
                                     }
                                 >
-                                    {study.status}
+                                    {study.studyStatus}
                                 </span>
                             </div>
                         </div>
                         <div className="mt-2 sm:flex sm:justify-between">
                             <div className="sm:flex">
-                                <div className="mr-6 flex items-center text-sm leading-5 text-gray-500">
-                                    <Shape
-                                        type="icons"
-                                        category="Filled"
-                                        name="Location"
-                                        primaryColor="currentColor"
-                                        size={24}
-                                        backgroundColor="none"
-                                        borderRadius={0}
-                                    />
+                                <div className="flex items-center text-sm leading-5 text-gray-500">
+                                    <span>
+                                        <Lottie
+                                            options={{
+                                                loop: true,
+                                                autoplay: true,
+                                                animationData: ShapeAnimation.PinWithEclipseUnder,
+                                                rendererSettings: {
+                                                    preserveAspectRatio: 'xMidYMid slice',
+                                                },
+                                            }}
+                                            height={48}
+                                            width={48}
+                                        />
+                                    </span>
                                     {study.university}
                                 </div>
                                 <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
-                                    <Shape
-                                        type="icons"
-                                        category="Office"
-                                        name="Book"
-                                        primaryColor="currentColor"
-                                        size={24}
-                                        backgroundColor="none"
-                                        borderRadius={0}
-                                    />
+                                    <span>
+                                        <Lottie
+                                            options={{
+                                                loop: true,
+                                                autoplay: true,
+                                                animationData: ShapeAnimation.LightOn,
+                                                rendererSettings: {
+                                                    preserveAspectRatio: 'xMidYMid slice',
+                                                },
+                                            }}
+                                            height={48}
+                                            width={48}
+                                        />
+                                    </span>
                                     {study.courses.join(', ')}
                                 </div>
                             </div>
                             <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
-                                <Shape
-                                    type="icons"
-                                    category="Office"
-                                    name="Calendar"
-                                    primaryColor="currentColor"
-                                    secondaryColor="#f5a623"
-                                    size={24}
-                                    backgroundColor="none"
-                                    borderRadius={0}
-                                />
+                                <span>
+                                    <Lottie
+                                        options={{
+                                            loop: true,
+                                            autoplay: true,
+                                            animationData: ShapeAnimation.Hourglass,
+                                            rendererSettings: {
+                                                preserveAspectRatio: 'xMidYMid slice',
+                                            },
+                                        }}
+                                        height={48}
+                                        width={48}
+                                    />
+                                </span>
                                 <span>
                                     {study.duration.start.toLocaleDateString('en-gb')} until{' '}
                                     {study.duration.end?.toLocaleDateString('en-gb') ?? 'until now'}

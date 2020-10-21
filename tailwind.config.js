@@ -1,21 +1,25 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const defaultTheme = require('tailwindcss/defaultTheme');
-
 module.exports = {
-    purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
+    future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
+        defaultLineHeights: true,
+        standardFontWeights: true,
+    },
+    experimental: {
+        darkModeVariant: true,
+    },
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-            },
             colors: {
-                xing: '#006567',
-                linkedin: '#0077B5',
-                github: '#181717',
-                tutanota: '#840010',
-                calendly: '#00a0ff',
+                github: '#333',
+                linkedin: '#0077b5',
+                fastmail: '#243959',
+                xing: '#026466',
             },
         },
     },
-    plugins: [require('@tailwindcss/ui')],
+    variants: {
+        backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
+        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    },
 };

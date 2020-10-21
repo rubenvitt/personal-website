@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavBar } from '../navbar/navbar.component';
 
-class PageContainerProps {
+export class PageContainerProps {
     children: JSX.Element | JSX.Element[] | string;
     title?: string;
 }

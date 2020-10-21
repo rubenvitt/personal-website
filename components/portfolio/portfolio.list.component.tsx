@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
-import { PortfolioItem as DataItem, PortfolioItemType, portfolioList } from '../../data/portfolio-items.list';
-import Shape from 'shape-library';
+import React from 'react';
+import { PortfolioModel as DataItem, PortfolioItemType } from '../../types/portfolio-items.types';
 
-export const PortfolioList = (): JSX.Element => {
-    const list = portfolioList().sort((a, b) => {
-        if (a.portfolioItemType === b.portfolioItemType) {
-            return a.title.localeCompare(b.title);
-        } else {
-            return (b.portfolioItemType ?? 1) - (a.portfolioItemType ?? 1);
-        }
-    });
+interface PortfolioListProps {
+    list: DataItem[];
+}
 
+export const PortfolioList = ({ list }: PortfolioListProps): JSX.Element => {
     return (
         <div className="mx-3 mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {list.map((item, i) => {
@@ -81,7 +76,7 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
                             >
                                 <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            <p className="flex-1">{item.langs.join(', ')}</p>
+                            <p className="flex-1">{item.langs.map((i) => i.title).join(', ')}</p>
                         </p>
                     ) : null}
                 </div>

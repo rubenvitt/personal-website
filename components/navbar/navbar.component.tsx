@@ -49,7 +49,7 @@ export const NavBar = (): JSX.Element => {
                         </div>
                     </div>
 
-                    <SocialButtons />
+                    <SocialButtons marginLeft={true} />
                     <MobileMenuButton onClick={toggleMobileMenu} />
                 </div>
             </div>
