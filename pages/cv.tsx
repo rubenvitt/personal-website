@@ -20,6 +20,7 @@ import { calculateLastWork, remapWorkDurationToDate } from '../helper/work-helpe
 import { remapStudyDurationToDate } from '../helper/study-helper';
 import { GraphQLClient } from 'graphql-request';
 import { URLGraphCMS } from '../config/constants.config';
+import { GithubNotification } from '../components/github-notification/github-notification.component';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
@@ -70,6 +71,7 @@ export default function Home({
                 <CvEducation studyList={studyList} />
                 <CvHumanLanguages languages={filterHumanLanguageSkills(skillList)} />
             </PageContainer>
+            <GithubNotification />
             <PageFooter />
         </div>
     );
