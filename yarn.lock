@@ -5767,7 +5767,7 @@ node-fetch@2.6.1:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
-node-gyp@^7.1.0, node-gyp@^7.1.1:
+node-gyp@^7.1.0, node-gyp@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-7.1.2.tgz#21a810aebb187120251c3bcec979af1587b188ae"
   integrity sha512-CbpcIo7C3eMu3dL1c3d0xw449fHIGALIJsRP4DDPHpyiW8vcriNY7ubh9TE4zEKfSxscY7PjeFnshE7h75ynjQ==
@@ -5948,10 +5948,10 @@ npm-user-validate@^1.0.1:
   resolved "https://registry.yarnpkg.com/npm-user-validate/-/npm-user-validate-1.0.1.tgz#31428fc5475fe8416023f178c0ab47935ad8c561"
   integrity sha512-uQwcd/tY+h1jnEaze6cdX/LrhWhoBxfSknxentoqmIuStxUExxjWd3ULMLFPiFUrZKbOVMowH6Jq2FRWfmhcEw==
 
-npm@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/npm/-/npm-7.0.2.tgz#569dcb20c74443b3a9b94a5b0772519854debd80"
-  integrity sha512-4ez6yVKi5MbJhkIsL6P+qQPYjVvuxoy5GigTKSA0iOtqPBgbxx0NA6jWkdvTSzLOtszmWnf/rdDFLjnhfvuP9A==
+npm@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/npm/-/npm-7.0.3.tgz#b61048871b2249763d09f78d9d2a0536d0c631fa"
+  integrity sha512-+AzMmS7SKe99I15sXAKWkOHEim2ovFR++Y7MjsZzCnS9/K/pCVmfvxOnoI6J50UulwH4GLIl5v6fL7BlnfQPgg==
   dependencies:
     "@npmcli/arborist" "^1.0.3"
     "@npmcli/ci-detect" "^1.2.0"
@@ -5992,7 +5992,7 @@ npm@^7.0.2:
     mkdirp "^1.0.4"
     mkdirp-infer-owner "^2.0.0"
     ms "^2.1.2"
-    node-gyp "^7.1.1"
+    node-gyp "^7.1.2"
     nopt "^5.0.0"
     normalize-package-data "^3.0.0"
     npm-audit-report "^2.1.4"
