@@ -9,7 +9,7 @@ export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]
         .request(
             `
     {
-    works(stage:DRAFT) {
+    works {
         id, position, duration, responsibilities, image, shortSummary, summary, place, 
         company {name, url},
         technologies { ... on Skill { id, title }, ... on Framework { id title } }
@@ -25,7 +25,7 @@ export const fetchSkillItems = async (client: GraphQLClient): Promise<Skill[]> =
         .request(
             `
     {
-        skills(stage:DRAFT) {
+        skills {
             id, title, level, skillDirection, type, tag, svg, certificates {
               id, title, url, date, platform, author
             }
@@ -41,7 +41,7 @@ export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel
         .request(
             `
 {
-  studies(stage: DRAFT) {
+  studies {
     duration
     id
     studyStatus
@@ -83,7 +83,7 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
         .request(
             `
 {
-  portfolioItems(stage: DRAFT) {
+  portfolioItems {
     id
     title
     url
