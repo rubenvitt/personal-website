@@ -1,5 +1,5 @@
 import { WorkModel } from '../types/work-items.types';
-import { Skill } from '../types/skill-items.types';
+import { Certificate, Skill } from '../types/skill-items.types';
 import { StudyModel } from '../data/study-items.list';
 import { PortfolioItemType, PortfolioModel } from '../types/portfolio-items.types';
 import { GraphQLClient } from 'graphql-request';
@@ -34,6 +34,26 @@ export const fetchSkillItems = async (client: GraphQLClient): Promise<Skill[]> =
     `,
         )
         .then((value) => value.skills);
+};
+
+export const fetchCertItems = async (client: GraphQLClient): Promise<Certificate[]> => {
+    return await client
+        .request(
+            `
+    {
+        certificates {
+            date
+            id
+            title
+            url
+        }
+    }
+    `,
+        )
+        .then((value) => {
+            console.log(value);
+            return value.certificates;
+        });
 };
 
 export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel[]> => {

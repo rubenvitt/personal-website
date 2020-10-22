@@ -65,7 +65,7 @@ export class CertificateSkill extends Skill {
     }
 }
 
-class Certificate {
+export class Certificate {
     id: string;
     title: string;
     url: string;

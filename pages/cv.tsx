@@ -9,7 +9,7 @@ import { CvOtherSkills } from '../components/cv/other_skills.component';
 import { PageFooter } from '../components/page-footer/page-footer.component';
 import CvWork from '../components/cv/work.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { fetchSkillItems, fetchStudyItems, fetchWorkItems } from '../helper/http-helper';
+import { fetchCertItems, fetchSkillItems, fetchStudyItems, fetchWorkItems } from '../helper/http-helper';
 import {
     calculateCertCount,
     filterHumanLanguageSkills,
@@ -32,11 +32,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
             return items.sort((a, b) => a.title.localeCompare(b.title)).sort((a, b) => b.level - a.level);
         });
         const studyItems = await fetchStudyItems(graphcms);
+        const certItems = await fetchCertItems(graphcms);
         return {
             props: {
                 workList: workItems,
                 skillList: skillItems,
                 studyList: studyItems,
+                certList: certItems,
             },
             revalidate: 1,
         };
@@ -47,6 +49,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
                 workList: [],
                 skillList: [],
                 studyList: [],
+                certList: [],
             },
             revalidate: 1,
         };
@@ -57,6 +60,7 @@ export default function Home({
     workList,
     skillList,
     studyList,
+    certList,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
     remapWorkDurationToDate(workList);
     remapStudyDurationToDate(studyList);
@@ -64,7 +68,7 @@ export default function Home({
         <div>
             <PageHead />
             <PageContainer>
-                <CvSummary certCount={calculateCertCount(skillList)} lastWork={calculateLastWork(workList)} />
+                <CvSummary certCount={calculateCertCount(certList)} lastWork={calculateLastWork(workList)} />
                 <CvLanguageSkills languages={filterProgrammingLanguages(skillList)} />
                 <CvOtherSkills skills={filterOtherSkills(skillList)} />
                 <CvWork workItems={workList} />
