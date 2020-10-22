@@ -1,4 +1,4 @@
-import { ProgrammingLanguageSkill, Skill, SkillType } from '../types/skill-items.types';
+import { Certificate, ProgrammingLanguageSkill, Skill, SkillType } from '../types/skill-items.types';
 
 export const filterProgrammingLanguages = (skills: Skill[]) => {
     return skills
@@ -18,6 +18,6 @@ export const filterHumanLanguageSkills = (skills: Skill[]) => {
     return skills.filter((skill) => skill.type === SkillType.HumanLanguage);
 };
 
-export const calculateCertCount = (skills: Skill[]) => {
-    return skills.length === 0 ? 0 : skills.map((x) => x.certificates?.length ?? 0).reduce((a, b) => a + b);
+export const calculateCertCount = (certs: Certificate[]) => {
+    return certs.length;
 };
