@@ -123,7 +123,7 @@ const workSlideOverContent = (work: WorkModel) => {
                 </div>
 
                 <div className="p-0">
-                    <Image alt={work.company.name} src={addLeadingSlash(work.image)} unsized />
+                    <Image alt={work.company.name} src={addLeadingSlash(work.image)} className={'w-full'} unsized />
                 </div>
 
                 <div className="px-4 border-b border-gray-100 py-5 sm:px-6">
