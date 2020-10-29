@@ -4,6 +4,8 @@ import { SlideOver } from '../shared/slideover.component';
 import { zeroPad } from '../../helper/number-helper';
 import { calcDurationBetween, fixDurationItem } from '../../helper/date-calculator';
 import ReactMarkdown from 'react-markdown';
+import Image from 'next/image';
+import { addLeadingSlash } from '../../helper/path-helper';
 
 type CvWorkProps = {
     workItems: WorkModel[];
@@ -58,7 +60,12 @@ const WorkItem = ({ work }: WorkItemProps) => {
                 className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50 transition duration-150 ease-in-out"
             >
                 <div className="flex-shrink-0">
-                    <img className="h-48 w-full object-cover" src={work.image} alt={work.company.name} />
+                    <Image
+                        className="h-48 w-full object-cover"
+                        src={addLeadingSlash(work.image)}
+                        alt={work.company.name}
+                        unsized
+                    />
                 </div>
                 <div className="block flex-1 p-6 flex flex-col justify-between">
                     <div className="flex-1">
@@ -116,7 +123,7 @@ const workSlideOverContent = (work: WorkModel) => {
                 </div>
 
                 <div className="p-0">
-                    <img alt={work.company.name} src={work.image} />
+                    <Image alt={work.company.name} src={addLeadingSlash(work.image)} unsized />
                 </div>
 
                 <div className="px-4 border-b border-gray-100 py-5 sm:px-6">

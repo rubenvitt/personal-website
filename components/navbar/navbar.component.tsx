@@ -4,6 +4,7 @@ import { MenuList } from '../../data/menu-items.list';
 import { MobileMenuButton } from './mobile/menu-button/mobile-menu-button';
 import { MobileMenu } from './mobile/menu/mobile-menu.component';
 import { SocialButtons } from './soial-buttons.component';
+import Image from 'next/image';
 
 export const NavBar = (): JSX.Element => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,11 +21,17 @@ export const NavBar = (): JSX.Element => {
                 <div className="flex justify-between h-16">
                     <div className="flex">
                         <div className="flex-shrink-0 flex items-center">
-                            <img className="block lg:hidden h-8 w-auto" src="assets/images/r.png" alt="Rubeen logo" />
-                            <img
-                                className="hidden lg:block h-8 w-auto"
-                                src="assets/images/rubeen.png"
+                            <Image
+                                className="block lg:hidden h-8 w-auto"
+                                src="/assets/images/r.png"
                                 alt="Rubeen logo"
+                                unsized
+                            />
+                            <Image
+                                className="hidden lg:block h-8 w-auto"
+                                src="/assets/images/rubeen.png"
+                                alt="Rubeen logo"
+                                unsized
                             />
                         </div>
 
