@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface AdminLoginComponentProps {
     lastResult: boolean;
@@ -18,7 +19,7 @@ export const AdminLoginComponent = ({ lastResult, onSubmit }: AdminLoginComponen
         <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full">
                 <div>
-                    <img className="mx-auto h-12 w-auto" src="/assets/images/r.png" alt="Workflow" />
+                    <Image src="/assets/images/r.png" className="mx-auto h12 w-auto" unsized alt={'Logo (Rubeen)'} />
                     <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">Admin Login</h2>
                     <p className="mt-2 text-center text-sm leading-5 text-orange-600">
                         Login permitted only for the websites owner.
