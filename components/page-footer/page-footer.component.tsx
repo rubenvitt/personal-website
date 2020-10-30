@@ -2,6 +2,7 @@ import React from 'react';
 import { SocialButtons } from '../navbar/soial-buttons.component';
 import { MenuList } from '../../data/menu-items.list';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export const PageFooter = () => {
     const path = useRouter().pathname;
@@ -13,15 +14,16 @@ export const PageFooter = () => {
                     {MenuList.map((item) => {
                         return (
                             <div key={item.url} className="px-5 py-2">
-                                <a
-                                    href={item.url}
-                                    className={
-                                        (item.url === path ? 'text-orange-900 ' : 'text-gray-500 ') +
-                                        'text-base leading-6 hover:text-orange-900'
-                                    }
-                                >
-                                    {item.title}
-                                </a>
+                                <Link href={item.url}>
+                                    <a
+                                        className={
+                                            (item.url === path ? 'text-orange-900 ' : 'text-gray-500 ') +
+                                            'text-base leading-6 hover:text-orange-900'
+                                        }
+                                    >
+                                        {item.title}
+                                    </a>
+                                </Link>
                             </div>
                         );
                     })}

@@ -5,6 +5,7 @@ import { MobileMenuButton } from './mobile/menu-button/mobile-menu-button';
 import { MobileMenu } from './mobile/menu/mobile-menu.component';
 import { SocialButtons } from './soial-buttons.component';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const NavBar = (): JSX.Element => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,19 +39,19 @@ export const NavBar = (): JSX.Element => {
                         <div className="hidden sm:-my-px sm:ml-6 sm:flex">
                             {MenuList.map((element, i) => {
                                 return (
-                                    <a
-                                        key={i}
-                                        href={element.url}
-                                        className={
-                                            (i === 0 ? '' : 'ml-8 ') +
-                                            (element.url === path
-                                                ? 'border-orange-500 text-gray-900 focus-border-orange-700'
-                                                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300') +
-                                            ' inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none'
-                                        }
-                                    >
-                                        {element.title}
-                                    </a>
+                                    <Link key={i} href={element.url}>
+                                        <a
+                                            className={
+                                                (i === 0 ? '' : 'ml-8 ') +
+                                                (element.url === path
+                                                    ? 'border-orange-500 text-gray-900 focus-border-orange-700'
+                                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300') +
+                                                ' inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none'
+                                            }
+                                        >
+                                            {element.title}
+                                        </a>
+                                    </Link>
                                 );
                             })}
                         </div>
