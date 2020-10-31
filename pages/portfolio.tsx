@@ -62,12 +62,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default function Home({ list }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
     return (
         <div>
-            <PageHead />
-            <PageContainer>
-                <PortfolioIntroduction />
-                <PortfolioList list={list} />
-            </PageContainer>
-            <PageFooter />
+            <PortfolioIntroduction />
+            <PortfolioList list={list} />
         </div>
     );
 }

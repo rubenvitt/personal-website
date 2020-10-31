@@ -18,22 +18,26 @@ export const NavBar = (): JSX.Element => {
 
     return (
         <nav className="bg-white border-b border-gray-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
                 <div className="flex justify-between h-16">
                     <div className="flex">
                         <div className="flex-shrink-0 flex items-center">
-                            <Image
-                                className="block lg:hidden h-8 w-auto"
-                                src="/assets/images/r.png"
-                                alt="Rubeen logo"
-                                unsized
-                            />
-                            <Image
-                                className="hidden lg:block h-8 w-auto"
-                                src="/assets/images/rubeen.png"
-                                alt="Rubeen logo"
-                                unsized
-                            />
+                            <Link href={'/'}>
+                                <a>
+                                    <Image
+                                        className="block lg:hidden h-8 w-auto"
+                                        src="/assets/images/r.png"
+                                        alt="Rubeen logo"
+                                        unsized
+                                    />
+                                    <Image
+                                        className="hidden lg:block h-8 w-auto"
+                                        src="/assets/images/rubeen.png"
+                                        alt="Rubeen logo"
+                                        unsized
+                                    />
+                                </a>
+                            </Link>
                         </div>
 
                         <div className="hidden sm:-my-px sm:ml-6 sm:flex">

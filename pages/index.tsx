@@ -8,10 +8,7 @@ import { GithubNotification } from '../components/github-notification/github-not
 export default function Index(): JSX.Element {
     return (
         <div>
-            <PageHead />
             <MainLandingPage />
-            <GithubNotification />
-            <PageFooter />
         </div>
     );
 }

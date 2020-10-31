@@ -12,5 +12,5 @@ export const MenuList = [
     new MenuListItem('Main', '/'),
     new MenuListItem('Resume', '/cv'),
     new MenuListItem('Portfolio', '/portfolio'),
-    new MenuListItem('Contact', '/contact'),
+    new MenuListItem('Blog', '/blog'),
 ];

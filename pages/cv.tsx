@@ -66,17 +66,12 @@ export default function Home({
     remapStudyDurationToDate(studyList);
     return (
         <div>
-            <PageHead />
-            <PageContainer>
-                <CvSummary certCount={calculateCertCount(certList)} lastWork={calculateLastWork(workList)} />
-                <CvLanguageSkills languages={filterProgrammingLanguages(skillList)} />
-                <CvOtherSkills skills={filterOtherSkills(skillList)} />
-                <CvWork workItems={workList} />
-                <CvEducation studyList={studyList} />
-                <CvHumanLanguages languages={filterHumanLanguageSkills(skillList)} />
-            </PageContainer>
-            <GithubNotification />
-            <PageFooter />
+            <CvSummary certCount={calculateCertCount(certList)} lastWork={calculateLastWork(workList)} />
+            <CvLanguageSkills languages={filterProgrammingLanguages(skillList)} />
+            <CvOtherSkills skills={filterOtherSkills(skillList)} />
+            <CvWork workItems={workList} />
+            <CvEducation studyList={studyList} />
+            <CvHumanLanguages languages={filterHumanLanguageSkills(skillList)} />
         </div>
     );
 }
