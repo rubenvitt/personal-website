@@ -154,7 +154,41 @@ export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]>
   }
 }
     `).then(value => {
-        console.log('Hey from me! I got answer:', value);
             return value.posts;
         });
+}
+
+export const fetchPostAndMorePosts = async (client: GraphQLClient, pid): Promise<{post: BlogItem, morePosts: BlogItem[]}> => {
+    return await client.request(`
+{
+  post(where: {slug: "test-entry"}) {
+    id: slug
+    language
+    published
+    publishedAt
+    readMinutes
+    shortDescription
+    stage
+    title
+    type
+    content
+  }
+  morePosts: posts(first: 3) {
+    id: slug
+    language
+    published
+    publishedAt
+    readMinutes
+    shortDescription
+    stage
+    title
+    type
+  }
+}
+    `).then(value => {
+        return {
+            post: value.post,
+            morePosts: value.morePosts
+        }
+    })
 }
