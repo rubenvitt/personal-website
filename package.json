@@ -29,7 +29,7 @@
     "react-markdown": "^5.0.2",
     "react-transition-group": "^4.4.1",
     "sass": "^1.27.1",
-    "tailwindcss": "^2.0.0-alpha.5",
+    "tailwindcss": "^1.9.6",
     "tslint": "^6.1.3"
   },
   "devDependencies": {
