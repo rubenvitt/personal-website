@@ -1,11 +1,11 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-import {GetStaticProps} from "next";
+import {useRouter} from 'next/router';
 import {GraphQLClient} from "graphql-request";
 import {URLGraphCMS} from "../../config/constants.config";
 import {fetchBlogItems, fetchPostAndMorePosts} from "../../helper/http-helper";
 import ReactMarkdown from 'react-markdown';
 import {NotFoundComponent} from "../../components/shared/not-found.component";
+import {PostComponent} from "../../components/blog/post.component";
 
 export async function getStaticProps({params}) {
     const graphcms = new GraphQLClient(URLGraphCMS);
@@ -36,18 +36,13 @@ function Post({post, morePosts}) {
     console.log('MY post || fallback?', post, router.isFallback)
 
     if (!router.isFallback && !post?.id) {
-        return <NotFoundComponent />
+        return <NotFoundComponent/>
     }
 
     return <>
         {
             router.isFallback ? <>Loading...</>
-                : <article className={'bg-green-100'}>
-                    <h1 className={'text-2xl'}>{post.title}</h1>
-                    <div className={'prose lg:prose-xl'}>
-                        <ReactMarkdown>{post.content}</ReactMarkdown>
-                    </div>
-                </article>
+                : <PostComponent post={post} morePosts={morePosts} />
         }
     </>;
 }
