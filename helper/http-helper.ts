@@ -80,7 +80,6 @@ export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel
 
 export const fetchPortfolioItems = async (client: GraphQLClient): Promise<PortfolioModel[]> => {
     const parsePortfolioItemType = (type: string) => {
-        console.log('type: ', type);
         type = type?.toLowerCase();
         let result = undefined;
         switch (type) {
@@ -161,7 +160,7 @@ export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]>
 export const fetchPostAndMorePosts = async (client: GraphQLClient, pid): Promise<{post: BlogItem, morePosts: BlogItem[]}> => {
     return await client.request(`
 {
-  post(where: {slug: "test-entry"}) {
+  post(where: {slug: "${escape(pid)}"}) {
     id: slug
     language
     published
