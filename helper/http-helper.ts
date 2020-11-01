@@ -1,8 +1,9 @@
-import { WorkModel } from '../types/work-items.types';
-import { Certificate, Skill } from '../types/skill-items.types';
-import { StudyModel } from '../data/study-items.list';
-import { PortfolioItemType, PortfolioModel } from '../types/portfolio-items.types';
-import { GraphQLClient } from 'graphql-request';
+import {WorkModel} from '../types/work-items.types';
+import {Certificate, Skill} from '../types/skill-items.types';
+import {StudyModel} from '../data/study-items.list';
+import {PortfolioItemType, PortfolioModel} from '../types/portfolio-items.types';
+import {GraphQLClient} from 'graphql-request';
+import {BlogItem} from "../types/blog-items.types";
 
 export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]> => {
     return await client
@@ -133,3 +134,27 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
             });
         });
 };
+
+export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]> => {
+    return await client
+        .request(`
+{
+  posts {
+    id: slug
+    title
+    shortDescription
+    readMinutes
+    language
+    type
+    externalInfo {
+      url
+      source
+    }
+    published
+  }
+}
+    `).then(value => {
+        console.log('Hey from me! I got answer:', value);
+            return value.posts;
+        });
+}
