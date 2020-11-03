@@ -11,7 +11,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
         const posts = await fetchBlogItems(graphcms)
             .then(items => {
-                return items.sort((a, b) => a.published.localeCompare(b.published));
+                return items.sort((a, b) => b.published.localeCompare(a.published));
             });
 
         return {

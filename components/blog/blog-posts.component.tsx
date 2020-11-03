@@ -36,29 +36,29 @@ export const PostItem: React.FC<{ post: BlogItem }> = ({post}) => {
             <Link href={post.externalInfo ? post.externalInfo.url : '/blog/'+post.id}>
                 <a target={post.externalInfo ? '_blank' : ''} rel={'noreferrer'} className={'block shadow-lg px-3 py-5 rounded-2xl hover:bg-gray-100'}>
                     <div>
-                        <a href="#" className="inline-block">
+                        <div className="inline-block">
                             <Badge type={'post-type'}>{post.type}</Badge>
                             {
                                 post.language
                                     ? <Badge type={'language'}>{post.language}</Badge>
                                     : null
                             }
-                        </a>
+                        </div>
                     </div>
-                    <a href="#" className="block">
+                    <div className="block">
                         <h3 className="mt-4 text-xl leading-7 font-semibold text-gray-900">
                             {post.title}
                         </h3>
                         <p className="mt-3 text-base leading-6 text-gray-500">
                             {post.shortDescription}
                         </p>
-                    </a>
+                    </div>
                     <div className="mt-6 flex items-center">
                         <div>
                             <p className="text-sm leading-5 font-medium text-gray-900">
-                                <a href="#">{
+                                {
                                     post.externalInfo ? 'Posted on ' + post.externalInfo.source : 'Available on this site'
-                                }</a>
+                                }
                             </p>
                             <div className="flex text-sm leading-5 text-gray-500">
                                 Posted on
