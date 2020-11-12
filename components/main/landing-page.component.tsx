@@ -42,12 +42,12 @@ export const MainLandingPage = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
-                <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+                <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full relative shadow-2xl">
                     <Image
-                        className="shadow-2xl r-profile-image rounded-l-2xl absolute inset-0 w-full h-full object-cover"
+                        className="r-profile-image rounded-l-2xl absolute inset-0 w-full h-full object-cover"
                         src="/assets/images/profile.jpg"
                         alt="Woman on her phone"
-                        unsized
+                        layout={'fill'}
                     />
                 </div>
             </main>

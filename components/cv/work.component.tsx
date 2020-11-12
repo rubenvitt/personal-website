@@ -59,12 +59,12 @@ const WorkItem = ({ work }: WorkItemProps) => {
                 onClick={toggleSlideOverState}
                 className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50 transition duration-150 ease-in-out"
             >
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 relative h-48 w-full">
                     <Image
-                        className="h-48 w-full object-cover"
+                        className="object-cover"
                         src={addLeadingSlash(work.image)}
                         alt={work.company.name}
-                        unsized
+                        layout={'fill'}
                     />
                 </div>
                 <div className="block flex-1 p-6 flex flex-col justify-between">
