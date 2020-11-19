@@ -1,15 +1,17 @@
-import { WorkModel } from '../types/work-items.types';
-import { Certificate, Skill } from '../types/skill-items.types';
-import { StudyModel } from '../data/study-items.list';
-import { PortfolioItemType, PortfolioModel } from '../types/portfolio-items.types';
-import { GraphQLClient } from 'graphql-request';
+import {WorkModel} from '../types/work-items.types';
+import {Certificate, Skill} from '../types/skill-items.types';
+import {StudyModel} from '../data/study-items.list';
+import {PortfolioItemType, PortfolioModel} from '../types/portfolio-items.types';
+import {GraphQLClient} from 'graphql-request';
+import {BlogItem} from "../types/blog-items.types";
+import {isDev} from "./global-helper";
 
 export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]> => {
     return await client
         .request(
             `
     {
-    works {
+    works ${isDev ? '(stage: DRAFT)' : ''} {
         id, position, duration, responsibilities, image, shortSummary, summary, place, 
         company {name, url},
         technologies { ... on Skill { id, title }, ... on Framework { id title } }
@@ -25,7 +27,7 @@ export const fetchSkillItems = async (client: GraphQLClient): Promise<Skill[]> =
         .request(
             `
     {
-        skills {
+        skills ${isDev ? '(stage: DRAFT)' : ''} {
             id, title, level, skillDirection, type, tag, svg, certificates {
               id, title, url, date, platform, author
             }
@@ -41,7 +43,7 @@ export const fetchCertItems = async (client: GraphQLClient): Promise<Certificate
         .request(
             `
     {
-        certificates {
+        certificates ${isDev ? '(stage: DRAFT)' : ''} {
             date
             id
             title
@@ -61,7 +63,7 @@ export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel
         .request(
             `
 {
-  studies {
+  studies ${isDev ? '(stage: DRAFT)' : ''} {
     duration
     id
     studyStatus
@@ -79,7 +81,6 @@ export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel
 
 export const fetchPortfolioItems = async (client: GraphQLClient): Promise<PortfolioModel[]> => {
     const parsePortfolioItemType = (type: string) => {
-        console.log('type: ', type);
         type = type?.toLowerCase();
         let result = undefined;
         switch (type) {
@@ -103,7 +104,7 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
         .request(
             `
 {
-  portfolioItems {
+  portfolioItems ${isDev ? '(stage: DRAFT)' : ''} {
     id
     title
     url
@@ -133,3 +134,61 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
             });
         });
 };
+
+export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]> => {
+    return await client
+        .request(`
+{
+  posts ${isDev ? '(stage: DRAFT)' : ''} {
+    id: slug
+    title
+    shortDescription
+    readMinutes
+    language
+    type
+    externalInfo {
+      url
+      source
+    }
+    published
+  }
+}
+    `).then(value => {
+            return value.posts;
+        });
+}
+
+export const fetchPostAndMorePosts = async (client: GraphQLClient, pid): Promise<{post: BlogItem, morePosts: BlogItem[]}> => {
+    return await client.request(`
+{
+  post(where: {slug: "${escape(pid)}"}${isDev ? ', stage: DRAFT' : undefined}) {
+    id: slug
+    language
+    published
+    publishedAt
+    readMinutes
+    shortDescription
+    stage
+    title
+    type
+    content
+  }
+  morePosts: posts(first: 3) {
+    id: slug
+    language
+    published
+    publishedAt
+    readMinutes
+    shortDescription
+    stage
+    title
+    type
+  }
+}
+    `).then(value => {
+        return {
+            post: value.post,
+            morePosts: value.morePosts
+        }
+    })
+}

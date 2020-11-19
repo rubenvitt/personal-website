@@ -83,7 +83,7 @@ const PortfolioIntroduction = (): JSX.Element => {
                                 target="_blank"
                                 rel="noreferrer"
                                 href="https://portfolio.rubeen.dev"
-                                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 focus:outline-none focus:ring transition duration-150 ease-in-out"
                             >
                                 At my Portfolio-Page
                             </a>
@@ -93,7 +93,7 @@ const PortfolioIntroduction = (): JSX.Element => {
                                 target="_blank"
                                 rel="noreferrer"
                                 href="https://github.com/rubenvitt"
-                                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-orange-700 bg-orange-100 hover:text-orange-600 hover:bg-orange-50 focus:outline-none focus:shadow-outline focus:border-orange-300 transition duration-150 ease-in-out"
+                                className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-orange-700 bg-orange-100 hover:text-orange-600 hover:bg-orange-50 focus:outline-none focus:ring focus:border-orange-300 transition duration-150 ease-in-out"
                             >
                                 On Github
                             </a>

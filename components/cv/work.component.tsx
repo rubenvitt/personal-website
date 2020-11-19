@@ -59,12 +59,12 @@ const WorkItem = ({ work }: WorkItemProps) => {
                 onClick={toggleSlideOverState}
                 className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50 transition duration-150 ease-in-out"
             >
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 relative h-48 w-full">
                     <Image
-                        className="h-48 w-full object-cover"
+                        className="object-cover"
                         src={addLeadingSlash(work.image)}
                         alt={work.company.name}
-                        unsized
+                        layout={'fill'}
                     />
                 </div>
                 <div className="block flex-1 p-6 flex flex-col justify-between">
@@ -127,7 +127,7 @@ const workSlideOverContent = (work: WorkModel) => {
                 </div>
 
                 <div className="px-4 border-b border-gray-100 py-5 sm:px-6">
-                    <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
+                    <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
                             <dt className="text-sm leading-5 font-medium text-gray-500">Employed for</dt>
                         </div>
@@ -136,7 +136,7 @@ const workSlideOverContent = (work: WorkModel) => {
                 </div>
 
                 <div className="px-4 py-5 sm:px-6 border-b border-gray-100">
-                    <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
+                    <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
                             <dt className="text-sm leading-5 font-medium text-gray-500">Responsible for</dt>
                         </div>
@@ -155,7 +155,7 @@ const workSlideOverContent = (work: WorkModel) => {
                 </div>
 
                 <div className="px-4 py-5 sm:px-6 border-b border-gray-100">
-                    <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
+                    <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
                             <dt className="text-sm leading-5 font-medium text-gray-500">Technologies</dt>
                         </div>

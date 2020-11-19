@@ -24,18 +24,20 @@ export const NavBar = (): JSX.Element => {
                         <div className="flex-shrink-0 flex items-center">
                             <Link href={'/'}>
                                 <a>
-                                    <Image
-                                        className="block lg:hidden h-8 w-auto"
-                                        src="/assets/images/r.png"
-                                        alt="Rubeen logo"
-                                        unsized
-                                    />
-                                    <Image
-                                        className="hidden lg:block h-8 w-auto"
-                                        src="/assets/images/rubeen.png"
-                                        alt="Rubeen logo"
-                                        unsized
-                                    />
+                                    <div className={'block lg:hidden h-8 w-8 relative'}>
+                                        <Image
+                                            src="/assets/images/r.png"
+                                            alt="Rubeen logo"
+                                            layout={'fill'}
+                                        />
+                                    </div>
+                                    <div className={'hidden lg:block h-8 w-20 relative'}>
+                                        <Image
+                                            src="/assets/images/rubeen.png"
+                                            alt="Rubeen logo"
+                                            layout={'fill'}
+                                        />
+                                    </div>
                                 </a>
                             </Link>
                         </div>
