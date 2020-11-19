@@ -11,7 +11,7 @@ export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]
         .request(
             `
     {
-    works ${isDev ? '(stage: DRAFT)' : undefined} {
+    works ${isDev ? '(stage: DRAFT)' : ''} {
         id, position, duration, responsibilities, image, shortSummary, summary, place, 
         company {name, url},
         technologies { ... on Skill { id, title }, ... on Framework { id title } }
@@ -27,7 +27,7 @@ export const fetchSkillItems = async (client: GraphQLClient): Promise<Skill[]> =
         .request(
             `
     {
-        skills ${isDev ? '(stage: DRAFT)' : undefined} {
+        skills ${isDev ? '(stage: DRAFT)' : ''} {
             id, title, level, skillDirection, type, tag, svg, certificates {
               id, title, url, date, platform, author
             }
@@ -43,7 +43,7 @@ export const fetchCertItems = async (client: GraphQLClient): Promise<Certificate
         .request(
             `
     {
-        certificates ${isDev ? '(stage: DRAFT)' : undefined} {
+        certificates ${isDev ? '(stage: DRAFT)' : ''} {
             date
             id
             title
@@ -63,7 +63,7 @@ export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel
         .request(
             `
 {
-  studies ${isDev ? '(stage: DRAFT)' : undefined} {
+  studies ${isDev ? '(stage: DRAFT)' : ''} {
     duration
     id
     studyStatus
@@ -104,7 +104,7 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
         .request(
             `
 {
-  portfolioItems ${isDev ? '(stage: DRAFT)' : undefined} {
+  portfolioItems ${isDev ? '(stage: DRAFT)' : ''} {
     id
     title
     url
@@ -139,7 +139,7 @@ export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]>
     return await client
         .request(`
 {
-  posts ${isDev ? '(stage: DRAFT)' : undefined} {
+  posts ${isDev ? '(stage: DRAFT)' : ''} {
     id: slug
     title
     shortDescription
