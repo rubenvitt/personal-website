@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
     future: {
         removeDeprecatedGapUtilities: true,
@@ -27,6 +29,7 @@ module.exports = {
                 linkedin: '#0077b5',
                 fastmail: '#243959',
                 xing: '#026466',
+                ...colors
             },
         },
     },

@@ -34,7 +34,7 @@ export const GithubNotification = () => {
                 leaveTo={'opacity-0'}
             >
                 <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto">
-                    <div className="rounded-lg shadow-xs">
+                    <div className="rounded-lg ring-1 ring-black ring-opacity-5">
                         <div className="p-4">
                             <div className="flex items-start">
                                 <div className="flex-shrink-0 pt-0.5">
@@ -57,7 +57,7 @@ export const GithubNotification = () => {
                                             <button
                                                 onClick={handleGithub}
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 focus:outline-none focus:border-orange-700 focus:shadow-outline-orange active:bg-orange-700 transition ease-in-out duration-150"
+                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 focus:outline-none focus:border-orange-700 focus:ring-orange active:bg-orange-700 transition ease-in-out duration-150"
                                             >
                                                 View Sourcecode
                                             </button>
@@ -66,7 +66,7 @@ export const GithubNotification = () => {
                                             <button
                                                 onClick={handleClose}
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150"
+                                                className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150"
                                             >
                                                 Close
                                             </button>

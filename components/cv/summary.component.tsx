@@ -29,7 +29,7 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                 </div>
 
                 <div className="mt-10">
-                    <ul className="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
+                    <ul className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
                         <li className="md:mr-2">
                             <div className="flex group">
                                 <div className="flex-shrink-0 group">

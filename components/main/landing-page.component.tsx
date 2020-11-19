@@ -27,14 +27,14 @@ export const MainLandingPage = (): JSX.Element => {
                         <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                             <div className="rounded-md shadow">
                                 <Link href={'/blog'}>
-                                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 bg-border-white focus:outline-none focus:border-orange-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 bg-border-white focus:outline-none focus:border-orange-700 focus:ring-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                                         Read my publications
                                     </a>
                                 </Link>
                             </div>
                             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                                 <Link href={'/cv'}>
-                                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-orange-600 bg-white hover:text-orange-500 hover:bg-gray-100 hover:border-orange-500 focus:outline-none focus:border-orange-300 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-orange-600 bg-white hover:text-orange-500 hover:bg-gray-100 hover:border-orange-500 focus:outline-none focus:border-orange-300 focus:ring-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                                         View my CV
                                     </a>
                                 </Link>
