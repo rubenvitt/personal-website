@@ -161,7 +161,7 @@ export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]>
 export const fetchPostAndMorePosts = async (client: GraphQLClient, pid): Promise<{post: BlogItem, morePosts: BlogItem[]}> => {
     return await client.request(`
 {
-  post(where: {slug: "${escape(pid)}"}${isDev ? ', stage: DRAFT' : undefined}) {
+  post(where: {slug: "${escape(pid)}"}${isDev ? ', stage: DRAFT' : ''}) {
     id: slug
     language
     published
