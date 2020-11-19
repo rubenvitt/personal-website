@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export const MainLandingPage = (): JSX.Element => {
     return (
-        <div className="relative bg-gray-50">
+        <div className="relative bg-white">
             <main className="lg:relative">
                 <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
                     <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
