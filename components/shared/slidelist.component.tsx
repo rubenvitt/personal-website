@@ -8,7 +8,7 @@ class SlideListElementProps {
 
 export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element => {
     return (
-        <li key={skill.title} className="col-span-1 bg-white rounded-lg shadow hover:bg-gray-100">
+        <li key={skill.title} className="col-span-1 bg-white rounded-lg shadow hover:bg-gray-100 transition">
             {(skill as TaggedSkill).tag ? (
                 <div className="border-b border-gray-200 bg-gray-100 py-1 px-2 text-xs">
                     {(skill as TaggedSkill).tag}

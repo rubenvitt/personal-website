@@ -38,11 +38,11 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
     return (
         <a href={item.url} target="_blank" rel="noreferrer" className="col-span-1 flex shadow-sm rounded-md group">
             <div
-                className={`flex-shrink-0 flex items-center justify-center w-16 ${color} text-white text-sm leading-5 font-medium rounded-l-md`}
+                className={`flex-shrink-0 flex items-center justify-center w-16 ${color} text-white text-sm leading-5 font-medium rounded-l-md transition`}
             >
                 {item.abbr}
             </div>
-            <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white group-hover:bg-gray-100 rounded-r-md truncate">
+            <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white group-hover:bg-gray-100 rounded-r-md truncate transition">
                 <div className="flex-1 px-4 py-2 text-sm leading-5 truncate">
                     <div className="text-gray-900 font-medium hover:text-gray-600 transition ease-in-out duration-150">
                         {item.title}
@@ -50,7 +50,7 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
                     {item.linesOfCode ? (
                         <p className="text-gray-500">
                             <svg
-                                className={`h-4 inline text-${color}-600 mr-1`}
+                                className={`h-4 inline mr-1`}
                                 fill="none"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -66,7 +66,7 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
                     {item.langs ? (
                         <p className="text-gray-500 whitespace-normal flex">
                             <svg
-                                className={`h-4 inline text-${color}-600 mr-1 flex-wrap`}
+                                className={`h-4 inline mr-1 flex-wrap`}
                                 fill="none"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"

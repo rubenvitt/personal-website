@@ -34,7 +34,7 @@ export const PostItem: React.FC<{ post: BlogItem }> = ({post}) => {
     return (
         <>
             <Link href={post.externalInfo ? post.externalInfo.url : '/blog/'+post.id}>
-                <a target={post.externalInfo ? '_blank' : ''} rel={'noreferrer'} className={'block shadow-lg px-3 py-5 rounded-2xl hover:bg-gray-100'}>
+                <a target={post.externalInfo ? '_blank' : ''} rel={'noreferrer'} className={'block shadow-lg px-3 py-5 rounded-2xl hover:bg-gray-100 transition'}>
                     <div>
                         <div className="inline-block">
                             <Badge type={'post-type'}>{post.type}</Badge>
