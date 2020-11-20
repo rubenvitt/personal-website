@@ -44,6 +44,9 @@ function Post({post, morePosts}) {
             router.isFallback ? <>Loading...</>
                 : <PostComponent post={post} morePosts={morePosts} />
         }
+        <div className={'hidden prose'}>
+            <pre><code/></pre>
+        </div>
     </>;
 }
 

@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown";
-import React, {useEffect, useState} from "react";
+import React, {PropsWithChildren, useEffect, useState} from "react";
 import {BlogItem} from "../../types/blog-items.types";
-import {useRouter} from "next/router";
+import Prism from 'prismjs';
 
 export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> = ({post, morePosts}) => {
     const [host, setHost] = useState<string>();
@@ -15,7 +15,7 @@ export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> 
             <div className="bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
                 <div className="relative mx-auto">
                     <div>
-                        <article className={'prose sm:prose-lg lg:prose-xl px-5 pt-6 max-w-full'}>
+                        <article className={'prose sm:prose-lg lg:prose-xl px-5 pt-6 max-w-full img-max-100'}>
                             <h1 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
                                 {post.title}
                             </h1>
@@ -26,6 +26,11 @@ export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> 
                                 <span className={'text-gray-600'}>{post.shortDescription}</span>
                             </aside>
                             <ReactMarkdown
+                                renderers={{
+                                    image: props => {
+                                        return <img {...props} alt={'Picture in text'} />
+                                    }
+                                }}
                                 linkTarget={(uri => uri.includes(host) ? '' : '_blank')}
                             >{post.content}</ReactMarkdown>
                         </article>
