@@ -6,7 +6,7 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "global:install-dependencies": "npm i -g dotenv"
+    "global:install-dependencies": "npm i -g dotenv-cli"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
