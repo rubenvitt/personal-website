@@ -4,14 +4,14 @@ import {StudyModel} from '../data/study-items.list';
 import {PortfolioItemType, PortfolioModel} from '../types/portfolio-items.types';
 import {GraphQLClient} from 'graphql-request';
 import {BlogItem} from "../types/blog-items.types";
-import {isDev} from "./global-helper";
+import {isPreview} from "./global-helper";
 
 export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]> => {
     return await client
         .request(
             `
     {
-    works ${isDev ? '(stage: DRAFT)' : ''} {
+    works ${isPreview ? '(stage: DRAFT)' : ''} {
         id, position, duration, responsibilities, image, shortSummary, summary, place, 
         company {name, url},
         technologies { ... on Skill { id, title }, ... on Framework { id title } }
@@ -27,7 +27,7 @@ export const fetchSkillItems = async (client: GraphQLClient): Promise<Skill[]> =
         .request(
             `
     {
-        skills ${isDev ? '(stage: DRAFT)' : ''} {
+        skills ${isPreview ? '(stage: DRAFT)' : ''} {
             id, title, level, skillDirection, type, tag, svg, certificates {
               id, title, url, date, platform, author
             }
@@ -43,7 +43,7 @@ export const fetchCertItems = async (client: GraphQLClient): Promise<Certificate
         .request(
             `
     {
-        certificates ${isDev ? '(stage: DRAFT)' : ''} {
+        certificates ${isPreview ? '(stage: DRAFT)' : ''} {
             date
             id
             title
@@ -63,7 +63,7 @@ export const fetchStudyItems = async (client: GraphQLClient): Promise<StudyModel
         .request(
             `
 {
-  studies ${isDev ? '(stage: DRAFT)' : ''} {
+  studies ${isPreview ? '(stage: DRAFT)' : ''} {
     duration
     id
     studyStatus
@@ -104,7 +104,7 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
         .request(
             `
 {
-  portfolioItems ${isDev ? '(stage: DRAFT)' : ''} {
+  portfolioItems ${isPreview ? '(stage: DRAFT)' : ''} {
     id
     title
     url
@@ -139,7 +139,7 @@ export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]>
     return await client
         .request(`
 {
-  posts ${isDev ? '(stage: DRAFT)' : ''} {
+  posts ${isPreview ? '(stage: DRAFT)' : ''} {
     id: slug
     title
     shortDescription
@@ -161,7 +161,7 @@ export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]>
 export const fetchPostAndMorePosts = async (client: GraphQLClient, pid): Promise<{post: BlogItem, morePosts: BlogItem[]}> => {
     return await client.request(`
 {
-  post(where: {slug: "${escape(pid)}"}${isDev ? ', stage: DRAFT' : ''}) {
+  post(where: {slug: "${escape(pid)}"}${isPreview ? ', stage: DRAFT' : ''}) {
     id: slug
     language
     published
