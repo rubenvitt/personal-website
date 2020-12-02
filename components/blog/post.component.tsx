@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import React, {PropsWithChildren, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {BlogItem} from "../../types/blog-items.types";
 
 export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> = ({post, morePosts}) => {
@@ -29,7 +29,10 @@ export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> 
                                 renderers={{
                                     image: props => {
                                         return <img {...props} alt={'Picture in text'} />
-                                    }
+                                    },
+                                    /*code: ({language, value}) => {
+                                        return <SyntaxHighlighter language={language} children={value} />
+                                    }*/
                                 }}
                                 linkTarget={(uri => uri.includes(host) ? '' : '_blank')}
                             >{post.content}</ReactMarkdown>
