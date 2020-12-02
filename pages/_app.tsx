@@ -14,6 +14,10 @@ import {DevNotification} from "../components/dev/dev-notification.component";
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }): JSX.Element {
+    console.log('Hey, are you in dev-mode ? ', isPreview);
+    console.log('publicENV ? ', process.env.NEXT_PUBLIC_ENV);
+    console.log('env ? ', process.env.ENV);
+
     return (
         <>
             <PageHead />
