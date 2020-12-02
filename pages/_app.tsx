@@ -9,6 +9,8 @@ import { GithubNotification } from '../components/github-notification/github-not
 import { PageFooter } from '../components/page-footer/page-footer.component';
 import { PageHead } from '../components/page-head/page-head.component';
 import { Container } from '../components/main/landing-page.component';
+import {isPreview} from "../helper/global-helper";
+import {DevNotification} from "../components/dev/dev-notification.component";
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }): JSX.Element {
@@ -19,6 +21,9 @@ function MyApp({ Component, pageProps }): JSX.Element {
                 <Component {...pageProps} />
             </Container>
             <GithubNotification />
+            {
+                isPreview ? <DevNotification /> : undefined
+            }
             <PageFooter />
         </>
     );
