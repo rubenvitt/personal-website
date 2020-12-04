@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import TransitionComponent from '../shared/Transition.component';
 import { Icons } from '../../data/icons/icons';
+import {useGithubNotificationStore} from "./github-notification.hooks";
 
 export const GithubNotification = () => {
     const [open, setOpen] = useState(false);
-    const [firstTime, setFirstTime] = useState(true);
+    const {closed, closeNotification} = useGithubNotificationStore();
 
     useEffect(() => {
-        if (firstTime) {
-            setFirstTime(false);
+        if (!closed) {
             setTimeout(() => {
                 setOpen(true);
             }, 3000);
@@ -17,6 +17,7 @@ export const GithubNotification = () => {
 
     const handleClose = () => {
         setOpen(false);
+        closeNotification();
     };
     const handleGithub = () => {
         window.location.href = 'https://github.com/rubenvitt/personal-website';

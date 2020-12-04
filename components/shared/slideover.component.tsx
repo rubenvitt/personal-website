@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TransitionComponent from './Transition.component';
 
 class SlideOverProps {
@@ -17,8 +17,13 @@ export const SlideOver = ({
     title,
 }: SlideOverProps): JSX.Element => {
     const toggleSlideOver = () => {
+        document.body.style.overflow = document.body.style.overflow === 'hidden' ? 'unset' : 'hidden';
         setSlideOverState(!slideOverState);
     };
+
+    useEffect(() => {
+        document.body.style.overflow = slideOverState ? 'hidden' : 'unset';
+    }, [slideOverState])
 
     return (
         <TransitionComponent

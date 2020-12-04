@@ -1,7 +1,6 @@
 import ReactMarkdown from "react-markdown";
-import React, {PropsWithChildren, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {BlogItem} from "../../types/blog-items.types";
-import Prism from 'prismjs';
 
 export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> = ({post, morePosts}) => {
     const [host, setHost] = useState<string>();
@@ -26,10 +25,14 @@ export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> 
                                 <span className={'text-gray-600'}>{post.shortDescription}</span>
                             </aside>
                             <ReactMarkdown
+                                allowDangerousHtml={true}
                                 renderers={{
                                     image: props => {
                                         return <img {...props} alt={'Picture in text'} />
-                                    }
+                                    },
+                                    /*code: ({language, value}) => {
+                                        return <SyntaxHighlighter language={language} children={value} />
+                                    }*/
                                 }}
                                 linkTarget={(uri => uri.includes(host) ? '' : '_blank')}
                             >{post.content}</ReactMarkdown>
