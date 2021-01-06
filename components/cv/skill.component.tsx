@@ -90,11 +90,9 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                             </dt>
                             <dd className="flex items-baseline">
                                 <div className="text-2xl leading-8 font-semibold text-gray-700">
-                                    {skill.type !== SkillType.Certificate
-                                        ? Number.isNaN(skill.level)
-                                            ? ''
-                                            : skill.level + '%'
-                                        : (skill as CertificateSkill).date.toLocaleDateString('en-gb')}
+                                    {skill.type === SkillType.Certificate
+                                        ? (skill as CertificateSkill).date.toLocaleDateString('en-gb')
+                                        : Number.isNaN(skill.level) ? '' : skill.level + '%'}
                                     {}
                                 </div>
                                 <div
@@ -103,7 +101,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                         calcColor(skill.skillDirection)
                                     }
                                 >
-                                    {skill.type !== SkillType.Certificate ? (
+                                    {skill.type === SkillType.Certificate ? null : (
                                         <>
                                             <svg
                                                 className={
@@ -121,7 +119,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                             </svg>
                                             {skill.skillDirection}
                                         </>
-                                    ) : null}
+                                    )}
                                 </div>
                             </dd>
                         </dl>
@@ -131,16 +129,19 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
             {skill.certificates && skill.certificates.length > 0 ? (
                 <div className="align-bottom bg-gray-50 px-4 py-4 sm:px-6 group-hover:bg-gray-200 transition duration-150 ease-in-out">
                     <div
-                        className={'text-sm leading-5 grid grid-cols-' + calcCols(skill.certificates.length) + ' gap-5'}
+                        className={'text-sm leading-5 grid grid-cols-' + calcCols(skill.certificates.length) + ' gap-2'}
                     >
-                        {skill.certificates.map((cert, i) => {
+                        {skill.certificates.sort((a,b) => {
+                            console.log('compare a',a,'against b',b);
+                            return new Date(a.date).getDate() - new Date(b.date).getDate();
+                        }).map((cert, i) => {
                             return (
                                 <a
                                     href={cert.url}
                                     key={i}
                                     className="truncate bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded transition"
                                 >
-                                    {cert.title} by {cert.author} at {cert.platform}
+                                    {cert.title} {cert.author && 'by'} {cert.author} {cert.platform && 'at'} {cert.platform}
                                 </a>
                             );
                         })}
@@ -188,11 +189,7 @@ export const DefaultSkillElement = ({ skills, buttonHandler, max }: DefaultSkill
 };
 
 function calcCols(certs): number {
-    if (certs < 7) return certs;
-    if (certs % 6 === 0) return 6;
-    if (certs % 5 === 0) return 5;
-    if (certs % 4 === 0) return 4;
-    else return 3;
+    return 1;
 }
 
 export const calcColor: (direction: SkillDirection) => string = (direction) => {
