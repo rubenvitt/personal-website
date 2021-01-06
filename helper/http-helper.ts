@@ -151,6 +151,7 @@ export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]>
       source
     }
     published
+    updatedAt
   }
 }
     `).then(value => {

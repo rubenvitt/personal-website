@@ -8,4 +8,5 @@ export interface BlogItem {
     externalInfo?: {source: string, url: string};
     published: string;
     content?: string;
+    updatedAt: string;
 }
