@@ -5,7 +5,7 @@ import {
     Skill,
     SkillDirection,
     SkillType,
-    TaggedSkill
+    TaggedSkill,
 } from '../../types/skill-items.types';
 import Lottie from 'react-lottie';
 import { ShapeAnimation } from '../../data/icons/animation-data/icons';
@@ -26,7 +26,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
     return (
         <div
             key={listIndex}
-            className="group bg-white overflow-hidden shadow rounded-lg hover:bg-gray-100 transition duration-150 ease-in-out"
+            className="group bg-white dark:bg-trueGray-800 overflow-hidden shadow rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition duration-150 ease-in-out"
         >
             {(skill as TaggedSkill).tag ? (
                 <div className="flex items-center bg-gray-100 px-4 py-2 border-b border-gray-200 sm:px-6">
@@ -92,7 +92,9 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                 <div className="text-2xl leading-8 font-semibold text-gray-700">
                                     {skill.type === SkillType.Certificate
                                         ? (skill as CertificateSkill).date.toLocaleDateString('en-gb')
-                                        : Number.isNaN(skill.level) ? '' : skill.level + '%'}
+                                        : Number.isNaN(skill.level)
+                                        ? ''
+                                        : skill.level + '%'}
                                     {}
                                 </div>
                                 <div
@@ -131,20 +133,23 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                     <div
                         className={'text-sm leading-5 grid grid-cols-' + calcCols(skill.certificates.length) + ' gap-2'}
                     >
-                        {skill.certificates.sort((a,b) => {
-                            console.log('compare a',a,'against b',b);
-                            return new Date(a.date).getDate() - new Date(b.date).getDate();
-                        }).map((cert, i) => {
-                            return (
-                                <a
-                                    href={cert.url}
-                                    key={i}
-                                    className="truncate bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded transition"
-                                >
-                                    {cert.title} {cert.author && 'by'} {cert.author} {cert.platform && 'at'} {cert.platform}
-                                </a>
-                            );
-                        })}
+                        {skill.certificates
+                            .sort((a, b) => {
+                                console.log('compare a', a, 'against b', b);
+                                return new Date(a.date).getDate() - new Date(b.date).getDate();
+                            })
+                            .map((cert, i) => {
+                                return (
+                                    <a
+                                        href={cert.url}
+                                        key={i}
+                                        className="truncate bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded transition"
+                                    >
+                                        {cert.title} {cert.author && 'by'} {cert.author} {cert.platform && 'at'}{' '}
+                                        {cert.platform}
+                                    </a>
+                                );
+                            })}
                     </div>
                 </div>
             ) : null}

@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
     future: {
@@ -7,9 +7,7 @@ module.exports = {
         defaultLineHeights: true,
         standardFontWeights: true,
     },
-    experimental: {
-        darkModeVariant: true,
-    },
+    experimental: {},
     theme: {
         extend: {
             typography: {
@@ -19,26 +17,24 @@ module.exports = {
                             'border-radius': '.25em',
                             'max-height': '100vh',
                             'margin-right': 'auto',
-                            'margin-left': 'auto'
-                        }
-                    }
-                }
+                            'margin-left': 'auto',
+                        },
+                    },
+                },
             },
             colors: {
                 github: '#333',
                 linkedin: '#0077b5',
                 fastmail: '#243959',
                 xing: '#026466',
-                ...colors
+                ...colors,
             },
         },
     },
-    plugins: [
-        require('@tailwindcss/typography'),
-    ],
+    plugins: [require('@tailwindcss/typography')],
     variants: {
-        backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
-        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+        backgroundColor: ['responsive', 'dark', 'hover', 'focus', 'group-hover'],
+        textColor: ['responsive', 'dark', 'hover', 'focus', 'group-hover'],
     },
-
+    darkMode: 'class',
 };

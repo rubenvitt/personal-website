@@ -6,7 +6,6 @@ import { CvLanguageSkills } from '../components/cv/language_skills.component';
 import { CvEducation } from '../components/cv/education.component';
 import { CvHumanLanguages } from '../components/cv/human_languages.component';
 import { CvOtherSkills } from '../components/cv/other_skills.component';
-import { PageFooter } from '../components/page-footer/page-footer.component';
 import CvWork from '../components/cv/work.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { fetchCertItems, fetchSkillItems, fetchStudyItems, fetchWorkItems } from '../helper/http-helper';
@@ -20,7 +19,6 @@ import { calculateLastWork, remapWorkDurationToDate } from '../helper/work-helpe
 import { remapStudyDurationToDate } from '../helper/study-helper';
 import { GraphQLClient } from 'graphql-request';
 import { URLGraphCMS } from '../config/constants.config';
-import { GithubNotification } from '../components/github-notification/github-notification.component';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {

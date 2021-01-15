@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import TransitionComponent from '../shared/Transition.component';
 import { Icons } from '../../data/icons/icons';
-import {useGithubNotificationStore} from "./github-notification.hooks";
+import { useGithubNotificationStore } from './github-notification.hooks';
 
 export const GithubNotification = () => {
     const [open, setOpen] = useState(false);
-    const {closed, closeNotification} = useGithubNotificationStore();
+    const { closed, closeNotification } = useGithubNotificationStore();
 
     useEffect(() => {
         if (!closed) {
@@ -34,8 +34,8 @@ export const GithubNotification = () => {
                 leaveFrom={'opacity-100'}
                 leaveTo={'opacity-0'}
             >
-                <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto">
-                    <div className="rounded-lg ring-1 ring-black ring-opacity-5">
+                <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto dark:bg-trueGray-800">
+                    <div className="rounded-lg ring-1 ring-black ring-opacity-5 dark:text-gray-200 text-gray-900">
                         <div className="p-4">
                             <div className="flex items-start">
                                 <div className="flex-shrink-0 pt-0.5">
@@ -49,8 +49,8 @@ export const GithubNotification = () => {
                                     </svg>
                                 </div>
                                 <div className="ml-3 w-0 flex-1">
-                                    <p className="text-sm leading-5 font-medium text-gray-900">Open Source</p>
-                                    <p className="mt-1 text-sm leading-5 text-gray-500">
+                                    <p className="text-sm leading-5 font-medium">Open Source</p>
+                                    <p className="mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400">
                                         This website is hosted on GitHub!
                                     </p>
                                     <div className="mt-4 flex">
@@ -58,7 +58,7 @@ export const GithubNotification = () => {
                                             <button
                                                 onClick={handleGithub}
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 focus:outline-none focus:border-orange-700 focus:ring-orange active:bg-orange-700 transition ease-in-out duration-150"
+                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-orange-600 dark:bg-orange-800 hover:bg-orange-500 dark:hover:bg-orange-900 focus:outline-none focus:border-orange-700 focus:ring-orange active:bg-orange-700 transition ease-in-out duration-150"
                                             >
                                                 View Sourcecode
                                             </button>
@@ -67,7 +67,7 @@ export const GithubNotification = () => {
                                             <button
                                                 onClick={handleClose}
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150"
+                                                className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-900 text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:text-gray-500 dark:hover:text-gray-300 focus:outline-none focus:border-blue-300 focus:ring-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150"
                                             >
                                                 Close
                                             </button>

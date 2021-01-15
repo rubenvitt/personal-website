@@ -14,7 +14,7 @@ export const MainLandingPage = (): JSX.Element => {
                         <h2 className="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
                             Hey, I'm
                             <br className="xl:hidden" />
-                            <span className="text-orange-600"> Ruben</span>
+                            <span className="text-green-600 dark:text-blue-600"> Ruben</span>
                             <span className="hidden xl:inline font-light ml-2 mt-1 text-sm leading-5 text-gray-400 truncate">
                                 Developer
                             </span>
@@ -58,7 +58,7 @@ export const MainLandingPage = (): JSX.Element => {
 export const Container = ({ children }: PageContainerProps): JSX.Element => {
     return (
         <div>
-            <div className="min-h-screen bg-white">
+            <div className="min-h-screen bg-white dark:bg-trueGray-800">
                 <NavBar />
                 <div>
                     <main>

@@ -17,7 +17,7 @@ export const NavBar = (): JSX.Element => {
     };
 
     return (
-        <nav className="bg-white border-b border-gray-200">
+        <nav className="bg-white border-b border-gray-200 dark:bg-trueGray-800 dark:border-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl">
                 <div className="flex justify-between h-16">
                     <div className="flex">
@@ -25,18 +25,10 @@ export const NavBar = (): JSX.Element => {
                             <Link href={'/'}>
                                 <a>
                                     <div className={'block lg:hidden h-8 w-8 relative'}>
-                                        <Image
-                                            src="/assets/images/r.png"
-                                            alt="Rubeen logo"
-                                            layout={'fill'}
-                                        />
+                                        <Image src="/assets/images/r.png" alt="Rubeen logo" layout={'fill'} />
                                     </div>
                                     <div className={'hidden lg:block h-8 w-20 relative'}>
-                                        <Image
-                                            src="/assets/images/rubeen.png"
-                                            alt="Rubeen logo"
-                                            layout={'fill'}
-                                        />
+                                        <Image src="/assets/images/rubeen.png" alt="Rubeen logo" layout={'fill'} />
                                     </div>
                                 </a>
                             </Link>
@@ -50,8 +42,8 @@ export const NavBar = (): JSX.Element => {
                                             className={
                                                 (i === 0 ? '' : 'ml-8 ') +
                                                 (element.url === path
-                                                    ? 'border-orange-500 text-gray-900 focus-border-orange-700'
-                                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300') +
+                                                    ? 'border-orange-500 text-gray-900 focus-border-orange-700 dark:text-gray-200'
+                                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300 dark:focus:text-gray-300') +
                                                 ' inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none'
                                             }
                                         >
