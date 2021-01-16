@@ -17,8 +17,10 @@ export const useDarkMode: () => [boolean, () => void] = () => {
 
     useEffect(() => {
         if (process.browser) {
-            console.log('first time of setting dark to ', localStorage.getItem('theme'));
-            setIsDark(localStorage.getItem('theme') === 'dark');
+            const localTheme = localStorage.getItem('theme');
+            console.log('first time of setting dark to ', localTheme ?? systemPrefersDark);
+
+            setIsDark(localTheme ? localTheme === 'dark' : systemPrefersDark);
         }
     }, [process.browser]);
 
