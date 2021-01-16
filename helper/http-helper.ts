@@ -1,10 +1,10 @@
-import {WorkModel} from '../types/work-items.types';
-import {Certificate, Skill} from '../types/skill-items.types';
-import {StudyModel} from '../data/study-items.list';
-import {PortfolioItemType, PortfolioModel} from '../types/portfolio-items.types';
-import {GraphQLClient} from 'graphql-request';
-import {BlogItem} from "../types/blog-items.types";
-import {isPreview} from "./global-helper";
+import { WorkModel } from '../types/work-items.types';
+import { Certificate, Skill } from '../types/skill-items.types';
+import { StudyModel } from '../data/study-items.list';
+import { PortfolioItemType, PortfolioModel } from '../types/portfolio-items.types';
+import { GraphQLClient } from 'graphql-request';
+import { BlogItem } from '../types/blog-items.types';
+import { isPreview } from './global-helper';
 
 export const fetchWorkItems = async (client: GraphQLClient): Promise<WorkModel[]> => {
     return await client
@@ -53,7 +53,6 @@ export const fetchCertItems = async (client: GraphQLClient): Promise<Certificate
     `,
         )
         .then((value) => {
-            console.log(value);
             return value.certificates;
         });
 };
@@ -137,7 +136,8 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
 
 export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]> => {
     return await client
-        .request(`
+        .request(
+            `
 {
   posts ${isPreview ? '(stage: DRAFT)' : ''} {
     id: slug
@@ -154,13 +154,20 @@ export const fetchBlogItems = async (client: GraphQLClient): Promise<BlogItem[]>
     updatedAt
   }
 }
-    `).then(value => {
+    `,
+        )
+        .then((value) => {
             return value.posts;
         });
-}
+};
 
-export const fetchPostAndMorePosts = async (client: GraphQLClient, pid): Promise<{post: BlogItem, morePosts: BlogItem[]}> => {
-    return await client.request(`
+export const fetchPostAndMorePosts = async (
+    client: GraphQLClient,
+    pid,
+): Promise<{ post: BlogItem; morePosts: BlogItem[] }> => {
+    return await client
+        .request(
+            `
 {
   post(where: {slug: "${escape(pid)}"}${isPreview ? ', stage: DRAFT' : ''}) {
     id: slug
@@ -186,10 +193,12 @@ export const fetchPostAndMorePosts = async (client: GraphQLClient, pid): Promise
     type
   }
 }
-    `).then(value => {
-        return {
-            post: value.post,
-            morePosts: value.morePosts
-        }
-    })
-}
+    `,
+        )
+        .then((value) => {
+            return {
+                post: value.post,
+                morePosts: value.morePosts,
+            };
+        });
+};

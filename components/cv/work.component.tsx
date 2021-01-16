@@ -22,7 +22,7 @@ export const CvWork = ({ workItems }: CvWorkProps): JSX.Element => {
     return (
         <div className={`${workItems.length > 0 ? '' : 'hidden'} relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8`}>
             <div className="relative max-w-7xl mx-auto">
-                <h2 className="text-xl leading-6 font-medium text-gray-900">Work experience</h2>
+                <h2 className="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Work experience</h2>
                 <div className="mt-12 grid gap-5 max-w-lg mx-auto md:grid-cols-2 md:max-w-none lg:grid-cols-3">
                     {workItems &&
                         workItems.map((work, i) => {
@@ -57,7 +57,7 @@ const WorkItem = ({ work }: WorkItemProps) => {
             />
             <button
                 onClick={toggleSlideOverState}
-                className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white hover:bg-gray-50 transition duration-150 ease-in-out"
+                className="flex flex-col rounded-lg shadow-lg overflow-hidden text-left bg-white dark:bg-trueGray-800 hover:bg-gray-50 dark:hover:bg-gray-900 transition duration-150 ease-in-out"
             >
                 <div className="flex-shrink-0 relative h-48 w-full">
                     <Image
@@ -69,8 +69,8 @@ const WorkItem = ({ work }: WorkItemProps) => {
                 </div>
                 <div className="block flex-1 p-6 flex flex-col justify-between">
                     <div className="flex-1">
-                        <p className="text-sm leading-5 font-medium text-indigo-600">
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 text-green-800 mr-2">
+                        <p className="text-sm leading-5 font-medium">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-200 mr-2">
                                 {work.duration.start.getFullYear().toString().slice(2) +
                                     '-' +
                                     zeroPad(work.duration.start.getMonth(), 2)}
@@ -81,22 +81,22 @@ const WorkItem = ({ work }: WorkItemProps) => {
                                       )}`
                                     : ` until now`}
                             </span>
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-blue-100 text-blue-800 mr-2">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-200 mr-2">
                                 {work.position}
                             </span>
                         </p>
                         <div className="block">
-                            <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">{work.company.name}</h3>
+                            <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900 dark:text-gray-200">{work.company.name}</h3>
                             <ReactMarkdown
-                                className={'mt-3 text-base leading-6 text-gray-500'}
+                                className={'mt-3 text-base leading-6 text-gray-500 dark:text-gray-400'}
                                 source={work.shortSummary}
                             />
                         </div>
                     </div>
                     <div className="mt-6 flex items-center">
                         <div className="ml-3">
-                            <p className="text-sm leading-5 font-medium text-gray-900">Some specs</p>
-                            <div className="flex text-sm leading-5 text-gray-500">
+                            <p className="text-sm leading-5 font-medium text-gray-900 dark:text-gray-200">Some specs</p>
+                            <div className="flex text-sm leading-5 text-gray-500 dark:text-gray-400">
                                 <span>{calcDurationBetween(work.duration)}</span>
                                 <span className="mx-1">&middot;</span>
                                 <span>{work.responsibilities?.length ?? 0} responsibilities</span>
@@ -113,11 +113,11 @@ const WorkItem = ({ work }: WorkItemProps) => {
 
 const workSlideOverContent = (work: WorkModel) => {
     return (
-        <div className="bg-white">
+        <div className="bg-white dark:bg-gray-800">
             <div className="shadow overflow-hidden sm:rounded-lg">
-                <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">{work.position}</h3>
-                    <a href={work.company.url} className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
+                <div className="px-4 py-5 border-b border-gray-200 dark:border-gray-900 sm:px-6">
+                    <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">{work.position}</h3>
+                    <a href={work.company.url} className="mt-1 max-w-2xl text-sm leading-5 text-gray-500 dark:text-gray-400">
                         {work.company.name}
                     </a>
                 </div>
@@ -126,22 +126,22 @@ const workSlideOverContent = (work: WorkModel) => {
                     <Image alt={work.company.name} className={'object-cover'} src={addLeadingSlash(work.image)} layout={'fill'} />
                 </div>
 
-                <div className="px-4 border-b border-gray-100 py-5 sm:px-6">
+                <div className="px-4 border-b border-gray-100 dark:border-gray-900 py-5 sm:px-6">
                     <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500">Employed for</dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">Employed for</dt>
                         </div>
                     </dl>
-                    <dd className="mt-1 text-sm leading-5 text-gray-900">{calcDurationBetween(work.duration)}</dd>
+                    <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-200">{calcDurationBetween(work.duration)}</dd>
                 </div>
 
-                <div className="px-4 py-5 sm:px-6 border-b border-gray-100">
+                <div className="px-4 py-5 sm:px-6 border-b border-gray-100 dark:border-gray-900">
                     <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500">Responsible for</dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">Responsible for</dt>
                         </div>
                     </dl>
-                    <dd className="mt-1 text-sm leading-5 text-gray-900">
+                    <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-200">
                         <ul>
                             {work.responsibilities?.map((element, i) => {
                                 return (
@@ -154,13 +154,13 @@ const workSlideOverContent = (work: WorkModel) => {
                     </dd>
                 </div>
 
-                <div className="px-4 py-5 sm:px-6 border-b border-gray-100">
+                <div className="px-4 py-5 sm:px-6 border-b border-gray-100 dark:border-gray-900">
                     <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500">Technologies</dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">Technologies</dt>
                         </div>
                     </dl>
-                    <dd className="mt-1 text-sm leading-5 text-gray-900">
+                    <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-200">
                         <ul>
                             {work.technologies
                                 ?.sort((a, b) => a.title.localeCompare(b.title))
@@ -175,8 +175,8 @@ const workSlideOverContent = (work: WorkModel) => {
                     </dd>
                 </div>
 
-                <div className="px-4 py-5 sm:px-6 border-b border-gray-100">
-                    <dd className="mt-1 text-sm leading-5 text-gray-900">
+                <div className="px-4 py-5 sm:px-6 border-b border-gray-100 dark:border-gray-900">
+                    <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-200">
                         <ul>
                             <ReactMarkdown className={''} source={work.summary} />
                         </ul>

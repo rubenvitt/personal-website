@@ -42,13 +42,13 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
             >
                 {item.abbr}
             </div>
-            <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white group-hover:bg-gray-100 rounded-r-md truncate transition">
+            <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 dark:border-coolGray-900 bg-white dark:bg-trueGray-800 group-hover:bg-gray-100 dark:group-hover:bg-gray-900 rounded-r-md truncate transition">
                 <div className="flex-1 px-4 py-2 text-sm leading-5 truncate">
-                    <div className="text-gray-900 font-medium hover:text-gray-600 transition ease-in-out duration-150">
+                    <div className="text-gray-900 dark:text-gray-200 font-medium hover:text-gray-600 hover:text-gray-200 transition ease-in-out duration-150">
                         {item.title}
                     </div>
-                    {item.linesOfCode ? (
-                        <p className="text-gray-500">
+                    {item.linesOfCode && (
+                        <p className="text-gray-500 dark:text-gray-400">
                             <svg
                                 className={`h-4 inline mr-1`}
                                 fill="none"
@@ -62,9 +62,9 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
                             </svg>
                             {item.linesOfCode} lines of code
                         </p>
-                    ) : null}
-                    {item.langs ? (
-                        <p className="text-gray-500 whitespace-normal flex">
+                    )}
+                    {item.langs && (
+                        <p className="text-gray-500 dark:text-gray-400 whitespace-normal flex">
                             <svg
                                 className={`h-4 inline mr-1 flex-wrap`}
                                 fill="none"
@@ -78,7 +78,7 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
                             </svg>
                             <p className="flex-1">{item.langs.map((i) => i.title).join(', ')}</p>
                         </p>
-                    ) : null}
+                    )}
                 </div>
             </div>
         </a>

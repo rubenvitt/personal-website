@@ -48,7 +48,7 @@ export const SlideOver = ({
                     >
                         <div
                             onClick={toggleSlideOver}
-                            className={'absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity'}
+                            className={'absolute inset-0 bg-gray-500 dark:bg-gray-900 dark:bg-opacity-75 bg-opacity-75 transition-opacity'}
                         />
                     </TransitionComponent>
                     <section className="absolute inset-y-0 right-0 max-w-full flex">
@@ -79,7 +79,7 @@ export const SlideOver = ({
                                         <button
                                             onClick={toggleSlideOver}
                                             aria-label="Close panel"
-                                            className="text-gray-300 hover:text-white transition ease-in-out duration-150"
+                                            className="text-gray-300 dark:text-gray-100 hover:text-white transition ease-in-out duration-150"
                                         >
                                             <svg
                                                 className="h-6 w-6"
@@ -97,15 +97,15 @@ export const SlideOver = ({
                                         </button>
                                     </div>
                                 </TransitionComponent>
-                                <div className="h-full flex flex-col space-y-6 py-6 bg-white shadow-xl overflow-y-scroll">
+                                <div className="h-full flex flex-col space-y-6 py-6 bg-white dark:bg-trueGray-800 shadow-xl overflow-y-scroll">
                                     <header className="px-4 sm:px-6">
                                         <div className="flex items-start justify-between space-x-3">
-                                            <h2 className="text-lg leading-7 font-medium text-gray-900">{title}</h2>
+                                            <h2 className="text-lg leading-7 font-medium text-gray-900 dark:text-gray-200">{title}</h2>
                                             <div className="h-7 flex items-center block md:hidden">
                                                 <button
                                                     onClick={toggleSlideOver}
                                                     aria-label="Close panel"
-                                                    className="text-gray-400 hover:text-gray-500 transition ease-in-out duration-150"
+                                                    className="text-gray-400 dark:text-gray-200 hover:text-gray-500 transition ease-in-out duration-150"
                                                 >
                                                     <svg
                                                         className="h-6 w-6"

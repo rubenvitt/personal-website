@@ -26,12 +26,12 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
     return (
         <div
             key={listIndex}
-            className="group bg-white dark:bg-trueGray-800 overflow-hidden shadow rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition duration-150 ease-in-out"
+            className="group bg-white dark:bg-trueGray-800 dark:text-gray-200 overflow-hidden shadow rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition duration-150 ease-in-out"
         >
             {(skill as TaggedSkill).tag ? (
-                <div className="flex items-center bg-gray-100 px-4 py-2 border-b border-gray-200 sm:px-6">
+                <div className="flex items-center bg-gray-100 dark:bg-gray-900 px-4 py-2 border-b border-gray-200 dark:border-gray-800 sm:px-6">
                     <svg
-                        className="inline-block mr-1 h-5 w-5 text-blue-900"
+                        className="inline-block mr-1 h-5 w-5 text-blue-900 dark:text-blue-300"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                         stroke="none"
@@ -51,8 +51,13 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
             ) : null}
             <div className="px-4 py-5 sm:p-6">
                 <div className="flex items-center">
-                    <div className="flex-shrink-0 bg-gray-200 rounded-md p-3">
-                        <svg className="h-10 w-10 text-blue-900" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                    <div className="flex-shrink-0 bg-gray-200 dark:bg-gray-900 rounded-md p-3">
+                        <svg
+                            className="h-10 w-10 text-blue-900 dark:text-blue-300"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            stroke="none"
+                        >
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -66,10 +71,10 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                     </div>
                     <div className="ml-5 w-0 flex-1">
                         <dl>
-                            <dt className="text-sm leading-5 font-medium text-black truncate">
+                            <dt className="text-sm leading-5 font-medium text-black dark:text-gray-200 truncate">
                                 {skill.title}
                                 {skill.certificates && skill.certificates.length > 0 ? (
-                                    <span className="inline-flex items-center ml-5 pr-2 py-0.5 rounded text-xs font-medium leading-4 bg-yellow-100 text-yellow-800">
+                                    <span className="inline-flex items-center ml-5 pr-2 py-0.5 rounded text-xs font-medium leading-4 bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100">
                                         <span className="mr-1">
                                             <Lottie
                                                 options={{
@@ -89,13 +94,12 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                 ) : null}
                             </dt>
                             <dd className="flex items-baseline">
-                                <div className="text-2xl leading-8 font-semibold text-gray-700">
+                                <div className="text-2xl leading-8 font-semibold text-gray-700 dark:text-gray-300">
                                     {skill.type === SkillType.Certificate
                                         ? (skill as CertificateSkill).date.toLocaleDateString('en-gb')
                                         : Number.isNaN(skill.level)
                                         ? ''
                                         : skill.level + '%'}
-                                    {}
                                 </div>
                                 <div
                                     className={
@@ -129,13 +133,12 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                 </div>
             </div>
             {skill.certificates && skill.certificates.length > 0 ? (
-                <div className="align-bottom bg-gray-50 px-4 py-4 sm:px-6 group-hover:bg-gray-200 transition duration-150 ease-in-out">
+                <div className="align-bottom bg-gray-50 dark:bg-gray-900 px-4 py-4 sm:px-6 group-hover:bg-gray-200 dark:group-hover:bg-gray-900 transition duration-150 ease-in-out">
                     <div
                         className={'text-sm leading-5 grid grid-cols-' + calcCols(skill.certificates.length) + ' gap-2'}
                     >
                         {skill.certificates
                             .sort((a, b) => {
-                                console.log('compare a', a, 'against b', b);
                                 return new Date(a.date).getDate() - new Date(b.date).getDate();
                             })
                             .map((cert, i) => {
@@ -143,7 +146,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                     <a
                                         href={cert.url}
                                         key={i}
-                                        className="truncate bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded transition"
+                                        className="truncate bg-orange-500 dark:bg-orange-700 hover:bg-orange-700 dark:hover:bg-orange-900 text-white font-bold py-2 px-4 rounded transition"
                                     >
                                         {cert.title} {cert.author && 'by'} {cert.author} {cert.platform && 'at'}{' '}
                                         {cert.platform}
@@ -161,14 +164,16 @@ export const DefaultSkillElement = ({ skills, buttonHandler, max }: DefaultSkill
     return skills.length <= max ? null : (
         <button
             onClick={buttonHandler}
-            className="bg-white shadow overflow-hidden sm:rounded-md block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out"
+            className="bg-white dark:bg-trueGray-800 shadow overflow-hidden sm:rounded-md block hover:bg-gray-50 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-900 transition duration-150 ease-in-out"
         >
             <div className="flex items-center px-4 py-4 sm:px-6">
                 <div className="min-w-0 flex-1 flex items-center">
                     <div className="min-w-0 flex-1 px-4 md:grid grid-cols-1 md:gap-4">
                         <div>
-                            <div className="text-sm leading-5 font-medium text-orange-500 truncate">There's more!</div>
-                            <div className="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                            <div className="text-sm leading-5 font-medium text-orange-500 dark:text-orange-700 truncate">
+                                There's more!
+                            </div>
+                            <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 dark:text-gray-300">
                                 <span className="">Get to know more of my language skills</span>
                             </div>
                         </div>
@@ -200,13 +205,13 @@ function calcCols(certs): number {
 export const calcColor: (direction: SkillDirection) => string = (direction) => {
     switch (direction) {
         case SkillDirection.UP:
-            return 'text-green-700';
+            return 'text-green-700 dark:text-green-400';
         case SkillDirection.DOWN:
-            return 'text-red-700';
+            return 'text-red-700 dark:text-red-400';
         case SkillDirection.UNCHANGED:
-            return 'text-yellow-700';
+            return 'text-yellow-700 dark:text-yellow-400';
         case SkillDirection.NA:
-            return 'text-gray-700';
+            return 'text-gray-700 dark:text-gray-400';
     }
 };
 
