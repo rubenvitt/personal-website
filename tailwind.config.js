@@ -44,6 +44,7 @@ module.exports = {
             },
         },
     },
+    purge: false,
     plugins: [require('@tailwindcss/typography')],
     variants: {
         backgroundColor: ['responsive', 'dark', 'hover', 'focus', 'group-hover'],
