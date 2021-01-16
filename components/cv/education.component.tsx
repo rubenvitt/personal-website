@@ -15,8 +15,8 @@ export const CvEducation = ({ studyList }: CvEducationProps): JSX.Element => {
     return (
         <div className={`${studies.length > 0 ? '' : 'hidden'} relative pt-16 px-4 sm:px-6 lg:pt-24 lg:px-8`}>
             <div className="relative max-w-7xl mx-auto">
-                <h2 className="text-xl leading-6 font-medium text-gray-900">Education</h2>
-                <div className="bg-white shadow overflow-hidden sm:rounded-md mt-3 lg:mt-6">
+                <h2 className="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Education</h2>
+                <div className="bg-white dark:bg-trueGray-800 shadow overflow-hidden sm:rounded-md mt-3 lg:mt-6">
                     {studies.map((elem, i) => {
                         return <EducationItem key={i} study={elem} i={i} />;
                     })}
@@ -34,12 +34,12 @@ class EducationItemProps {
 const EducationItem = ({ i, study }: EducationItemProps) => {
     return (
         <ul>
-            <li className={i != 0 ? 'border-t border-gray-200' : ''}>
+            <li className={i !== 0 && 'border-t border-gray-200 dark:border-gray-900'}>
                 <a
                     href={study.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="block hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                    className="block hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 transition duration-150 ease-in-out"
                 >
                     <div className="px-4 py-4 sm:px-6">
                         <div className="flex items-center justify-between">
@@ -47,7 +47,7 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                 <span>{study.subject} </span>
                                 <span
                                     className={
-                                        study.studyStatus === Status.COMPLETED ? 'text-gray-500' : 'text-gray-300'
+                                        study.studyStatus === Status.COMPLETED ? 'text-gray-500 dark:text-gray-300' : 'text-gray-300 dark:text-gray-500'
                                     }
                                 >
                                     | {study.degree}
@@ -58,19 +58,19 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                     className={
                                         'px-2 inline-flex text-xs leading-5 font-semibold rounded-full ' +
                                         (study.studyStatus === Status.INCOMPLETE
-                                            ? 'bg-red-100 text-red-800'
+                                            ? 'bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-200'
                                             : study.studyStatus === Status.SWITCHED
-                                            ? 'bg-yellow-100 text-yellow-800'
-                                            : 'bg-green-100 text-green-800')
+                                            ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100'
+                                            : 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-200')
                                     }
                                 >
                                     {study.studyStatus}
                                 </span>
                             </div>
                         </div>
-                        <div className="mt-2 sm:flex sm:justify-between">
+                        <div className="mt-2 sm:flex sm:justify-between text-gray-500 dark:text-gray-400">
                             <div className="sm:flex">
-                                <div className="flex items-center text-sm leading-5 text-gray-500">
+                                <div className="flex items-center text-sm leading-5">
                                     <span>
                                         <Lottie
                                             options={{
@@ -87,7 +87,7 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                     </span>
                                     {study.university}
                                 </div>
-                                <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
+                                <div className="mt-2 flex items-center text-sm leading-5 sm:mt-0">
                                     <span>
                                         <Lottie
                                             options={{
@@ -105,7 +105,7 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                     {study.courses.join(', ')}
                                 </div>
                             </div>
-                            <div className="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
+                            <div className="mt-2 flex items-center text-sm leading-5 sm:mt-0">
                                 <span>
                                     <Lottie
                                         options={{

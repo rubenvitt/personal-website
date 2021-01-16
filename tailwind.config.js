@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
     future: {
@@ -7,38 +7,50 @@ module.exports = {
         defaultLineHeights: true,
         standardFontWeights: true,
     },
-    experimental: {
-        darkModeVariant: true,
-    },
+    experimental: {},
     theme: {
         extend: {
-            typography: {
+            typography: (theme) => ({
                 default: {
                     css: {
                         img: {
                             'border-radius': '.25em',
                             'max-height': '100vh',
                             'margin-right': 'auto',
-                            'margin-left': 'auto'
-                        }
-                    }
-                }
-            },
+                            'margin-left': 'auto',
+                        },
+                    },
+                },
+                dark: {
+                    css: {
+                        img: {
+                            'border-radius': '.25em',
+                            'max-height': '100vh',
+                            'margin-right': 'auto',
+                            'margin-left': 'auto',
+                        },
+                        h2: {
+                            color: colors.gray['200'],
+                        },
+                    },
+                },
+            }),
             colors: {
                 github: '#333',
                 linkedin: '#0077b5',
                 fastmail: '#243959',
                 xing: '#026466',
-                ...colors
+                ...colors,
             },
         },
     },
-    plugins: [
-        require('@tailwindcss/typography'),
-    ],
+    purge: false,
+    plugins: [require('@tailwindcss/typography')],
     variants: {
-        backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
-        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+        backgroundColor: ['responsive', 'dark', 'hover', 'focus', 'group-hover'],
+        textColor: ['responsive', 'dark', 'hover', 'focus', 'group-hover'],
+        backgroundOpacity: ['responsive', 'dark', 'hover', 'focus', 'group-hover'],
+        typography: ['responsive', 'dark'],
     },
-
+    darkMode: 'class',
 };

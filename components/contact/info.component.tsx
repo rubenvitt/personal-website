@@ -30,7 +30,7 @@ export const ContactInformation = (): JSX.Element => {
             </div>
             <div
                 className={
-                    'hidden text-xing text-linkedin text-tutanota text-github ' +
+                    'dark hidden text-xing text-linkedin text-tutanota text-github ' +
                     'hover:text-xing focus:text-xing hover:border-xing focus:border-xing ' +
                     'hover:text-linkedin focus:text-linkedin hover:border-linkedin focus:border-linkedin ' +
                     'hover:text-tutanota focus:text-tutanota hover:border-tutanota focus:border-tutanota ' +
