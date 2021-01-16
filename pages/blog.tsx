@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RecentPosts } from '../components/blog/blog-posts.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { GraphQLClient } from 'graphql-request';
 import { URLGraphCMS } from '../config/constants.config';
 import { fetchBlogItems } from '../helper/http-helper';
+import { useSeoHelperStore } from '../helper/seo.helper';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
@@ -31,6 +32,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Blog({ list }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
+    const { setTitle } = useSeoHelperStore();
+
+    useEffect(() => {
+        setTitle('Rubeen • Blog');
+    });
+
     return (
         <>
             <RecentPosts posts={list} />

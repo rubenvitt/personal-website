@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PortfolioList } from '../components/portfolio/portfolio.list.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { fetchPortfolioItems } from '../helper/http-helper';
 import { GraphQLClient } from 'graphql-request';
 import { URLGraphCMS } from '../config/constants.config';
+import { useSeoHelperStore } from '../helper/seo.helper';
 
 /*
 const list = portfolioList().sort((a, b) => {
@@ -55,6 +56,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Home({ list }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
+    const { setTitle } = useSeoHelperStore();
+
+    useEffect(() => {
+        setTitle('Rubeen • Portfolio');
+    });
+
     return (
         <div>
             <PortfolioIntroduction />
