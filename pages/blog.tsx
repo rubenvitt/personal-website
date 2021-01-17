@@ -32,10 +32,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Blog({ list }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
-    const { setTitle } = useSeoHelperStore();
+    const { setSeo } = useSeoHelperStore();
 
     useEffect(() => {
-        setTitle('Rubeen • Blog');
+        setSeo(
+            'Rubeen • Blog',
+            'Check out my blog containing tutorials, a collection of my written articles - read my recent publications. Author: Rubeen (Ruben Vitt)',
+        );
     });
 
     return (

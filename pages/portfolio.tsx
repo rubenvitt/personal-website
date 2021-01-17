@@ -56,10 +56,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Home({ list }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
-    const { setTitle } = useSeoHelperStore();
+    const { setSeo } = useSeoHelperStore();
 
     useEffect(() => {
-        setTitle('Rubeen • Portfolio');
+        setSeo(
+            'Rubeen • Portfolio',
+            'Get to know more about my projects at my interactive portfolio. All projects hosted on GitHub.',
+        );
     });
 
     return (

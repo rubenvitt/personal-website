@@ -38,10 +38,13 @@ export async function getStaticPaths({ params }) {
 function Post({ post, morePosts }) {
     const router = useRouter();
 
-    const { setTitle } = useSeoHelperStore();
+    const { setSeo } = useSeoHelperStore();
 
     useEffect(() => {
-        setTitle(`Rubeen • Blog > ${(post as BlogItem).title}`);
+        setSeo(
+            `Rubeen • Blog > ${(post as BlogItem).title}`,
+            '' + (post as BlogItem).title + ' - ' + (post as BlogItem).shortDescription,
+        );
     });
 
     if (!router.isFallback && !post?.id) {

@@ -64,10 +64,13 @@ export default function Home({
     remapWorkDurationToDate(workList);
     remapStudyDurationToDate(studyList);
 
-    const { setTitle } = useSeoHelperStore();
+    const { setSeo } = useSeoHelperStore();
 
     useEffect(() => {
-        setTitle('Rubeen • Resumé');
+        setSeo(
+            'Rubeen • Resumé',
+            'Get to know more about Ruben Vitt (Developer from Germany) with his resumé. Learn about his work experience, education, technologies & mindset.',
+        );
     });
 
     return (

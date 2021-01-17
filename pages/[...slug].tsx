@@ -3,10 +3,10 @@ import { NotFoundComponent } from '../components/shared/not-found.component';
 import { useSeoHelperStore } from '../helper/seo.helper';
 
 export default function Home(): JSX.Element {
-    const { setTitle } = useSeoHelperStore();
+    const { setSeo } = useSeoHelperStore();
 
     useEffect(() => {
-        setTitle('Rubeen • Website not found');
+        setSeo('Rubeen • Website not found', 'This page was not found.');
     });
 
     return <NotFoundComponent />;

@@ -3,10 +3,13 @@ import { MainLandingPage } from '../components/main/landing-page.component';
 import { useSeoHelperStore } from '../helper/seo.helper';
 
 export default function Index(): JSX.Element {
-    const { setTitle } = useSeoHelperStore();
+    const { setSeo } = useSeoHelperStore();
 
     useEffect(() => {
-        setTitle('Rubeen • Ruben Vitt (FullStack Developer)');
+        setSeo(
+            'Rubeen • Ruben Vitt (FullStack Developer)',
+            'Check out the personal website of Ruben Vitt (Rubeen) - a FullStack developer from Germany.',
+        );
     });
 
     return (
