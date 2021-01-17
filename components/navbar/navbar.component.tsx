@@ -25,10 +25,18 @@ export const NavBar = (): JSX.Element => {
                             <Link href={'/'}>
                                 <a>
                                     <div className={'block lg:hidden h-8 w-8 relative'}>
-                                        <Image src="/assets/images/r.png" alt="Rubeen logo" layout={'fill'} />
+                                        <Image
+                                            src="/assets/images/r.png"
+                                            alt="Ruben Vitt • Rubeen - Logo"
+                                            layout={'fill'}
+                                        />
                                     </div>
                                     <div className={'hidden lg:block h-8 w-20 relative'}>
-                                        <Image src="/assets/images/rubeen.png" alt="Rubeen logo" layout={'fill'} />
+                                        <Image
+                                            src="/assets/images/rubeen.png"
+                                            alt="Ruben Vitt • Rubeen - Logo"
+                                            layout={'fill'}
+                                        />
                                     </div>
                                 </a>
                             </Link>

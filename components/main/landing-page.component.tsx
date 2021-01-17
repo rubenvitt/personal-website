@@ -46,7 +46,7 @@ export const MainLandingPage = (): JSX.Element => {
                     <Image
                         className="r-profile-image lg:rounded-l-2xl xl:rounded-2xl absolute inset-0 w-full h-full object-cover"
                         src="/assets/images/profile.jpg"
-                        alt="Woman on her phone"
+                        alt="Ruben Vitt • Profile Picture"
                         layout={'fill'}
                     />
                 </div>
