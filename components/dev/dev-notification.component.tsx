@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDevNotificationStore } from './dev-notification.hooks';
 import { useEffect, useState } from 'react';
+import { faVacuumRobot } from '@fortawesome/pro-light-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const DevNotification = () => {
     const { closeNotification, closed } = useDevNotificationStore();
@@ -20,65 +22,8 @@ export const DevNotification = () => {
             <div className="max-w-sm w-full bg-white dark:bg-trueGray-800 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
                 <div className="p-4">
                     <div className="flex items-start">
-                        <div className="flex-shrink-0">
-                            <svg
-                                className="h-6 w-6 text-orange-400"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="1"
-                                    stroke="#221b38"
-                                    fill="none"
-                                    d="M21 14H20V9H21C21.55 9 22 9.45 22 10V13C22 13.55 21.55 14 21 14Z"
-                                />
-                                <path
-                                    strokeLinecap="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="1"
-                                    stroke="#221b38"
-                                    fill="none"
-                                    d="M3 9H4V14H3C2.45 14 2 13.55 2 13V10C2 9.45 2.45 9 3 9Z"
-                                />
-                                <path
-                                    strokeLinejoin="round"
-                                    strokeLinecap="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="1"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    d="M18 19H6C4.9 19 4 18.1 4 17V7C4 5.9 4.9 5 6 5H18C19.1 5 20 5.9 20 7V17C20 18.1 19.1 19 18 19Z"
-                                />
-                                <path
-                                    strokeLinejoin="round"
-                                    strokeLinecap="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="1"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    d="M15.25 12.5C16.2165 12.5 17 11.7165 17 10.75C17 9.7835 16.2165 9 15.25 9C14.2835 9 13.5 9.7835 13.5 10.75C13.5 11.7165 14.2835 12.5 15.25 12.5Z"
-                                />
-                                <path
-                                    strokeLinejoin="round"
-                                    strokeLinecap="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="1"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    d="M8.75 12.5C9.7165 12.5 10.5 11.7165 10.5 10.75C10.5 9.7835 9.7165 9 8.75 9C7.7835 9 7 9.7835 7 10.75C7 11.7165 7.7835 12.5 8.75 12.5Z"
-                                />
-                                <path
-                                    strokeLinejoin="round"
-                                    strokeLinecap="round"
-                                    strokeMiterlimit="10"
-                                    strokeWidth="1"
-                                    stroke="currentColor"
-                                    d="M9.5 16H14.5"
-                                />
-                            </svg>
+                        <div className="flex-shrink-0 text-orange-500">
+                            <FontAwesomeIcon height={24} width={24} icon={faVacuumRobot} />
                         </div>
                         <div className="ml-3 w-0 flex-1 pt-0.5">
                             <p className="text-sm font-medium text-gray-900 dark:text-gray-300">

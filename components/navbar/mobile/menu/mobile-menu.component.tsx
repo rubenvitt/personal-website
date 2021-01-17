@@ -5,9 +5,10 @@ import Link from 'next/link';
 
 class MobileMenuProps {
     isOpen: boolean;
+    toggleMobileMenu: () => void;
 }
 
-export const MobileMenu = ({ isOpen }: MobileMenuProps): JSX.Element => {
+export const MobileMenu = ({ isOpen, toggleMobileMenu }: MobileMenuProps): JSX.Element => {
     const router = useRouter();
 
     return (
@@ -17,6 +18,7 @@ export const MobileMenu = ({ isOpen }: MobileMenuProps): JSX.Element => {
                     return (
                         <Link key={element.url} href={element.url}>
                             <a
+                                onClick={toggleMobileMenu}
                                 className={
                                     (router.pathname === element.url
                                         ? 'border-orange-500 text-orange-700 bg-orange-50 focus:text-orange-800 focus:bg-orange-100 focus:border-orange-700 dark:bg-orange-900 dark:text-gray-200 dark:focus:text-gray-200 dark:focus:bg-orange-900'

@@ -64,11 +64,11 @@ export const NavBar = (): JSX.Element => {
                     </div>
 
                     <SocialButtons marginLeft={true} />
-                    <MobileMenuButton onClick={toggleMobileMenu} />
+                    <MobileMenuButton onClick={toggleMobileMenu} isOpen={mobileMenuOpen} />
                 </div>
             </div>
 
-            <MobileMenu isOpen={mobileMenuOpen} />
+            <MobileMenu isOpen={mobileMenuOpen} toggleMobileMenu={toggleMobileMenu} />
         </nav>
     );
 };

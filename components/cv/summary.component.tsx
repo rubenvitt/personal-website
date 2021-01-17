@@ -2,6 +2,8 @@ import React from 'react';
 import { calcDurationBetween, calculateDaysBetween } from '../../helper/date-calculator';
 import { Icons } from '../../data/icons/icons';
 import { WorkModel } from '../../types/work-items.types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBriefcase, faGraduationCap, faMicrochip, faEllipsisH } from '@fortawesome/pro-light-svg-icons';
 
 interface CvSummaryProps {
     certCount: number;
@@ -33,16 +35,8 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                         <li className="md:mr-2">
                             <div className="flex group">
                                 <div className="flex-shrink-0 group">
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                        <svg width="24" height="24">
-                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
-                                            <path
-                                                fillRule="evenodd"
-                                                clipRule="evenodd"
-                                                d={Icons.BriefCase}
-                                                fill="currentColor"
-                                            />
-                                        </svg>
+                                    <div className="flex items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
+                                        <FontAwesomeIcon height={24} width={24} icon={faBriefcase} />
                                     </div>
                                 </div>
                                 <div className="ml-4">
@@ -60,16 +54,8 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                         <li className="mt-10 md:mt-0 md:ml-2">
                             <div className="flex group">
                                 <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                        <svg width="24" height="24">
-                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
-                                            <path
-                                                fillRule="evenodd"
-                                                clipRule="evenodd"
-                                                d={Icons.Book}
-                                                fill="currentColor"
-                                            />
-                                        </svg>
+                                    <div className="flex items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
+                                        <FontAwesomeIcon height={24} width={24} icon={faGraduationCap} />
                                     </div>
                                 </div>
                                 <div className="ml-4">
@@ -87,16 +73,8 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                         <li className="mt-10 md:mt-5 md:mr-2">
                             <div className="flex group">
                                 <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                        <svg width="24" height="24">
-                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
-                                            <path
-                                                fillRule="evenodd"
-                                                clipRule="evenodd"
-                                                d={Icons.Cloud}
-                                                fill="currentColor"
-                                            />
-                                        </svg>
+                                    <div className="flex items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
+                                        <FontAwesomeIcon height={24} width={24} icon={faMicrochip} />
                                     </div>
                                 </div>
                                 <div className="ml-4">
@@ -113,16 +91,8 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                         <li className="mt-10 md:mt-5 md:ml-2">
                             <div className="flex group">
                                 <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                        <svg width="24" height="24">
-                                            <rect width="24" height="24" fill="none" rx="0" ry="0" />
-                                            <path
-                                                fillRule="evenodd"
-                                                clipRule="evenodd"
-                                                d={Icons.More}
-                                                fill="currentColor"
-                                            />
-                                        </svg>
+                                    <div className="flex items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
+                                        <FontAwesomeIcon height={24} width={24} icon={faEllipsisH} />
                                     </div>
                                 </div>
                                 <div className="ml-4">
