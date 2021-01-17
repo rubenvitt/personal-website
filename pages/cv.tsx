@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PageHead } from '../components/page-head/page-head.component';
 import { PageContainer } from '../components/page-container/page-container.component';
 import { CvSummary } from '../components/cv/summary.component';
@@ -19,6 +19,7 @@ import { calculateLastWork, remapWorkDurationToDate } from '../helper/work-helpe
 import { remapStudyDurationToDate } from '../helper/study-helper';
 import { GraphQLClient } from 'graphql-request';
 import { URLGraphCMS } from '../config/constants.config';
+import { useSeoHelperStore } from '../helper/seo.helper';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
@@ -62,6 +63,16 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
     remapWorkDurationToDate(workList);
     remapStudyDurationToDate(studyList);
+
+    const { setSeo } = useSeoHelperStore();
+
+    useEffect(() => {
+        setSeo(
+            'Rubeen • Resumé',
+            'Get to know more about Ruben Vitt (Developer from Germany) with his resumé. Learn about his work experience, education, technologies & mindset.',
+        );
+    });
+
     return (
         <div>
             <CvSummary certCount={calculateCertCount(certList)} lastWork={calculateLastWork(workList)} />

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RecentPosts } from '../components/blog/blog-posts.component';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { GraphQLClient } from 'graphql-request';
 import { URLGraphCMS } from '../config/constants.config';
 import { fetchBlogItems } from '../helper/http-helper';
+import { useSeoHelperStore } from '../helper/seo.helper';
 
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
@@ -31,6 +32,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Blog({ list }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
+    const { setSeo } = useSeoHelperStore();
+
+    useEffect(() => {
+        setSeo(
+            'Rubeen • Blog',
+            'Check out my blog containing tutorials, a collection of my written articles - read my recent publications. Author: Rubeen (Ruben Vitt)',
+        );
+    });
+
     return (
         <>
             <RecentPosts posts={list} />
