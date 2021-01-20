@@ -54,7 +54,7 @@ function Post({ post, morePosts }) {
     return (
         <>
             {router.isFallback ? <>Loading...</> : <PostComponent post={post} morePosts={morePosts} />}
-            <div className={'hidden prose'}>
+            <div className={'hidden dark prose'}>
                 <pre>
                     <code />
                 </pre>
