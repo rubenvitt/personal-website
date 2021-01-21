@@ -39,7 +39,7 @@ export default function Blog({ list }: InferGetStaticPropsType<typeof getStaticP
             'Rubeen • Blog',
             'Check out my blog containing tutorials, a collection of my written articles - read my recent publications. Author: Rubeen (Ruben Vitt)',
         );
-    });
+    }, []);
 
     return (
         <>

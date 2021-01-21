@@ -63,7 +63,7 @@ export default function Home({ list }: InferGetStaticPropsType<typeof getStaticP
             'Rubeen • Portfolio',
             'Get to know more about my projects at my interactive portfolio. All projects hosted on GitHub.',
         );
-    });
+    }, []);
 
     return (
         <div>

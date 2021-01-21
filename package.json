@@ -6,7 +6,8 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "PORT=3000 NODE_ENV=production node server.js",
-    "global:install-dependencies": "npm i -g dotenv-cli"
+    "global:install-dependencies": "npm i -g dotenv-cli",
+    "lint": "eslint --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",

@@ -18,7 +18,6 @@ export const useDarkMode: () => [boolean, () => void] = () => {
     useEffect(() => {
         if (process.browser) {
             const localTheme = localStorage.getItem('theme');
-            console.log('first time of setting dark to ', localTheme ?? systemPrefersDark);
 
             setIsDark(localTheme ? localTheme === 'dark' : systemPrefersDark);
         }
@@ -27,11 +26,9 @@ export const useDarkMode: () => [boolean, () => void] = () => {
     useEffect(() => {
         if (process.browser) {
             if (isDark) {
-                console.log('setting theme to dark');
                 localStorage.setItem('theme', 'dark');
                 document.documentElement.classList.add('dark');
             } else {
-                console.log('setting theme to light');
                 localStorage.setItem('theme', 'light');
                 document.documentElement.classList.remove('dark');
             }

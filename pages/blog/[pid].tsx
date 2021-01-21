@@ -45,7 +45,7 @@ function Post({ post, morePosts }) {
             `Rubeen • Blog > ${(post as BlogItem).title}`,
             '' + (post as BlogItem).title + ' - ' + (post as BlogItem).shortDescription,
         );
-    });
+    }, []);
 
     if (!router.isFallback && !post?.id) {
         return <NotFoundComponent />;

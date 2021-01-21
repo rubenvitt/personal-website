@@ -10,28 +10,25 @@ import { PageHead } from '../components/page-head/page-head.component';
 import { Container } from '../components/main/landing-page.component';
 import { isPreview } from '../helper/global-helper';
 import { DevNotification } from '../components/dev/dev-notification.component';
-import { Head } from 'next/document';
 
 function MyApp({ Component, pageProps }): JSX.Element {
-    console.log('Hey, are you in dev-mode ? ', isPreview);
-    console.log('publicENV ? ', process.env.NEXT_PUBLIC_ENV);
-    console.log('env ? ', process.env.ENV);
-
     return (
-        <div>
+        <>
             <PageHead />
-            <style jsx global>{`
-                body: {
-                    margin: 0;
-                }
-            `}</style>
-            <Container>
-                <Component {...pageProps} />
-            </Container>
-            <GithubNotification />
-            {isPreview && <DevNotification />}
-            <PageFooter />
-        </div>
+            <div>
+                <style jsx global>{`
+                    body: {
+                        margin: 0;
+                    }
+                `}</style>
+                <Container>
+                    <Component {...pageProps} />
+                </Container>
+                <GithubNotification />
+                {isPreview && <DevNotification />}
+                <PageFooter />
+            </div>
+        </>
     );
 }
 

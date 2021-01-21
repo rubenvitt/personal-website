@@ -7,7 +7,7 @@ export default function Home(): JSX.Element {
 
     useEffect(() => {
         setSeo('Rubeen • Website not found', 'This page was not found.');
-    });
+    }, []);
 
     return <NotFoundComponent />;
 }

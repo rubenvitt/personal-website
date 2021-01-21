@@ -10,7 +10,7 @@ export default function Index(): JSX.Element {
             'Rubeen • Ruben Vitt (FullStack Developer)',
             'Check out the personal website of Ruben Vitt (Rubeen) - a FullStack developer from Germany.',
         );
-    });
+    }, []);
 
     return (
         <>
