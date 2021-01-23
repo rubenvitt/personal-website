@@ -12,7 +12,7 @@ export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element 
     return (
         <li
             key={skill.title}
-            className="col-span-1 bg-white dark:text-gray-200 dark:bg-trueGray-800 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+            className="break-inside mx-1 mb-4 col-span-1 bg-white dark:text-gray-200 dark:bg-trueGray-800 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-900 transition"
         >
             {(skill as TaggedSkill).tag ? (
                 <div className="border-b border-gray-200 dark:border-coolGray-900 bg-gray-100 dark:bg-gray-900 py-1 px-2 text-xs">
@@ -20,8 +20,8 @@ export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element 
                 </div>
             ) : null}
             <div className="w-full flex items-center justify-between p-1 space-x-1">
-                <div className="ml-1 w-0 flex-1 flex items-stretch">
-                    <div className="mt-1 mr-3">
+                <div className="ml-1 w-0 flex-1 grid grid-cols-10">
+                    <div className="mt-1 mr-3 col-span-2">
                         <svg
                             className="h-10 w-10 text-blue-900 dark:text-blue-300"
                             fill="currentColor"
@@ -39,9 +39,10 @@ export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element 
                             />
                         </svg>
                     </div>
-                    <div>
+                    <div className="col-span-1" />
+                    <div className="col-span-7">
                         <dl>
-                            <dt className="text-xs leading-5 font-medium text-black truncate dark:text-gray-200">
+                            <dt className="text-xs leading-5 truncate font-medium text-gray-900 truncate dark:text-gray-200">
                                 {skill.title}
                             </dt>
                             <dd className="flex items-baseline">
@@ -89,7 +90,7 @@ export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element 
                                         href={cert.url}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="truncate relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-2 text-xs leading-5 text-gray-700 dark:text-gray-300 font-medium border border-transparent rounded-bl-lg hover:text-gray-500 dark:hover:text-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150"
+                                        className="truncate relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-2 text-xs leading-5 text-gray-700 dark:text-gray-300 font-medium border border-transparent rounded-bl-lg hover:text-orange-500 dark:hover:text-orange-500 focus:outline-none focus:ring-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150"
                                     >
                                         <FontAwesomeIcon icon={faDiploma} className={'w-4 h-4 text-gray-400'} />
                                         <span className="ml-3 truncate">{cert.title}</span>

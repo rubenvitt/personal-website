@@ -1,6 +1,6 @@
 import React from 'react';
 import { Status, StudyModel } from '../../data/study-items.list';
-import { faUniversity, faBrain, faCalendar } from '@fortawesome/pro-light-svg-icons';
+import { faUniversity, faBrain, faCalendar, faExternalLink } from '@fortawesome/pro-light-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface CvEducationProps {
@@ -53,6 +53,9 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                     }
                                 >
                                     | {study.degree}
+                                </span>
+                                <span>
+                                    <FontAwesomeIcon className="align-top h-2 inline ml-2" icon={faExternalLink} />
                                 </span>
                             </div>
                             <div className="ml-2 flex-shrink-0 flex">

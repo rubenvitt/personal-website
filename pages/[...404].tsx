@@ -6,7 +6,13 @@ export default function Home(): JSX.Element {
     const { setSeo } = useSeoHelperStore();
 
     useEffect(() => {
-        setSeo('Rubeen • Website not found', 'This page was not found.');
+        setSeo(
+            'Rubeen • Website not found',
+            'This page was not found.',
+            <>
+                <meta name="robots" content="noindex" />
+            </>,
+        );
     }, []);
 
     return <NotFoundComponent />;

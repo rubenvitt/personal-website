@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useSeoHelperStore } from '../../helper/seo.helper';
 
 export const PageHead = (): JSX.Element => {
-    const { title, description } = useSeoHelperStore();
+    const { title, description, additionalHeader } = useSeoHelperStore();
 
     useEffect(() => {
         if (process.browser) {
@@ -17,6 +17,7 @@ export const PageHead = (): JSX.Element => {
                 <title>{title}</title>
                 <meta name={'description'} content={description} />
                 <link rel="icon" href="/favicon.ico" />
+                {additionalHeader}
             </Head>
         </>
     );

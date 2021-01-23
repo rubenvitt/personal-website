@@ -1,1 +1,12 @@
 @import "~tailwindcss/utilities.css";
+
+@layer utilities {
+  @variants responsive {
+    .masonry {
+      column-count: 2;
+    }
+    .break-inside {
+      break-inside: avoid;
+    }
+  }
+}
