@@ -1,6 +1,5 @@
 import React from 'react';
 import { calcDurationBetween, calculateDaysBetween } from '../../helper/date-calculator';
-import { Icons } from '../../data/icons/icons';
 import { WorkModel } from '../../types/work-items.types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faGraduationCap, faMicrochip, faEllipsisH } from '@fortawesome/pro-light-svg-icons';

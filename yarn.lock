@@ -557,13 +557,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-lottie@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@types/react-lottie/-/react-lottie-1.2.5.tgz#659322961de534227ba354109342cad967d98841"
-  integrity sha512-g5c7r0VN8g0hLsFEtR71ZFDWDp6niY4D/7llcAcLjV3LpaoyANmaQ9jispskWpkAUP+NYQcFllMtoGIWUM6VRw==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react-responsive@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@types/react-responsive/-/react-responsive-8.0.2.tgz#959fdc32f72e38b807e32be617a74be2c315081b"
@@ -1279,14 +1272,6 @@ babel-plugin-transform-react-remove-prop-types@0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
-
-babel-runtime@^6.26.0:
-  version "6.26.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
-  integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
-  dependencies:
-    core-js "^2.4.0"
-    regenerator-runtime "^0.11.0"
 
 bail@^1.0.0:
   version "1.0.5"
@@ -2071,11 +2056,6 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
-
-core-js@^2.4.0:
-  version "2.6.11"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
-  integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -4424,11 +4404,6 @@ loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-web@^5.1.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.7.3.tgz#dbe542270665be5dd5b32deae19e27de6e77728c"
-  integrity sha512-ftN4AdiNmtoVpCfN1doiUIUbhOrDSMikH1Yl64/xO5lzQ31AO0+G82bqrCNHIW5Ec2zE/g7y4iz7zBR1YJwDaA==
-
 lowlight@^1.17.0:
   version "1.18.0"
   resolved "https://registry.yarnpkg.com/lowlight/-/lowlight-1.18.0.tgz#cfff11cfb125ca66f1c12cb43d27fff68cbeafa9"
@@ -6125,14 +6100,6 @@ react-is@16.13.1, react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-lottie@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/react-lottie/-/react-lottie-1.2.3.tgz#8544b96939e088658072eea5e12d912cdaa3acc1"
-  integrity sha512-qLCERxUr8M+4mm1LU0Ruxw5Y5Fn/OmYkGfnA+JDM/dZb3oKwVAJCjwnjkj9TMHtzR2U6sMEUD3ZZ1RaHagM7kA==
-  dependencies:
-    babel-runtime "^6.26.0"
-    lottie-web "^5.1.3"
-
 react-markdown@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-5.0.3.tgz#41040ea7a9324b564b328fb81dd6c04f2a5373ac"
@@ -6294,11 +6261,6 @@ refractor@^3.2.0:
     hastscript "^6.0.0"
     parse-entities "^2.0.0"
     prismjs "~1.22.0"
-
-regenerator-runtime@^0.11.0:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
-  integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
 regenerator-runtime@^0.13.4:
   version "0.13.7"

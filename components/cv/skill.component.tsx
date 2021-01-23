@@ -1,15 +1,7 @@
 import React from 'react';
-import {
-    CertificateSkill,
-    ProgrammingLanguageSkill,
-    Skill,
-    SkillDirection,
-    SkillType,
-    TaggedSkill,
-} from '../../types/skill-items.types';
-import Lottie from 'react-lottie';
-import { ShapeAnimation } from '../../data/icons/animation-data/icons';
-import { ComplexIcons } from '../../data/icons/complexIcons';
+import { CertificateSkill, Skill, SkillDirection, SkillType, TaggedSkill } from '../../types/skill-items.types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBadgeCheck } from '@fortawesome/pro-light-svg-icons';
 
 class SkillElementProps {
     skill: Skill;
@@ -75,21 +67,8 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                                 {skill.title}
                                 {skill.certificates && skill.certificates.length > 0 ? (
                                     <span className="inline-flex items-center ml-5 pr-2 py-0.5 rounded text-xs font-medium leading-4 bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100">
-                                        <span className="mr-1">
-                                            <Lottie
-                                                options={{
-                                                    loop: true,
-                                                    autoplay: true,
-                                                    animationData: ShapeAnimation.WandAndStartAnimation,
-                                                    rendererSettings: {
-                                                        preserveAspectRatio: 'xMidYMid slice',
-                                                    },
-                                                }}
-                                                height={24}
-                                                width={24}
-                                            />{' '}
-                                        </span>
-                                        Certified
+                                        <FontAwesomeIcon className="w-3 mx-1" icon={faBadgeCheck} />
+                                        <span>Certified</span>
                                     </span>
                                 ) : null}
                             </dt>
@@ -179,20 +158,7 @@ export const DefaultSkillElement = ({ skills, buttonHandler, max }: DefaultSkill
                         </div>
                     </div>
                 </div>
-                <div className={'transform rotate-180'}>
-                    <Lottie
-                        options={{
-                            loop: true,
-                            autoplay: true,
-                            animationData: ShapeAnimation.BackAnimation,
-                            rendererSettings: {
-                                preserveAspectRatio: 'xMidYMid slice',
-                            },
-                        }}
-                        height={96}
-                        width={96}
-                    />
-                </div>
+                <div className={'transform rotate-180'}></div>
             </div>
         </button>
     );

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import TransitionComponent from '../shared/Transition.component';
-import { Icons } from '../../data/icons/icons';
 import { useGithubNotificationStore } from './github-notification.hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithubAlt } from '@fortawesome/free-brands-svg-icons';

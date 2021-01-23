@@ -1,9 +1,7 @@
 import React from 'react';
 import { Status, StudyModel } from '../../data/study-items.list';
-import { ShapeAnimation } from '../../data/icons/animation-data/icons';
 import { faUniversity, faBrain, faCalendar } from '@fortawesome/pro-light-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Lottie from 'react-lottie';
 
 interface CvEducationProps {
     studyList: StudyModel[];
