@@ -6,16 +6,6 @@ import { GraphQLClient } from 'graphql-request';
 import { URLGraphCMS } from '../config/constants.config';
 import { useSeoHelperStore } from '../helper/seo.helper';
 
-/*
-const list = portfolioList().sort((a, b) => {
-        if (a.portfolioItemType === b.portfolioItemType) {
-            return a.title.localeCompare(b.title);
-        } else {
-            return (b.portfolioItemType ?? 1) - (a.portfolioItemType ?? 1);
-        }
-    });
- */
-
 export const getStaticProps: GetStaticProps = async (context) => {
     try {
         const graphcms = new GraphQLClient(URLGraphCMS);

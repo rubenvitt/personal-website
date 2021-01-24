@@ -110,6 +110,11 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
     portfolioItemType
     abbr
     linesOfCode
+    liveUrl
+    description
+    image {
+        url
+    }
     langs {
       __typename
       ... on Skill {
@@ -129,6 +134,7 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
         .then((data) => {
             return data.map((element) => {
                 element.portfolioItemType = parsePortfolioItemType(element.portfolioItemType);
+                element.image = element.image?.url ?? null;
                 return element;
             });
         });

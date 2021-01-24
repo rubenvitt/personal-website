@@ -1,12 +1,16 @@
 import { Skill } from './skill-items.types';
 
 export class PortfolioModel {
+    id: string;
     title: string;
     portfolioItemType: PortfolioItemType;
     url: string;
     abbr: string;
     linesOfCode?: number;
     langs?: Skill[];
+    image?: string;
+    liveUrl?: string;
+    description: string;
 
     constructor(
         abbr: string,

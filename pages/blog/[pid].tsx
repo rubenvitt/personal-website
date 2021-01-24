@@ -40,16 +40,18 @@ function Post({ post, morePosts }) {
 
     const { setSeo } = useSeoHelperStore();
 
-    useEffect(() => {
-        setSeo(
-            `Rubeen • Blog > ${(post as BlogItem).title}`,
-            '' + (post as BlogItem).title + ' - ' + (post as BlogItem).shortDescription,
-        );
-    }, []);
-
-    if (!router.isFallback && !post?.id) {
+    if (!post?.id) {
+        console.log('exiting');
         return <NotFoundComponent />;
     }
+    console.log('next step');
+
+    useEffect(() => {
+        setSeo(
+            `Rubeen • Blog > ${(post as BlogItem)?.title}`,
+            '' + (post as BlogItem)?.title + ' - ' + (post as BlogItem)?.shortDescription,
+        );
+    }, []);
 
     return (
         <>
