@@ -6,6 +6,7 @@ import { faArrowRight, faBadgeCheck } from '@fortawesome/pro-light-svg-icons';
 class SkillElementProps {
     skill: Skill;
     listIndex: number;
+    masonry?: boolean;
 }
 
 class DefaultSkillElementProps {
@@ -14,9 +15,9 @@ class DefaultSkillElementProps {
     buttonHandler: () => void;
 }
 
-export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Element => {
+export const SkillElement = ({ skill, listIndex, masonry }: SkillElementProps): JSX.Element => {
     return (
-        <div key={listIndex} className="">
+        <div key={listIndex} className={masonry ? 'my-4 break-inside' : ''}>
             <div className="group bg-white dark:bg-trueGray-800 dark:text-gray-200 overflow-hidden shadow rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition duration-150 ease-in-out">
                 {(skill as TaggedSkill).tag ? (
                     <div className="flex items-center bg-gray-100 dark:bg-gray-900 px-4 py-2 border-b border-gray-200 dark:border-gray-800 sm:px-6">
@@ -61,7 +62,7 @@ export const SkillElement = ({ skill, listIndex }: SkillElementProps): JSX.Eleme
                         </div>
                         <div className="ml-5 w-0 flex-1">
                             <dl>
-                                <dt className="text-sm leading-5 font-medium text-gray-900 dark:text-gray-200 truncate">
+                                <dt className="text-sm text-left leading-5 font-medium text-gray-900 dark:text-gray-200 truncate">
                                     {skill.title}
                                     {skill.certificates && skill.certificates.length > 0 ? (
                                         <span className="inline-flex items-center ml-5 pr-2 py-0.5 rounded text-xs font-medium leading-4 bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100">

@@ -113,17 +113,18 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
     liveUrl
     description
     image {
-        url
+      url
     }
     langs {
       __typename
       ... on Skill {
         id
         title
-      }
-      ... on Framework {
-        id
-        title
+        level
+        skillDirection
+        type
+        tag
+        svg
       }
     }
   }
