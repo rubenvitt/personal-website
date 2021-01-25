@@ -111,6 +111,9 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
     abbr
     linesOfCode
     liveUrl
+    githubUrl
+    startDate
+    endDate
     description
     image {
       url

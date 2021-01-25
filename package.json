@@ -28,6 +28,7 @@
     "globby": "^11.0.2",
     "graphql": "^15.4.0",
     "graphql-request": "^3.4.0",
+    "moment": "^2.29.1",
     "next": "^10.0.5",
     "next-connect": "^0.9.1",
     "npm": "^7.4.3",

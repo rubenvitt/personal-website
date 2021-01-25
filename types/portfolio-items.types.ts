@@ -11,7 +11,9 @@ export class PortfolioModel {
     image?: string;
     liveUrl?: string;
     description: string;
-    githubUrl: string;
+    startDate: string;
+    endDate: string;
+    githubUrl?: string;
 
     constructor(
         abbr: string,
