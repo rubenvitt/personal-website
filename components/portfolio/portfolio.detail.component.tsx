@@ -27,7 +27,7 @@ export const PortfolioDetailComponent: React.FC<Props> = ({ portfolioItem }) => 
                                 {portfolioItem.description}
                             </p>
                         </div>
-                        <div className="flex">
+                        <div className="flex flex-shrink-0">
                             {portfolioItem.liveUrl && portfolioItem.githubUrl ? (
                                 <>
                                     <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
@@ -92,7 +92,7 @@ export const PortfolioDetailComponent: React.FC<Props> = ({ portfolioItem }) => 
                         </div>
                     )}
                     <div className="mt-12 mb-5">
-                        <SkillList onMoreElementsClick={null} maxElementsVisible={6} languages={portfolioItem.langs} />
+                        <SkillList onMoreElementsClick={null} languages={portfolioItem.langs} />
                     </div>
                 </div>
             </div>

@@ -44,8 +44,6 @@ function Post({ post, morePosts }) {
         console.log('exiting');
         return <NotFoundComponent />;
     }
-    console.log('next step');
-
     useEffect(() => {
         setSeo(
             `Rubeen • Blog > ${(post as BlogItem)?.title}`,

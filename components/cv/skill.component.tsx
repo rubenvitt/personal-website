@@ -74,7 +74,7 @@ export const SkillElement = ({ skill, listIndex, masonry }: SkillElementProps): 
                                 <dd className="flex items-baseline">
                                     <div className="text-2xl leading-8 font-semibold text-gray-700 dark:text-gray-300">
                                         {skill.type === SkillType.Certificate
-                                            ? (skill as CertificateSkill).date.toLocaleDateString('en-gb')
+                                            ? (skill as CertificateSkill).date?.toLocaleDateString('en-gb')
                                             : Number.isNaN(skill.level)
                                             ? ''
                                             : skill.level + '%'}

@@ -126,8 +126,11 @@ export const fetchPortfolioItems = async (client: GraphQLClient): Promise<Portfo
         level
         skillDirection
         type
-        tag
         svg
+      }
+      ... on Framework {
+        id
+        title
       }
     }
   }

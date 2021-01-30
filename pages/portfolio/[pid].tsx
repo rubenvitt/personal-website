@@ -16,8 +16,6 @@ export async function getStaticProps({ params }) {
     const data = await fetchPortfolioItems(graphcms);
 
     const item = data.filter((value) => {
-        console.log(`compare ${value.abbr.toLowerCase()} vs ${params.pid.toLowerCase()}`);
-        console.log('value.abbr === params.pid', value.abbr.toLowerCase() === params.pid.toLowerCase());
         return value.abbr.toLowerCase() === params.pid.toLowerCase();
     });
     return {
@@ -50,11 +48,9 @@ function PortfolioItem({ portfolioItem }) {
         return <NotFoundComponent />;
     }
 
-    console.log('next step');
-
     useEffect(() => {
         setSeo(`Rubeen • Portfolio > ${item?.title}`, '' + item?.title + ' - ' + item?.abbr);
-    }, []);
+    }, [item]);
 
     return (
         <>
