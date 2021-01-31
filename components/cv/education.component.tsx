@@ -1,7 +1,7 @@
 import React from 'react';
-import { Status, StudyModel, studyList } from '../../data/study-items.list';
-import { ShapeAnimation } from '../../data/icons/animation-data/icons';
-import Lottie from 'react-lottie';
+import { Status, StudyModel } from '../../data/study-items.list';
+import { faUniversity, faBrain, faCalendar, faExternalLink } from '@fortawesome/pro-light-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface CvEducationProps {
     studyList: StudyModel[];
@@ -34,7 +34,7 @@ class EducationItemProps {
 const EducationItem = ({ i, study }: EducationItemProps) => {
     return (
         <ul>
-            <li className={i !== 0 && 'border-t border-gray-200 dark:border-gray-900'}>
+            <li className={i === 0 ? '' : 'border-t border-gray-200 dark:border-gray-900'}>
                 <a
                     href={study.url}
                     target="_blank"
@@ -47,10 +47,15 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                 <span>{study.subject} </span>
                                 <span
                                     className={
-                                        study.studyStatus === Status.COMPLETED ? 'text-gray-500 dark:text-gray-300' : 'text-gray-300 dark:text-gray-500'
+                                        study.studyStatus === Status.COMPLETED
+                                            ? 'text-gray-500 dark:text-gray-300'
+                                            : 'text-gray-300 dark:text-gray-500'
                                     }
                                 >
                                     | {study.degree}
+                                </span>
+                                <span>
+                                    <FontAwesomeIcon className="align-top h-2 inline ml-2" icon={faExternalLink} />
                                 </span>
                             </div>
                             <div className="ml-2 flex-shrink-0 flex">
@@ -72,34 +77,15 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                             <div className="sm:flex">
                                 <div className="flex items-center text-sm leading-5">
                                     <span>
-                                        <Lottie
-                                            options={{
-                                                loop: true,
-                                                autoplay: true,
-                                                animationData: ShapeAnimation.PinWithEclipseUnder,
-                                                rendererSettings: {
-                                                    preserveAspectRatio: 'xMidYMid slice',
-                                                },
-                                            }}
-                                            height={48}
-                                            width={48}
-                                        />
+                                        <FontAwesomeIcon className={'text-orange-500 w-5 mr-2'} icon={faUniversity} />
                                     </span>
                                     {study.university}
                                 </div>
                                 <div className="mt-2 flex items-center text-sm leading-5 sm:mt-0">
                                     <span>
-                                        <Lottie
-                                            options={{
-                                                loop: true,
-                                                autoplay: true,
-                                                animationData: ShapeAnimation.LightOn,
-                                                rendererSettings: {
-                                                    preserveAspectRatio: 'xMidYMid slice',
-                                                },
-                                            }}
-                                            height={48}
-                                            width={48}
+                                        <FontAwesomeIcon
+                                            className={'text-orange-500 w-5 mr-2 sm:mx-2'}
+                                            icon={faBrain}
                                         />
                                     </span>
                                     {study.courses.join(', ')}
@@ -107,18 +93,7 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                             </div>
                             <div className="mt-2 flex items-center text-sm leading-5 sm:mt-0">
                                 <span>
-                                    <Lottie
-                                        options={{
-                                            loop: true,
-                                            autoplay: true,
-                                            animationData: ShapeAnimation.Hourglass,
-                                            rendererSettings: {
-                                                preserveAspectRatio: 'xMidYMid slice',
-                                            },
-                                        }}
-                                        height={48}
-                                        width={48}
-                                    />
+                                    <FontAwesomeIcon className={'text-orange-500 w-5 mr-2'} icon={faCalendar} />
                                 </span>
                                 <span>
                                     {study.duration.start.toLocaleDateString('en-gb')} until{' '}

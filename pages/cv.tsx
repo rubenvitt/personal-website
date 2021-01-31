@@ -71,7 +71,7 @@ export default function Home({
             'Rubeen • Resumé',
             'Get to know more about Ruben Vitt (Developer from Germany) with his resumé. Learn about his work experience, education, technologies & mindset.',
         );
-    });
+    }, []);
 
     return (
         <div>

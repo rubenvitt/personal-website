@@ -3,6 +3,7 @@ import { DefaultSkillElement, SkillElement } from './skill.component';
 import React, { useState } from 'react';
 import { SlideOver } from '../shared/slideover.component';
 import { SlideListElement } from '../shared/slidelist.component';
+import { SkillList } from '../shared/skill-list.component';
 
 const maxElementsVisible = 6;
 
@@ -21,12 +22,11 @@ export const CvLanguageSkills = ({ languages }: CvLanguageSkillsProps): JSX.Elem
             <h2 className="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">
                 I speak following (computer) languages
             </h2>
-            <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {languages.slice(0, maxElementsVisible - 1).map((skill, i) => (
-                    <SkillElement skill={skill} key={i} listIndex={i} />
-                ))}
-                <DefaultSkillElement max={maxElementsVisible} skills={languages} buttonHandler={toggleSlideOverState} />
-            </div>
+            <SkillList
+                languages={languages}
+                maxElementsVisible={maxElementsVisible}
+                onMoreElementsClick={toggleSlideOverState}
+            />
             <SlideOver
                 title="My programming languages"
                 setSlideOverState={setSlideOverState}
@@ -40,7 +40,7 @@ export const CvLanguageSkills = ({ languages }: CvLanguageSkillsProps): JSX.Elem
 
 const slideOverContent = (skillList: Skill[]) => {
     return (
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <ul className="md:masonry md:block grid grid-cols-1 md:grid-cols-2">
             {skillList
                 .sort((a, b) => b.level - a.level)
                 .map((skill) => {

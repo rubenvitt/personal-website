@@ -6,11 +6,14 @@ import { MobileMenu } from './mobile/menu/mobile-menu.component';
 import { SocialButtons } from './soial-buttons.component';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useDarkMode } from '../../helper/theme.helper';
 
 export const NavBar = (): JSX.Element => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const path = useRouter().pathname;
+
+    const [isDark] = useDarkMode();
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -23,7 +26,7 @@ export const NavBar = (): JSX.Element => {
                     <div className="flex">
                         <div className="flex-shrink-0 flex items-center">
                             <Link href={'/'}>
-                                <a>
+                                <a className="text-base">
                                     <div className={'block lg:hidden h-8 w-8 relative'}>
                                         <Image
                                             src="/assets/images/r.png"
@@ -31,9 +34,13 @@ export const NavBar = (): JSX.Element => {
                                             layout={'fill'}
                                         />
                                     </div>
-                                    <div className={'hidden lg:block h-8 w-20 relative'}>
+                                    <div className="hidden inline lg:block h-8 w-24 relative">
                                         <Image
-                                            src="/assets/images/rubeen.png"
+                                            src={
+                                                isDark
+                                                    ? '/assets/images/rubeen-light.png'
+                                                    : '/assets/images/rubeen-dark.png'
+                                            }
                                             alt="Ruben Vitt • Rubeen - Logo"
                                             layout={'fill'}
                                         />

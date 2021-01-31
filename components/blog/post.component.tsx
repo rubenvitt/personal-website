@@ -1,9 +1,11 @@
 import ReactMarkdown from 'react-markdown';
 import React, { useEffect, useState } from 'react';
 import { BlogItem } from '../../types/blog-items.types';
+import { useDarkMode } from '../../helper/theme.helper';
 
 export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> = ({ post, morePosts }) => {
     const [host, setHost] = useState<string>();
+    const [isDark] = useDarkMode();
 
     useEffect(() => {
         setHost(window.location.host);
@@ -39,6 +41,30 @@ export const PostComponent: React.FC<{ post: BlogItem; morePosts: BlogItem[] }> 
                                     renderers={{
                                         image: (props) => {
                                             return <img {...props} alt={'Picture in text'} />;
+                                        },
+                                        strong: (props) => {
+                                            return (
+                                                <strong
+                                                    {...props}
+                                                    style={{
+                                                        color: isDark
+                                                            ? 'rgba(244, 244, 245, var(--tw-text-opacity))'
+                                                            : 'rgba(24,24, 27, var(--tw-text-opacity));',
+                                                    }}
+                                                />
+                                            );
+                                        },
+                                        blockquote: (props) => {
+                                            return (
+                                                <blockquote
+                                                    {...props}
+                                                    style={{
+                                                        color: isDark
+                                                            ? 'rgba(244, 244, 245, var(--tw-text-opacity))'
+                                                            : 'rgba(24,24, 27, var(--tw-text-opacity));',
+                                                    }}
+                                                />
+                                            );
                                         },
                                         /*code: ({language, value}) => {
                                         return <SyntaxHighlighter language={language} children={value} />

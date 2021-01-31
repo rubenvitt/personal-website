@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import TransitionComponent from './Transition.component';
 
 class SlideOverProps {
@@ -23,7 +23,7 @@ export const SlideOver = ({
 
     useEffect(() => {
         document.body.style.overflow = slideOverState ? 'hidden' : 'unset';
-    }, [slideOverState])
+    }, [slideOverState]);
 
     return (
         <TransitionComponent
@@ -48,7 +48,9 @@ export const SlideOver = ({
                     >
                         <div
                             onClick={toggleSlideOver}
-                            className={'absolute inset-0 bg-gray-500 dark:bg-gray-900 dark:bg-opacity-75 bg-opacity-75 transition-opacity'}
+                            className={
+                                'absolute inset-0 bg-gray-500 dark:bg-gray-900 dark:bg-opacity-75 bg-opacity-75 transition-opacity'
+                            }
                         />
                     </TransitionComponent>
                     <section className="absolute inset-y-0 right-0 max-w-full flex">
@@ -61,7 +63,7 @@ export const SlideOver = ({
                             leaveFrom="translate-x-0"
                             leaveTo="translate-x-full"
                         >
-                            <div className={'w-screen max-w-md'}>
+                            <div className={'w-screen max-w-lg'}>
                                 <TransitionComponent
                                     show={slideOverState}
                                     enter="ease-in-out duration-500"
@@ -100,7 +102,9 @@ export const SlideOver = ({
                                 <div className="h-full flex flex-col space-y-6 py-6 bg-white dark:bg-trueGray-800 shadow-xl overflow-y-scroll">
                                     <header className="px-4 sm:px-6">
                                         <div className="flex items-start justify-between space-x-3">
-                                            <h2 className="text-lg leading-7 font-medium text-gray-900 dark:text-gray-200">{title}</h2>
+                                            <h2 className="text-lg leading-7 font-medium text-gray-900 dark:text-gray-200">
+                                                {title}
+                                            </h2>
                                             <div className="h-7 flex items-center block md:hidden">
                                                 <button
                                                     onClick={toggleSlideOver}

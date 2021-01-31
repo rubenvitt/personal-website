@@ -59,7 +59,7 @@ export const SocialButtons = ({ marginLeft }: SocialButtonProps): JSX.Element =>
             <a
                 onClick={toggleTheme}
                 href={'#'}
-                className="w-7 text-gray-400 dark:text-yellow-400 dark:hover:text-yellow-200 dark:focus:text-yellow-200 hover:text-yellow-700 focus:text-yellow-700 p-1 border-2 border-transparent rounded-full focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                className="w-7 text-gray-400 dark:text-yellow-400 dark:hover:text-yellow-200 dark:focus:text-yellow-200 hover:text-yellow-700 focus:text-yellow-700 p-1 border-2 border-transparent rounded-full focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 transition duration-150 ease-in-out"
             >
                 {isDarkMode ? (
                     <FontAwesomeIcon size={'lg'} icon={faLightbulbOn} />

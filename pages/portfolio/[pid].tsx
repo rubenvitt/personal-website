@@ -2,21 +2,25 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GraphQLClient } from 'graphql-request';
 import { URLGraphCMS } from '../../config/constants.config';
-import { fetchBlogItems, fetchPostAndMorePosts } from '../../helper/http-helper';
+import { fetchBlogItems, fetchPortfolioItems, fetchPostAndMorePosts } from '../../helper/http-helper';
 import ReactMarkdown from 'react-markdown';
 import { NotFoundComponent } from '../../components/shared/not-found.component';
 import { PostComponent } from '../../components/blog/post.component';
 import { useSeoHelperStore } from '../../helper/seo.helper';
 import { BlogItem } from '../../types/blog-items.types';
+import { PortfolioModel } from '../../types/portfolio-items.types';
+import { PortfolioDetailComponent } from '../../components/portfolio/portfolio.detail.component';
 
 export async function getStaticProps({ params }) {
     const graphcms = new GraphQLClient(URLGraphCMS);
-    const data = await fetchPostAndMorePosts(graphcms, params.pid);
+    const data = await fetchPortfolioItems(graphcms);
 
+    const item = data.filter((value) => {
+        return value.abbr.toLowerCase() === params.pid.toLowerCase();
+    });
     return {
         props: {
-            post: data.post,
-            morePosts: data.morePosts || [],
+            portfolioItem: item[0],
         },
         revalidate: 1,
     };
@@ -24,36 +28,33 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths({ params }) {
     const graphcms = new GraphQLClient(URLGraphCMS);
-    const posts = await fetchBlogItems(graphcms);
+    const portfolioItems = await fetchPortfolioItems(graphcms);
     return {
-        paths: posts
-            .filter((post) => !post.externalInfo)
-            .map(({ id }) => ({
-                params: { pid: id },
-            })),
+        paths: portfolioItems.map(({ abbr }) => ({
+            params: { pid: abbr.toLowerCase() },
+        })),
         fallback: true,
     };
 }
 
-function Post({ post, morePosts }) {
+function PortfolioItem({ portfolioItem }) {
     const router = useRouter();
 
     const { setSeo } = useSeoHelperStore();
 
-    if (!post?.id) {
-        console.log('exiting');
+    const item = portfolioItem as PortfolioModel;
+
+    if (!router.isFallback && !item?.id) {
         return <NotFoundComponent />;
     }
+
     useEffect(() => {
-        setSeo(
-            `Rubeen • Blog > ${(post as BlogItem)?.title}`,
-            '' + (post as BlogItem)?.title + ' - ' + (post as BlogItem)?.shortDescription,
-        );
-    }, []);
+        setSeo(`Rubeen • Portfolio > ${item?.title}`, '' + item?.title + ' - ' + item?.abbr);
+    }, [item]);
 
     return (
         <>
-            {router.isFallback ? <>Loading...</> : <PostComponent post={post} morePosts={morePosts} />}
+            {router.isFallback ? <>Loading...</> : <PortfolioDetailComponent portfolioItem={portfolioItem} />}
             <div className={'hidden dark prose'}>
                 <pre>
                     <code />
@@ -63,4 +64,4 @@ function Post({ post, morePosts }) {
     );
 }
 
-export default Post;
+export default PortfolioItem;

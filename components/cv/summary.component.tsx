@@ -1,9 +1,9 @@
 import React from 'react';
 import { calcDurationBetween, calculateDaysBetween } from '../../helper/date-calculator';
-import { Icons } from '../../data/icons/icons';
 import { WorkModel } from '../../types/work-items.types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faGraduationCap, faMicrochip, faEllipsisH } from '@fortawesome/pro-light-svg-icons';
+import { CvSummaryElement, CvSummaryElements } from './summary-elements.components';
 
 interface CvSummaryProps {
     certCount: number;
@@ -12,6 +12,39 @@ interface CvSummaryProps {
 
 export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element => {
     const workdays = calculateDaysBetween(new Date('2019-08-01').getTime(), Date.now());
+    const summaryElements: CvSummaryElement[] = [
+        {
+            description: (
+                <>
+                    I have professional experience (after university) since {workdays} days. Currently I'm working as{' '}
+                    {lastWork.position} at{' '}
+                    <a className="underline" href={lastWork.company.url}>
+                        {lastWork.company.name}
+                    </a>{' '}
+                    in {lastWork.place}.
+                </>
+            ),
+            icon: faBriefcase,
+            title: 'Work Experience',
+        },
+        {
+            description: `After the university degree I can't stop to learn. Currently I finished ${certCount} online course-certificates already and I'm open for new ones.`,
+            icon: faGraduationCap,
+            title: 'Education',
+        },
+        {
+            description:
+                'I love new programming languages, modern tools and modern work. I love to work from home & testing out new things.',
+            icon: faMicrochip,
+            title: 'Technologies & Mindset',
+        },
+        {
+            description:
+                'I really like cycling in the woods or near the sea, programming of course and to listen or make music. Another wonderful thing is kayaking on rivers.',
+            icon: faEllipsisH,
+            title: 'Some more words',
+        },
+    ];
 
     return (
         <div className="py-12 bg-white border-b border-gray-100 dark:bg-trueGray-800 dark:border-gray-900">
@@ -31,82 +64,7 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                 </div>
 
                 <div className="mt-10">
-                    <ul className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                        <li className="md:mr-2">
-                            <div className="flex group">
-                                <div className="flex-shrink-0 group">
-                                    <div className="flex items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                        <FontAwesomeIcon height={24} width={24} icon={faBriefcase} />
-                                    </div>
-                                </div>
-                                <div className="ml-4">
-                                    <h4 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">
-                                        Work Experience
-                                    </h4>
-                                    <p className="mt-2 text-base leading-6 text-gray-500 dark:text-gray-400">
-                                        I have professional experience (after university) since {workdays + ' '} days.
-                                        Currently I'm working as {lastWork.position} at{' '}
-                                        <a href={lastWork.company.url}>{lastWork.company.name}</a> in {lastWork.place}.
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="mt-10 md:mt-0 md:ml-2">
-                            <div className="flex group">
-                                <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                        <FontAwesomeIcon height={24} width={24} icon={faGraduationCap} />
-                                    </div>
-                                </div>
-                                <div className="ml-4">
-                                    <h4 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">
-                                        Education
-                                    </h4>
-                                    <p className="mt-2 text-base leading-6 text-gray-500 dark:text-gray-400">
-                                        After the university degree I can't stop to learn. Currently I finished
-                                        {' ' + certCount + ' '} online course-certificates already and I'm open for new
-                                        ones.
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="mt-10 md:mt-5 md:mr-2">
-                            <div className="flex group">
-                                <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                        <FontAwesomeIcon height={24} width={24} icon={faMicrochip} />
-                                    </div>
-                                </div>
-                                <div className="ml-4">
-                                    <h4 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">
-                                        Technologies & Mindset
-                                    </h4>
-                                    <p className="mt-2 text-base leading-6 text-gray-500 dark:text-gray-400">
-                                        I love new programming languages, modern tools and modern work. I love to work
-                                        from home & testing out new things.
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li className="mt-10 md:mt-5 md:ml-2">
-                            <div className="flex group">
-                                <div className="flex-shrink-0">
-                                    <div className="flex items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-500 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                        <FontAwesomeIcon height={24} width={24} icon={faEllipsisH} />
-                                    </div>
-                                </div>
-                                <div className="ml-4">
-                                    <h4 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">
-                                        Some more words
-                                    </h4>
-                                    <p className="mt-2 text-base leading-6 text-gray-500 dark:text-gray-400">
-                                        I really like cycling in the woods or near the sea, programming of course and to
-                                        listen or make music. Another wonderful thing is kayaking on rivers.
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                    <CvSummaryElements elements={summaryElements} />
                 </div>
             </div>
         </div>

@@ -1,8 +1,12 @@
 import React from 'react';
+import Error from 'next/error';
 
 export const NotFoundComponent = () => {
     return (
         <div className="bg-red-700 dark:bg-red-900">
+            <div className={'hidden'}>
+                <Error statusCode={404} />
+            </div>
             <div className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
                 <h2 className="text-3xl leading-9 font-extrabold text-white sm:text-4xl sm:leading-10">
                     <span className="block">You went below</span>
