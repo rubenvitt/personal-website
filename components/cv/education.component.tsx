@@ -83,7 +83,10 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                 </div>
                                 <div className="mt-2 flex items-center text-sm leading-5 sm:mt-0">
                                     <span>
-                                        <FontAwesomeIcon className={'text-orange-500 w-5 mr-2'} icon={faBrain} />
+                                        <FontAwesomeIcon
+                                            className={'text-orange-500 w-5 mr-2 sm:mx-2'}
+                                            icon={faBrain}
+                                        />
                                     </span>
                                     {study.courses.join(', ')}
                                 </div>
