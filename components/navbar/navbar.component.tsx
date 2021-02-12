@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { MenuList } from '../../data/menu-items.list';
 import { MobileMenuButton } from './mobile/menu-button/mobile-menu-button';
@@ -12,8 +12,6 @@ export const NavBar = (): JSX.Element => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const path = useRouter().pathname;
-
-    const [isDark] = useDarkMode();
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -35,15 +33,20 @@ export const NavBar = (): JSX.Element => {
                                         />
                                     </div>
                                     <div className="hidden inline lg:block h-8 w-24 relative">
-                                        <Image
-                                            src={
-                                                isDark
-                                                    ? '/assets/images/rubeen-light.png'
-                                                    : '/assets/images/rubeen-dark.png'
-                                            }
-                                            alt="Ruben Vitt • Rubeen - Logo"
-                                            layout={'fill'}
-                                        />
+                                        <div className="hidden dark:block">
+                                            <Image
+                                                src="/assets/images/rubeen-light.png"
+                                                alt="Ruben Vitt • Rubeen - Logo"
+                                                layout={'fill'}
+                                            />
+                                        </div>
+                                        <div className="block dark:hidden">
+                                            <Image
+                                                src="/assets/images/rubeen-dark.png"
+                                                alt="Ruben Vitt • Rubeen - Logo"
+                                                layout={'fill'}
+                                            />
+                                        </div>
                                     </div>
                                 </a>
                             </Link>

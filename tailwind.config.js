@@ -51,6 +51,7 @@ module.exports = {
         textColor: ['responsive', 'dark', 'hover', 'focus', 'group-hover'],
         backgroundOpacity: ['responsive', 'dark', 'hover', 'focus', 'group-hover'],
         typography: ['responsive', 'dark'],
+        display: ['responsive', 'dark'],
     },
     darkMode: 'class',
 };
