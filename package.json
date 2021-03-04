@@ -20,6 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@fullhuman/postcss-purgecss": "^4.0.2",
     "@hapi/accept": "^5.0.2",
+    "@hapi/hoek": "^9.1.1",
     "@tailwindcss/custom-forms": "^0.2.1",
     "@tailwindcss/typography": "^0.4.0",
     "@tailwindcss/ui": "^0.7.2",
