@@ -11,6 +11,7 @@ dependencies:
   '@hapi/accept': 5.0.2
   '@hapi/boom': 9.1.1
   '@hapi/hoek': 9.1.1
+  '@next/env': 10.0.7
   '@tailwindcss/custom-forms': 0.2.1_tailwindcss@2.0.3
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.3
   '@tailwindcss/ui': 0.7.2_tailwindcss@2.0.3
@@ -4960,6 +4961,7 @@ specifiers:
   '@hapi/accept': ^5.0.2
   '@hapi/boom': ^9.1.1
   '@hapi/hoek': ^9.1.1
+  '@next/env': ^10.0.7
   '@tailwindcss/custom-forms': ^0.2.1
   '@tailwindcss/typography': ^0.4.0
   '@tailwindcss/ui': ^0.7.2
