@@ -9,6 +9,7 @@ dependencies:
   '@fortawesome/react-fontawesome': 0.1.14_fdbbf59a1e8653ce678e6d59b8f3bef7
   '@fullhuman/postcss-purgecss': 4.0.2_postcss@8.2.7
   '@hapi/accept': 5.0.2
+  '@hapi/boom': 9.1.1
   '@hapi/hoek': 9.1.1
   '@tailwindcss/custom-forms': 0.2.1_tailwindcss@2.0.3
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.3
@@ -4957,6 +4958,7 @@ specifiers:
   '@fortawesome/react-fontawesome': ^0.1.14
   '@fullhuman/postcss-purgecss': ^4.0.2
   '@hapi/accept': ^5.0.2
+  '@hapi/boom': ^9.1.1
   '@hapi/hoek': ^9.1.1
   '@tailwindcss/custom-forms': ^0.2.1
   '@tailwindcss/typography': ^0.4.0
