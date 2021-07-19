@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React, { useEffect } from 'react';
+import { isPreview } from '../../helper/global-helper';
 import { useSeoHelperStore } from '../../helper/seo.helper';
 
 export const PageHead = (): JSX.Element => {
@@ -33,6 +34,7 @@ export const PageHead = (): JSX.Element => {
                 <meta name="msapplication-TileColor" content="#ffffff" />
                 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
                 <meta name="theme-color" content="#ffffff" />
+                {isPreview && <meta name="robots" content="noindex" />}
                 {additionalHeader}
             </Head>
         </>
