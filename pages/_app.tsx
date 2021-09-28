@@ -10,8 +10,9 @@ import { PageHead } from '../components/page-head/page-head.component';
 import { Container } from '../components/main/landing-page.component';
 import { isPreview } from '../helper/global-helper';
 import { DevNotification } from '../components/dev/dev-notification.component';
+import { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }): JSX.Element {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
         <>
             <PageHead />

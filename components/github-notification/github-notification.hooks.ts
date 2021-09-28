@@ -1,17 +1,16 @@
-import create from "zustand";
+import create from 'zustand';
 
 type GithubNotificationStore = {
     closed: boolean;
     closeNotification: () => void;
-}
+};
 
-export const useGithubNotificationStore = create<GithubNotificationStore>(set => ({
+export const useGithubNotificationStore = create<GithubNotificationStore>((set) => ({
     closed: typeof window === 'undefined' ? false : localStorage.getItem('githubNotificationClosed') === 'true',
     closeNotification: () => {
-        if (typeof window === 'undefined') {
-        } else {
+        if (typeof window !== 'undefined') {
             localStorage.setItem('githubNotificationClosed', 'true');
         }
-        set({closed: true});
-    }
+        set({ closed: true });
+    },
 }));

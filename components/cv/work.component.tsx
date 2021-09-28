@@ -86,7 +86,9 @@ const WorkItem = ({ work }: WorkItemProps) => {
                             </span>
                         </p>
                         <div className="block">
-                            <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900 dark:text-gray-200">{work.company.name}</h3>
+                            <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900 dark:text-gray-200">
+                                {work.company.name}
+                            </h3>
                             <ReactMarkdown
                                 className={'mt-3 text-base leading-6 text-gray-500 dark:text-gray-400'}
                                 source={work.shortSummary}
@@ -117,28 +119,42 @@ const workSlideOverContent = (work: WorkModel) => {
             <div className="shadow overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 border-b border-gray-200 dark:border-gray-900 sm:px-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">{work.position}</h3>
-                    <a href={work.company.url} className="mt-1 max-w-2xl text-sm leading-5 text-gray-500 dark:text-gray-400">
+                    <a
+                        href={work.company.url}
+                        className="mt-1 max-w-2xl text-sm leading-5 text-gray-500 dark:text-gray-400"
+                    >
                         {work.company.name}
                     </a>
                 </div>
 
                 <div className="p-0 flex-shrink-0 relative h-56 w-full">
-                    <Image alt={work.company.name} className={'object-cover'} src={addLeadingSlash(work.image)} layout={'fill'} />
+                    <Image
+                        alt={work.company.name}
+                        className={'object-cover'}
+                        src={addLeadingSlash(work.image)}
+                        layout={'fill'}
+                    />
                 </div>
 
                 <div className="px-4 border-b border-gray-100 dark:border-gray-900 py-5 sm:px-6">
                     <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">Employed for</dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">
+                                Employed for
+                            </dt>
                         </div>
                     </dl>
-                    <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-200">{calcDurationBetween(work.duration)}</dd>
+                    <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-200">
+                        {calcDurationBetween(work.duration)}
+                    </dd>
                 </div>
 
                 <div className="px-4 py-5 sm:px-6 border-b border-gray-100 dark:border-gray-900">
                     <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">Responsible for</dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">
+                                Responsible for
+                            </dt>
                         </div>
                     </dl>
                     <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-200">
@@ -157,7 +173,9 @@ const workSlideOverContent = (work: WorkModel) => {
                 <div className="px-4 py-5 sm:px-6 border-b border-gray-100 dark:border-gray-900">
                     <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                         <div className="sm:col-span-1">
-                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">Technologies</dt>
+                            <dt className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">
+                                Technologies
+                            </dt>
                         </div>
                     </dl>
                     <dd className="mt-1 text-sm leading-5 text-gray-900 dark:text-gray-200">

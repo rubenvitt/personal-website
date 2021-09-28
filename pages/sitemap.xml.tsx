@@ -1,15 +1,15 @@
-import React from "react";
-import {fetchBlogItems, fetchPostAndMorePosts} from "../helper/http-helper";
-import {URLGraphCMS} from "../config/constants.config";
-import {GraphQLClient} from "graphql-request";
-import {BlogItem} from "../types/blog-items.types";
-import {format} from 'date-fns';
+import React from 'react';
+import { fetchBlogItems } from '../helper/http-helper';
+import { URLGraphCMS } from '../config/constants.config';
+import { GraphQLClient } from 'graphql-request';
+import { BlogItem } from '../types/blog-items.types';
+import { format } from 'date-fns';
 
 const sitemapXml = (posts: BlogItem[]) => {
     let latestPost = 0;
-    let xml = "";
+    let xml = '';
 
-    posts.map(post => {
+    posts.map((post) => {
         const postDate = Date.parse(post.updatedAt);
         if (!latestPost || postDate > latestPost) {
             latestPost = Date.parse(post.updatedAt);
@@ -52,7 +52,7 @@ class Sitemap extends React.Component {
         const graphcms = new GraphQLClient(URLGraphCMS);
         const blogItems = await fetchBlogItems(graphcms);
 
-        res.setHeader("Content-Type", "text/xml");
+        res.setHeader('Content-Type', 'text/xml');
         res.write(sitemapXml(blogItems));
         res.end();
     }
