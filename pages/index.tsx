@@ -7,8 +7,8 @@ export default function Index(): JSX.Element {
 
     useEffect(() => {
         setSeo(
-            'Rubeen • Ruben Vitt (FullStack Developer)',
-            'Check out the personal website of Ruben Vitt (Rubeen) - a FullStack developer from Germany.',
+            'Rubeen • Ruben Vitt (FullStack Engineer)',
+            'Check out the personal website of Ruben Vitt (Rubeen) - a FullStack engineer from Germany.',
         );
     }, []);
 

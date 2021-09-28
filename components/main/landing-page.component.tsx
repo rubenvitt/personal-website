@@ -20,9 +20,9 @@ export const MainLandingPage = (): JSX.Element => {
                             </span>
                         </h2>
                         <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 dark:text-gray-400 sm:text-xl md:mt-5 md:max-w-3xl">
-                            Welcome on my website. I'm a{' '}
+                            Welcome to my website. I'm a{' '}
                             {calcDurationBetween({ start: new Date('1997-04-07'), end: new Date() })} old fullstack
-                            developer from Germany, working as Consultant at fme AG.
+                            engineer from Germany, working as Consultant at INNOQ.
                         </p>
                         <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                             <div className="rounded-md shadow">
