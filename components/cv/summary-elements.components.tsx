@@ -1,10 +1,8 @@
-import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
-import { faBriefcase, faEllipsisH, faGraduationCap, faMicrochip } from '@fortawesome/pro-light-svg-icons';
 import React from 'react';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { SVG } from '../../assets/icons';
 
 export interface CvSummaryElement {
-    icon: IconProp;
+    Icon: SVG;
     title: string;
     description: JSX.Element | string;
 }
@@ -20,7 +18,7 @@ export const CvSummaryElements: React.FC<{
                         <div className={'flex group'}>
                             <div className={'flex-shrink-0 group'}>
                                 <div className="flex shadow-inner items-center justify-center h-12 w-12 p-2 rounded-md bg-orange-600 dark:bg-orange-800 group-hover:bg-orange-700 dark:group-hover:bg-orange-900 text-white transition">
-                                    <FontAwesomeIcon className={'w-6'} icon={element.icon} />
+                                    {<element.Icon className="w-6" />}
                                 </div>
                             </div>
                             <div className={'ml-4'}>

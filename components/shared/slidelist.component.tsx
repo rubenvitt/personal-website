@@ -1,8 +1,7 @@
 import React from 'react';
-import { calcArrowDirection, calcColor } from '../cv/skill.component';
+import { DiplomaIcon } from '../../assets/icons';
 import { Skill, SkillDirection, TaggedSkill } from '../../types/skill-items.types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiploma } from '@fortawesome/pro-light-svg-icons';
+import { calcArrowDirection, calcColor } from '../cv/skill.component';
 
 class SlideListElementProps {
     skill: Skill;
@@ -92,7 +91,7 @@ export const SlideListElement = ({ skill }: SlideListElementProps): JSX.Element 
                                         rel="noreferrer"
                                         className="truncate relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-2 text-xs leading-5 text-gray-700 dark:text-gray-300 font-medium border border-transparent rounded-bl-lg hover:text-orange-500 dark:hover:text-orange-500 focus:outline-none focus:ring-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150"
                                     >
-                                        <FontAwesomeIcon icon={faDiploma} className={'w-4 h-4 text-gray-400'} />
+                                        <DiplomaIcon className="w-4 h-4 text-gray-400" />
                                         <span className="ml-3 truncate">{cert.title}</span>
                                     </a>
                                 </div>

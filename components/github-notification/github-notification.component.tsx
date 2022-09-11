@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { GithubIcon } from '../../assets/icons';
 import TransitionComponent from '../shared/Transition.component';
 import { useGithubNotificationStore } from './github-notification.hooks';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithubAlt } from '@fortawesome/free-brands-svg-icons';
 
 export const GithubNotification = () => {
     const [open, setOpen] = useState(false);
@@ -40,7 +39,7 @@ export const GithubNotification = () => {
                         <div className="p-4">
                             <div className="flex items-start">
                                 <div className="flex-shrink-0 pt-0.5">
-                                    <FontAwesomeIcon width={48} height={48} icon={faGithubAlt} />
+                                    <GithubIcon width={48} height={48} />
                                 </div>
                                 <div className="ml-3 w-0 flex-1">
                                     <p className="text-sm leading-5 font-medium">Open Source</p>

@@ -1,7 +1,6 @@
 import React from 'react';
-import { CertificateSkill, Skill, SkillDirection, SkillType, TaggedSkill } from '../../types/skill-items.types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faBadgeCheck, faBooks } from '@fortawesome/pro-light-svg-icons';
+import { BooksIcon } from '../../assets/icons';
+import { SkillDirection } from '../../types/skill-items.types';
 
 class SkillElementProps {
     masonry?: boolean;
@@ -16,7 +15,7 @@ export const FrameworkElement = ({ title, key, masonry }: SkillElementProps): JS
                 <div className="px-4 py-5 sm:p-6">
                     <div className="flex items-center">
                         <div className="flex-shrink-0 bg-gray-200 dark:bg-gray-900 rounded-md p-3">
-                            <FontAwesomeIcon className="h-10 w-10 text-blue-900 dark:text-blue-300" icon={faBooks} />
+                            <BooksIcon className="h-10 w-10 text-blue-900 dark:text-blue-300" />
                         </div>
                         <div className="ml-5 w-0 flex-1">
                             <dl>

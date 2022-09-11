@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { CameraIcon } from '../../assets/icons';
 import { useDevNotificationStore } from './dev-notification.hooks';
-import { useEffect, useState } from 'react';
-import { faVacuumRobot } from '@fortawesome/pro-light-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const DevNotification = () => {
     const { closeNotification, closed } = useDevNotificationStore();
@@ -23,7 +21,7 @@ export const DevNotification = () => {
                 <div className="p-4">
                     <div className="flex items-start">
                         <div className="flex-shrink-0 text-orange-500">
-                            <FontAwesomeIcon height={24} width={24} icon={faVacuumRobot} />
+                            <CameraIcon height={24} width={24} />
                         </div>
                         <div className="ml-3 w-0 flex-1 pt-0.5">
                             <p className="text-sm font-medium text-gray-900 dark:text-gray-300">

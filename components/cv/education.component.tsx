@@ -1,7 +1,6 @@
 import React from 'react';
+import { BrainIcon, CalendarIcon, ExternalLinkIcon, UniversityIcon } from '../../assets/icons';
 import { Status, StudyModel } from '../../data/study-items.list';
-import { faUniversity, faBrain, faCalendar, faExternalLink } from '@fortawesome/pro-light-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface CvEducationProps {
     studyList: StudyModel[];
@@ -55,7 +54,7 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                                     | {study.degree}
                                 </span>
                                 <span>
-                                    <FontAwesomeIcon className="align-top h-2 inline ml-2" icon={faExternalLink} />
+                                    <ExternalLinkIcon className="align-top h-2 inline ml-2" />
                                 </span>
                             </div>
                             <div className="ml-2 flex-shrink-0 flex">
@@ -77,23 +76,20 @@ const EducationItem = ({ i, study }: EducationItemProps) => {
                             <div className="sm:flex">
                                 <div className="flex items-center text-sm leading-5">
                                     <span>
-                                        <FontAwesomeIcon className={'text-orange-500 w-5 mr-2'} icon={faUniversity} />
+                                        <UniversityIcon className="text-orange-500 w-5 mr-2" />
                                     </span>
                                     {study.university}
                                 </div>
                                 <div className="mt-2 flex items-center text-sm leading-5 sm:mt-0">
                                     <span>
-                                        <FontAwesomeIcon
-                                            className={'text-orange-500 w-5 mr-2 sm:mx-2'}
-                                            icon={faBrain}
-                                        />
+                                        <BrainIcon className="text-orange-500 w-5 mr-2 sm:mx-2" />
                                     </span>
                                     {study.courses.join(', ')}
                                 </div>
                             </div>
                             <div className="mt-2 flex items-center text-sm leading-5 sm:mt-0">
                                 <span>
-                                    <FontAwesomeIcon className={'text-orange-500 w-5 mr-2'} icon={faCalendar} />
+                                    <CalendarIcon className="text-orange-500 w-5 mr-2" />
                                 </span>
                                 <span>
                                     {study.duration.start.toLocaleDateString('en-gb')} until{' '}

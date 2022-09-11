@@ -1,8 +1,7 @@
-import React from 'react';
-import { PortfolioModel as DataItem, PortfolioItemType } from '../../types/portfolio-items.types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLaptopCode, faLanguage } from '@fortawesome/pro-regular-svg-icons';
 import Link from 'next/link';
+import React from 'react';
+import { LanguageIcon, LaptopCodeIcon } from '../../assets/icons';
+import { PortfolioItemType, PortfolioModel as DataItem } from '../../types/portfolio-items.types';
 
 interface PortfolioListProps {
     list: DataItem[];
@@ -53,13 +52,13 @@ const PortfolioItem = ({ item }: PortfolioItemProps): JSX.Element => {
                         </div>
                         {item.linesOfCode && (
                             <p className="text-gray-500 dark:text-gray-400">
-                                <FontAwesomeIcon className={'h-4 inline mr-1'} icon={faLaptopCode} />
+                                <LaptopCodeIcon className="h-4 inline mr-1" />
                                 {item.linesOfCode} lines of code
                             </p>
                         )}
                         {item.langs && (
                             <p className="text-gray-500 dark:text-gray-400 whitespace-normal flex">
-                                <FontAwesomeIcon className={'h-4 inline mr-1 flex-wrap mt-0.5'} icon={faLanguage} />
+                                <LanguageIcon className="h-4 inline mr-1 flex-wrap mt-0.5" />
                                 <p className="flex-1">{item.langs.map((i) => i.title).join(', ')}</p>
                             </p>
                         )}

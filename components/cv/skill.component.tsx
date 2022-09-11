@@ -1,7 +1,6 @@
 import React from 'react';
+import { ArrowRightIcon, BadgeCheckIcon } from '../../assets/icons';
 import { CertificateSkill, Skill, SkillDirection, SkillType, TaggedSkill } from '../../types/skill-items.types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faBadgeCheck } from '@fortawesome/pro-light-svg-icons';
 
 class SkillElementProps {
     skill: Skill;
@@ -66,7 +65,7 @@ export const SkillElement = ({ skill, listIndex, masonry }: SkillElementProps): 
                                     {skill.title}
                                     {skill.certificates && skill.certificates.length > 0 ? (
                                         <span className="inline-flex items-center ml-5 pr-2 py-0.5 rounded text-xs font-medium leading-4 bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100">
-                                            <FontAwesomeIcon className="w-3 mx-1" icon={faBadgeCheck} />
+                                            <BadgeCheckIcon className="w-3 mx-1" />
                                             <span>Certified</span>
                                         </span>
                                     ) : null}
@@ -160,7 +159,7 @@ export const DefaultSkillElement = ({ skills, buttonHandler, max }: DefaultSkill
                         </div>
                     </div>
                 </div>
-                <FontAwesomeIcon className="w-5 text-gray-700" icon={faArrowRight} />
+                <ArrowRightIcon className="w-5 text-gray-700" />
             </div>
         </button>
     );

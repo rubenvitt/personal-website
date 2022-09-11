@@ -1,8 +1,7 @@
 import React from 'react';
+import { BriefcaseIcon, GraduationCapIcon, HobbyIcon, MicrochipIcon } from '../../assets/icons';
 import { calcDurationBetween, calculateDaysBetween } from '../../helper/date-calculator';
 import { WorkModel } from '../../types/work-items.types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase, faGraduationCap, faMicrochip, faEllipsisH } from '@fortawesome/pro-light-svg-icons';
 import { CvSummaryElement, CvSummaryElements } from './summary-elements.components';
 
 interface CvSummaryProps {
@@ -24,24 +23,24 @@ export const CvSummary = ({ certCount, lastWork }: CvSummaryProps): JSX.Element 
                     in {lastWork.place}.
                 </>
             ),
-            icon: faBriefcase,
+            Icon: BriefcaseIcon,
             title: 'Work Experience',
         },
         {
             description: `After the university degree I can't stop to learn. Currently I finished ${certCount} online course-certificates already and I'm open for new ones.`,
-            icon: faGraduationCap,
+            Icon: GraduationCapIcon,
             title: 'Education',
         },
         {
             description:
                 'I love new programming languages, modern tools and modern work. I love to work from home & testing out new things.',
-            icon: faMicrochip,
+            Icon: MicrochipIcon,
             title: 'Technologies & Mindset',
         },
         {
             description:
                 'I really like cycling in the woods or near the sea, programming of course and to listen or make music. Another wonderful thing is kayaking on rivers.',
-            icon: faEllipsisH,
+            Icon: HobbyIcon,
             title: 'Some more words',
         },
     ];
