@@ -8,12 +8,12 @@
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
               <option name="name" value="json-schema" />
-              <option name="relativePathToSchema" value="json-schema.json" />
+              <option name="relativePathToSchema" value="https://rubenvitt.github.io/personal-json/json-schema.json" />
               <option name="schemaVersion" value="JSON Schema version 7" />
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="example.json" />
+                    <option name="path" value="personal.json" />
                   </Item>
                 </list>
               </option>
